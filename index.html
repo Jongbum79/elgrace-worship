@@ -1195,11 +1195,31 @@
       object-fit: contain !important;
       margin: 0 auto !important;
       display: block !important;
-      border-radius: 6px;
-      box-shadow: 0 8px 30px rgba(18, 40, 30, 0.2), 0 1px 4px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
       transform-origin: center center !important;
       cursor: zoom-in;
-      background: #FFFFFF;
+      transition: filter 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Print onto Tintoretto Paper Mode (종이 인쇄 질감 - 흰색 투명화 + 잉크 흡착 인쇄 효과) */
+    #modalHymn.print-ink-mode .sheet-img-frame img {
+      background: transparent !important;
+      mix-blend-mode: multiply !important;
+      filter: brightness(1.15) contrast(1.14) !important;
+      box-shadow: none !important;
+    }
+
+    [data-theme="dark"] #modalHymn.print-ink-mode .sheet-img-frame img {
+      mix-blend-mode: screen !important;
+      filter: invert(1) brightness(0.92) contrast(1.2) !important;
+    }
+
+    /* Normal White Background Score Mode (일반 흰색 배경 모드) */
+    #modalHymn:not(.print-ink-mode) .sheet-img-frame img {
+      background: #FFFFFF !important;
+      mix-blend-mode: normal !important;
+      filter: none !important;
+      box-shadow: 0 8px 30px rgba(18, 40, 30, 0.2), 0 1px 4px rgba(0, 0, 0, 0.08) !important;
     }
 
     #modalHymn .sheet-footer-controls {
@@ -1210,11 +1230,23 @@
       z-index: 10;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 8px !important;
+      flex-wrap: wrap !important;
+    }
+
+    #modalHymn .sheet-footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     #modalHymn .sheet-web-link {
       color: var(--forest) !important;
       font-weight: 600;
+      font-size: 13px;
     }
 
     #modalHymn .sheet-action-button {
@@ -1223,10 +1255,18 @@
       border: 1px solid rgba(18, 60, 43, 0.18) !important;
       font-size: 12px !important;
       font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
     }
 
     #modalHymn .sheet-action-button:hover {
       background: var(--sage) !important;
+    }
+
+    #modalHymn .sheet-action-button.active {
+      background: var(--forest) !important;
+      color: #FAF8F2 !important;
+      border-color: var(--forest) !important;
     }
 
     [data-theme="dark"] #modalHymn .modal-sheet {
@@ -1738,8 +1778,8 @@
     <p style="margin-top: 4px;">담임목사 박철진 · <a href="https://www.elgrace.org" target="_blank" rel="noopener">www.elgrace.org</a></p>
   </footer>
 
-  <!-- MODAL 1: Hymn Sheet Music Modal -->
-  <div class="modal-backdrop" id="modalHymn">
+  <!-- MODAL 1: Hymn Sheet Music Modal (띤또레또 종이 인쇄 모드 기본 활성화) -->
+  <div class="modal-backdrop print-ink-mode" id="modalHymn">
     <div class="modal-sheet">
       <div class="sheet-handle-bar"></div>
       <div class="sheet-header-bar">
@@ -1751,9 +1791,14 @@
           <img id="hymnImg" src="" alt="찬송가 악보" loading="eager">
         </div>
         <div class="sheet-footer-controls">
-          <a id="hymnExtLink" href="#" target="_blank" rel="noopener" class="sheet-web-link">
-            🔗 해설/가사 원본 보기
-          </a>
+          <div class="sheet-footer-left">
+            <button class="sheet-action-button active" id="hymnBlendToggleBtn" onclick="toggleHymnPrintMode()" title="종이 인쇄 질감 / 흰색 원본 토글">
+              📜 종이 인쇄 모드
+            </button>
+            <a id="hymnExtLink" href="#" target="_blank" rel="noopener" class="sheet-web-link">
+              🔗 해설/가사
+            </a>
+          </div>
           <div class="sheet-btn-row">
             <button class="sheet-action-button" onclick="zoomHymn(1.35)">🔍 확대</button>
             <button class="sheet-action-button" onclick="zoomHymn(1.0)">1.0x</button>
@@ -2066,6 +2111,22 @@
       const imgEl = document.getElementById('hymnImg');
       if (imgEl && imgEl.src) {
         window.open(imgEl.src, '_blank');
+      }
+    }
+
+    let hymnPrintMode = true;
+    function toggleHymnPrintMode() {
+      hymnPrintMode = !hymnPrintMode;
+      const modal = document.getElementById('modalHymn');
+      const btn = document.getElementById('hymnBlendToggleBtn');
+      if (hymnPrintMode) {
+        modal.classList.add('print-ink-mode');
+        btn.innerHTML = '📜 종이 인쇄 모드';
+        btn.classList.add('active');
+      } else {
+        modal.classList.remove('print-ink-mode');
+        btn.innerHTML = '⚪ 흰색 원본 모드';
+        btn.classList.remove('active');
       }
     }
 
