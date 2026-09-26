@@ -20,30 +20,33 @@
 
   <style>
     :root {
-      --forest: #184E3A;
-      --forest-dark: #0F3A2A;
-      --forest-light: #23654B;
-      --sage: #DDE8E1;
-      --sage-light: #EBF2EE;
-      --mint: #EFF4F1;
-      --gold: #A67C27;
-      --gold-soft: rgba(166, 124, 39, 0.12);
+      --forest: #123C2B;
+      --forest-dark: #0A261B;
+      --forest-light: #1C543E;
+      --sage: #D6E3DB;
+      --sage-light: #E7EFEA;
+      --mint: #EEF4F0;
+      --gold: #967020;
+      --gold-soft: rgba(150, 112, 32, 0.12);
       
-      /* High-quality matte paper texture colors (고급 명함 / 청첩장 질감) */
-      --paper-bg: #F7F5EE;
-      --card-bg: rgba(255, 255, 253, 0.94);
-      --paper-sheet: rgba(254, 253, 249, 0.96);
-      --card-border: rgba(30, 48, 38, 0.1);
-      --card-hover: rgba(246, 244, 237, 0.98);
+      /* Fedrigoni Tintoretto Fine Paper Palette */
+      --paper-bg: #F4F1EA;
+      --paper-gesso: #FAF8F2;
+      --card-bg: rgba(250, 248, 242, 0.96);
+      --paper-sheet: rgba(249, 247, 241, 0.98);
+      --card-border: rgba(26, 44, 34, 0.14);
+      --card-hover: rgba(242, 239, 231, 0.98);
       
-      --ink: #1C2320;
-      --muted: #647069;
-      --muted-light: #8E9993;
-      --soft-line: rgba(24, 78, 58, 0.08);
+      /* Rich Printer's Ink Tokens */
+      --ink: #18221D;
+      --ink-print: #141C18;
+      --muted: #5A6961;
+      --muted-light: #839189;
+      --soft-line: rgba(18, 60, 43, 0.1);
       
-      --shadow-sm: 0 1px 4px rgba(25, 40, 32, 0.04);
-      --shadow-md: 0 4px 14px rgba(24, 78, 58, 0.06);
-      --shadow-lg: 0 12px 30px rgba(18, 32, 25, 0.09);
+      --shadow-sm: 0 1px 4px rgba(25, 35, 29, 0.05);
+      --shadow-md: 0 4px 16px rgba(18, 60, 43, 0.07);
+      --shadow-lg: 0 14px 36px rgba(15, 30, 22, 0.11);
       
       --radius-sm: 6px;
       --radius-md: 10px;
@@ -56,6 +59,7 @@
 
     [data-theme="dark"] {
       --paper-bg: #141715;
+      --paper-gesso: #1A211D;
       --card-bg: rgba(26, 32, 29, 0.94);
       --paper-sheet: rgba(23, 28, 25, 0.96);
       --card-border: rgba(255, 255, 255, 0.09);
@@ -68,6 +72,7 @@
       --gold: #D6AB4D;
       --gold-soft: rgba(214, 171, 77, 0.15);
       --ink: #F2F4F2;
+      --ink-print: #F2F4F2;
       --muted: #9BA6A0;
       --muted-light: #6C7972;
       --soft-line: rgba(255, 255, 255, 0.08);
@@ -86,10 +91,10 @@
     body {
       background-color: var(--paper-bg);
       background-image: 
-        radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.6) 0%, rgba(247, 245, 238, 0) 70%),
-        url("assets/images/paper_texture.png");
+        radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.45) 0%, rgba(244, 241, 234, 0) 75%),
+        url("assets/images/tintoretto_seamless.jpg");
       background-repeat: repeat;
-      background-size: 320px 320px;
+      background-size: 420px 420px;
       color: var(--ink);
       font-family: var(--font-sans);
       font-size: 15px;
@@ -104,7 +109,7 @@
     [data-theme="dark"] body {
       background-image: 
         radial-gradient(circle at 50% 12%, rgba(35, 48, 42, 0.6) 0%, rgba(18, 22, 20, 0.95) 75%),
-        url("assets/images/paper_texture.png");
+        url("assets/images/tintoretto_seamless.jpg");
       background-blend-mode: multiply;
     }
 
@@ -212,17 +217,23 @@
       padding: 20px 16px 60px;
     }
 
-    /* Hero Banner Card */
+    /* Hero Banner Card - Fedrigoni Tintoretto Letterpress Card */
     .hero-card {
-      background: var(--paper-sheet);
-      border: 1px solid var(--card-border);
+      background-color: var(--paper-gesso);
+      background-image: url("assets/images/tintoretto_gesso.jpg");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(18, 60, 43, 0.16);
       border-radius: var(--radius-lg);
       padding: 24px;
       margin-bottom: 20px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 
+        0 2px 6px rgba(20, 32, 25, 0.05),
+        0 10px 28px rgba(18, 60, 43, 0.07),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.85);
       position: relative;
       overflow: hidden;
-      outline: 1px solid rgba(24, 78, 58, 0.08);
+      outline: 1.5px solid rgba(18, 60, 43, 0.14);
       outline-offset: -6px;
     }
 
@@ -389,34 +400,91 @@
       font-weight: 500;
     }
 
-    /* Liturgy Table List - Clean Editorial Style without Box Borders (청첩장 / 주보 양식) */
+    /* Liturgy Table List - Tintoretto Fine Paper with Printed Order (띤또레또 질감 + 인쇄 감성) */
     .liturgy-card-list {
       display: flex;
       flex-direction: column;
-      background: var(--paper-sheet);
-      border: 1px solid var(--card-border);
+      background-color: #FAF8F2;
+      background-image: url("assets/images/tintoretto_gesso.jpg");
+      background-size: 100% auto;
+      background-position: top center;
+      background-repeat: repeat-y;
+      border: 1px solid rgba(18, 60, 43, 0.18);
       border-radius: var(--radius-md);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 
+        0 2px 8px rgba(20, 32, 25, 0.05),
+        0 14px 34px rgba(18, 60, 43, 0.09),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.85);
       position: relative;
+      padding: 12px;
     }
 
-    .liturgy-card-list::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--forest) 0%, var(--gold) 50%, var(--forest) 100%);
+    [data-theme="dark"] .liturgy-card-list {
+      background-color: #171C19;
+      background-image: none;
+    }
+
+    .liturgy-print-frame {
+      border: 1.5px solid rgba(18, 60, 43, 0.22);
+      outline: 1px solid rgba(18, 60, 43, 0.1);
+      outline-offset: -5px;
+      border-radius: 6px;
+      padding: 18px 14px 12px;
+      position: relative;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    [data-theme="dark"] .liturgy-print-frame {
+      border-color: rgba(255, 255, 255, 0.15);
+      outline-color: rgba(255, 255, 255, 0.06);
+      background: transparent;
+    }
+
+    .liturgy-print-header {
+      text-align: center;
+      padding-bottom: 14px;
+      margin-bottom: 10px;
+      border-bottom: 1.5px double rgba(18, 60, 43, 0.2);
+    }
+
+    .liturgy-print-header-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--forest);
+      text-transform: uppercase;
+      opacity: 0.85;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .liturgy-print-header-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--ink-print);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .liturgy-print-header-date {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+      font-family: var(--font-serif);
+      font-style: italic;
     }
 
     .liturgy-item {
       background: transparent;
       border: none;
-      border-bottom: 1px solid var(--soft-line);
+      border-bottom: 1px solid rgba(18, 60, 43, 0.09);
       border-radius: 0;
-      padding: 13px 18px;
+      padding: 12px 6px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -434,58 +502,53 @@
     }
 
     .liturgy-item.interactive:hover {
-      background: rgba(24, 78, 58, 0.04);
-      transform: none;
-      box-shadow: none;
+      background: rgba(18, 60, 43, 0.045);
     }
 
     .liturgy-item.interactive:active {
-      background: rgba(24, 78, 58, 0.08);
-      transform: none;
+      background: rgba(18, 60, 43, 0.08);
     }
 
     .liturgy-left {
       display: flex;
-      align-items: center;
-      gap: 14px;
+      align-items: baseline;
+      gap: 12px;
       min-width: 0;
     }
 
     .liturgy-num {
-      width: 22px;
-      height: 22px;
+      width: 20px;
       background: transparent !important;
       color: var(--forest);
       font-family: var(--font-serif);
       font-size: 14px;
       font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
+      display: inline-block;
       flex-shrink: 0;
       opacity: 0.85;
     }
 
     .liturgy-info {
       display: flex;
-      flex-direction: column;
+      align-items: baseline;
+      gap: 10px;
       min-width: 0;
+      flex-wrap: wrap;
     }
 
     .liturgy-name {
       font-size: 15px;
-      font-weight: 600;
-      color: var(--ink);
+      font-weight: 700;
+      color: var(--ink-print);
       letter-spacing: -0.2px;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
 
     .liturgy-desc {
-      font-size: 12.5px;
+      font-size: 13px;
       color: var(--muted);
-      margin-top: 1px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -496,7 +559,7 @@
       align-items: center;
       gap: 8px;
       flex-shrink: 0;
-      margin-left: 12px;
+      margin-left: 10px;
     }
 
     .leader-badge {
@@ -504,35 +567,39 @@
       color: var(--muted);
       font-weight: 500;
       letter-spacing: -0.2px;
+      font-family: var(--font-sans);
     }
 
     .action-pill {
       font-size: 11.5px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--forest);
-      background: var(--mint);
-      border: 1px solid rgba(24, 78, 58, 0.12);
+      background: rgba(18, 60, 43, 0.08);
+      border: 1px solid rgba(18, 60, 43, 0.2);
       padding: 3px 9px;
       border-radius: var(--radius-full);
       display: inline-flex;
       align-items: center;
       gap: 3px;
       transition: all 0.15s ease;
+      letter-spacing: -0.2px;
     }
 
     .liturgy-item.interactive:hover .action-pill {
       background: var(--forest);
-      color: #FFFFFF;
+      color: #FAF8F2;
       border-color: var(--forest);
     }
 
     /* Hymn Search Card with Direct Number Input (숫자 키보드 전용) */
     .hymn-search-card {
-      background: var(--paper-sheet);
+      background-color: var(--card-bg);
+      background-image: url("assets/images/tintoretto_seamless.jpg");
+      background-size: 400px 400px;
       border: 1px solid var(--card-border);
       border-radius: var(--radius-md);
       padding: 16px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-sm), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
       margin-bottom: 24px;
     }
 
@@ -649,7 +716,9 @@
     }
 
     .hymn-box {
-      background: var(--card-bg);
+      background-color: var(--card-bg);
+      background-image: url("assets/images/tintoretto_seamless.jpg");
+      background-size: 380px 380px;
       border: 1px solid var(--card-border);
       border-radius: var(--radius-md);
       padding: 16px;
@@ -658,7 +727,7 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 110px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-sm), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
       transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
     }
 
@@ -706,11 +775,13 @@
 
     /* Bible Reader Card */
     .bible-reader-box {
-      background: var(--card-bg);
+      background-color: var(--card-bg);
+      background-image: url("assets/images/tintoretto_seamless.jpg");
+      background-size: 400px 400px;
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
       padding: 24px 20px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-sm), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
     }
 
     .bible-meta-bar {
@@ -782,12 +853,14 @@
 
     /* Church News Cards */
     .news-card {
-      background: var(--card-bg);
+      background-color: var(--card-bg);
+      background-image: url("assets/images/tintoretto_seamless.jpg");
+      background-size: 400px 400px;
       border: 1px solid var(--card-border);
       border-radius: var(--radius-md);
       padding: 16px;
       margin-bottom: 12px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-sm), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
     }
 
     .news-title-row {
@@ -1104,7 +1177,14 @@
         </div>
 
         <div class="liturgy-card-list">
-          <!-- 1. 사회 -->
+          <div class="liturgy-print-frame">
+            <div class="liturgy-print-header">
+              <span class="liturgy-print-header-eyebrow">ELGRACE PRESBYTERIAN CHURCH</span>
+              <h3 class="liturgy-print-header-title">✝ 주일 예배 순서</h3>
+              <div class="liturgy-print-header-date">2026년 9월 27일 · 주일 예배 안내</div>
+            </div>
+
+            <!-- 1. 사회 -->
           <div class="liturgy-item">
             <div class="liturgy-left">
               <span class="liturgy-num">1</span>
@@ -1286,6 +1366,7 @@
             </div>
           </div>
         </div>
+      </div>
       </section>
 
       <!-- TAB 2: 찬송가 악보 모음 (Hymns) -->
