@@ -22,30 +22,32 @@
     :root {
       --forest: #184E3A;
       --forest-dark: #0F3A2A;
-      --forest-light: #266b51;
+      --forest-light: #23654B;
       --sage: #DDE8E1;
       --sage-light: #EBF2EE;
-      --mint: #F0F5F2;
-      --gold: #D6A94E;
-      --gold-soft: rgba(214, 169, 78, 0.15);
+      --mint: #EFF4F1;
+      --gold: #A67C27;
+      --gold-soft: rgba(166, 124, 39, 0.12);
       
-      --background: #F7F7F4;
-      --card-bg: #FFFFFF;
-      --card-border: rgba(20, 26, 23, 0.08);
-      --card-hover: #FCFCFA;
+      /* High-quality matte paper texture colors (고급 명함 / 청첩장 질감) */
+      --paper-bg: #F7F5EE;
+      --card-bg: rgba(255, 255, 253, 0.94);
+      --paper-sheet: rgba(254, 253, 249, 0.96);
+      --card-border: rgba(30, 48, 38, 0.1);
+      --card-hover: rgba(246, 244, 237, 0.98);
       
-      --ink: #1A1A1A;
-      --muted: #666666;
-      --muted-light: #8E8E93;
-      --soft-line: rgba(20, 26, 23, 0.06);
+      --ink: #1C2320;
+      --muted: #647069;
+      --muted-light: #8E9993;
+      --soft-line: rgba(24, 78, 58, 0.08);
       
-      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
-      --shadow-md: 0 8px 24px rgba(24, 78, 58, 0.07);
-      --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
+      --shadow-sm: 0 1px 4px rgba(25, 40, 32, 0.04);
+      --shadow-md: 0 4px 14px rgba(24, 78, 58, 0.06);
+      --shadow-lg: 0 12px 30px rgba(18, 32, 25, 0.09);
       
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
       --radius-full: 9999px;
       
       --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -53,22 +55,25 @@
     }
 
     [data-theme="dark"] {
-      --background: #121614;
-      --card-bg: #1B211E;
-      --card-border: rgba(255, 255, 255, 0.08);
-      --card-hover: #222B27;
-      --forest: #2F7C5F;
-      --forest-dark: #1F5440;
-      --sage: #274236;
-      --sage-light: #1D3128;
-      --mint: #16241E;
-      --ink: #F2F4F3;
-      --muted: #A3ACA7;
-      --muted-light: #6C7771;
-      --soft-line: rgba(255, 255, 255, 0.06);
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
-      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
-      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.8);
+      --paper-bg: #141715;
+      --card-bg: rgba(26, 32, 29, 0.94);
+      --paper-sheet: rgba(23, 28, 25, 0.96);
+      --card-border: rgba(255, 255, 255, 0.09);
+      --card-hover: rgba(35, 44, 39, 0.98);
+      --forest: #3F8A6B;
+      --forest-dark: #2A634C;
+      --sage: #274034;
+      --sage-light: #1D3127;
+      --mint: #1B2822;
+      --gold: #D6AB4D;
+      --gold-soft: rgba(214, 171, 77, 0.15);
+      --ink: #F2F4F2;
+      --muted: #9BA6A0;
+      --muted-light: #6C7972;
+      --soft-line: rgba(255, 255, 255, 0.08);
+      --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.7);
     }
 
     * {
@@ -79,16 +84,28 @@
     }
 
     body {
-      background-color: var(--background);
+      background-color: var(--paper-bg);
+      background-image: 
+        radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.6) 0%, rgba(247, 245, 238, 0) 70%),
+        url("assets/images/paper_texture.png");
+      background-repeat: repeat;
+      background-size: 320px 320px;
       color: var(--ink);
       font-family: var(--font-sans);
       font-size: 15px;
-      line-height: 1.5;
-      letter-spacing: -0.01em;
+      line-height: 1.55;
+      letter-spacing: -0.015em;
       -webkit-font-smoothing: antialiased;
       transition: background-color 0.25s ease, color 0.25s ease;
       min-height: 100vh;
       overflow-x: hidden;
+    }
+
+    [data-theme="dark"] body {
+      background-image: 
+        radial-gradient(circle at 50% 12%, rgba(35, 48, 42, 0.6) 0%, rgba(18, 22, 20, 0.95) 75%),
+        url("assets/images/paper_texture.png");
+      background-blend-mode: multiply;
     }
 
     /* Top Sticky Navigation Bar */
@@ -197,7 +214,7 @@
 
     /* Hero Banner Card */
     .hero-card {
-      background: var(--card-bg);
+      background: var(--paper-sheet);
       border: 1px solid var(--card-border);
       border-radius: var(--radius-lg);
       padding: 24px;
@@ -205,6 +222,8 @@
       box-shadow: var(--shadow-sm);
       position: relative;
       overflow: hidden;
+      outline: 1px solid rgba(24, 78, 58, 0.08);
+      outline-offset: -6px;
     }
 
     .hero-card::before {
@@ -370,24 +389,44 @@
       font-weight: 500;
     }
 
-    /* Liturgy Table List */
+    /* Liturgy Table List - Clean Editorial Style without Box Borders (청첩장 / 주보 양식) */
     .liturgy-card-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      background: var(--paper-sheet);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .liturgy-card-list::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--forest) 0%, var(--gold) 50%, var(--forest) 100%);
     }
 
     .liturgy-item {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--soft-line);
+      border-radius: 0;
+      padding: 13px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.18s cubic-bezier(0.2, 0, 0, 1);
+      box-shadow: none;
+      transition: background 0.15s ease;
       cursor: default;
+    }
+
+    .liturgy-item:last-child {
+      border-bottom: none;
     }
 
     .liturgy-item.interactive {
@@ -395,35 +434,36 @@
     }
 
     .liturgy-item.interactive:hover {
-      background: var(--card-hover);
-      border-color: var(--forest);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
+      background: rgba(24, 78, 58, 0.04);
+      transform: none;
+      box-shadow: none;
     }
 
     .liturgy-item.interactive:active {
-      transform: scale(0.985);
+      background: rgba(24, 78, 58, 0.08);
+      transform: none;
     }
 
     .liturgy-left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       min-width: 0;
     }
 
     .liturgy-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--mint);
+      width: 22px;
+      height: 22px;
+      background: transparent !important;
       color: var(--forest);
-      font-size: 12px;
-      font-weight: 800;
+      font-family: var(--font-serif);
+      font-size: 14px;
+      font-weight: 700;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       flex-shrink: 0;
+      opacity: 0.85;
     }
 
     .liturgy-info {
@@ -433,17 +473,17 @@
     }
 
     .liturgy-name {
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 600;
       color: var(--ink);
-      letter-spacing: -0.3px;
+      letter-spacing: -0.2px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
     .liturgy-desc {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--muted);
       margin-top: 1px;
       white-space: nowrap;
@@ -456,31 +496,148 @@
       align-items: center;
       gap: 8px;
       flex-shrink: 0;
-      margin-left: 10px;
+      margin-left: 12px;
     }
 
     .leader-badge {
       font-size: 13px;
       color: var(--muted);
       font-weight: 500;
+      letter-spacing: -0.2px;
     }
 
     .action-pill {
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 11.5px;
+      font-weight: 600;
       color: var(--forest);
-      background: var(--sage);
-      padding: 5px 11px;
+      background: var(--mint);
+      border: 1px solid rgba(24, 78, 58, 0.12);
+      padding: 3px 9px;
       border-radius: var(--radius-full);
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       transition: all 0.15s ease;
     }
 
-    .liturgy-item:hover .action-pill {
+    .liturgy-item.interactive:hover .action-pill {
       background: var(--forest);
       color: #FFFFFF;
+      border-color: var(--forest);
+    }
+
+    /* Hymn Search Card with Direct Number Input (숫자 키보드 전용) */
+    .hymn-search-card {
+      background: var(--paper-sheet);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .hymn-search-input-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hymn-search-box {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(24, 78, 58, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 0 12px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: text;
+    }
+
+    [data-theme="dark"] .hymn-search-box {
+      background: rgba(0, 0, 0, 0.25);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .hymn-search-box:focus-within {
+      border-color: var(--forest);
+      box-shadow: 0 0 0 3px rgba(24, 78, 58, 0.12);
+    }
+
+    .hymn-direct-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 11px 4px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .hymn-direct-input::placeholder {
+      color: var(--muted-light);
+      font-size: 13.5px;
+      font-weight: 400;
+    }
+
+    .hymn-direct-search-btn {
+      background: var(--forest);
+      color: #FFFFFF;
+      border: none;
+      padding: 0 18px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: background 0.15s ease, transform 0.1s ease;
+      flex-shrink: 0;
+    }
+
+    .hymn-direct-search-btn:hover {
+      background: var(--forest-light);
+    }
+
+    .hymn-direct-search-btn:active {
+      transform: scale(0.97);
+    }
+
+    .hymn-search-quick-tags {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .quick-tag-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-right: 2px;
+    }
+
+    .quick-chip {
+      background: var(--mint);
+      border: 1px solid rgba(24, 78, 58, 0.12);
+      border-radius: var(--radius-full);
+      padding: 3px 9px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--forest);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .quick-chip:hover {
+      background: var(--sage);
+      border-color: var(--forest);
     }
 
     /* Hymns Grid Cards */
@@ -978,7 +1135,7 @@
           <!-- 3. 찬송 93장 -->
           <div class="liturgy-item interactive" onclick="openHymn('093', '예수는 나의 힘이요')">
             <div class="liturgy-left">
-              <span class="liturgy-num" style="background: var(--sage); color: var(--forest);">3</span>
+              <span class="liturgy-num">3</span>
               <div class="liturgy-info">
                 <span class="liturgy-name">찬송 93장</span>
                 <span class="liturgy-desc">예수는 나의 힘이요</span>
@@ -1006,7 +1163,7 @@
           <!-- 5. 찬송 304장 -->
           <div class="liturgy-item interactive" onclick="openHymn('304', '그 크신 하나님의 사랑')">
             <div class="liturgy-left">
-              <span class="liturgy-num" style="background: var(--sage); color: var(--forest);">5</span>
+              <span class="liturgy-num">5</span>
               <div class="liturgy-info">
                 <span class="liturgy-name">찬송 304장</span>
                 <span class="liturgy-desc">그 크신 하나님의 사랑</span>
@@ -1034,7 +1191,7 @@
           <!-- 7. 성경봉독 -->
           <div class="liturgy-item interactive" onclick="openBibleModal()">
             <div class="liturgy-left">
-              <span class="liturgy-num" style="background: var(--sage); color: var(--forest);">7</span>
+              <span class="liturgy-num">7</span>
               <div class="liturgy-info">
                 <span class="liturgy-name">성경봉독</span>
                 <span class="liturgy-desc">창세기 39장 1~23절 (구약 60p)</span>
@@ -1048,7 +1205,7 @@
           <!-- 8. 봉헌 찬송 50장 -->
           <div class="liturgy-item interactive" onclick="openHymn('050', '내게 있는 모든 것을')">
             <div class="liturgy-left">
-              <span class="liturgy-num" style="background: var(--sage); color: var(--forest);">8</span>
+              <span class="liturgy-num">8</span>
               <div class="liturgy-info">
                 <span class="liturgy-name">헌금봉헌 (50장)</span>
                 <span class="liturgy-desc">내게 있는 모든 것을</span>
@@ -1076,7 +1233,7 @@
           <!-- 10. 설교 -->
           <div class="liturgy-item interactive" onclick="openBibleModal()">
             <div class="liturgy-left">
-              <span class="liturgy-num" style="background: var(--forest); color: #FFFFFF;">10</span>
+              <span class="liturgy-num">10</span>
               <div class="liturgy-info">
                 <span class="liturgy-name">설교 (말씀선포)</span>
                 <span class="liturgy-desc">본문: 창세기 39장 1~23절</span>
@@ -1104,7 +1261,7 @@
           <!-- 12. 결단 찬송 445장 -->
           <div class="liturgy-item interactive" onclick="openHymn('445', '태산을 넘어 험곡에 가도')">
             <div class="liturgy-left">
-              <span class="liturgy-num" style="background: var(--sage); color: var(--forest);">12</span>
+              <span class="liturgy-num">12</span>
               <div class="liturgy-info">
                 <span class="liturgy-name">결단 찬송 445장</span>
                 <span class="liturgy-desc">태산을 넘어 험곡에 가도</span>
@@ -1177,35 +1334,34 @@
           </div>
         </div>
 
-        <div class="section-headline-row" style="margin-top: 24px;">
-          <h3 class="section-headline-title" style="font-size: 16px;">추가 및 빠른 검색 찬송가</h3>
+        <div class="section-headline-row" style="margin-top: 28px;">
+          <h3 class="section-headline-title" style="font-size: 16px;">찬송가 검색</h3>
+          <span class="section-tag">전체 1장 ~ 645장</span>
         </div>
 
-        <div class="liturgy-card-list">
-          <div class="liturgy-item interactive" onclick="openHymn('256', '나의 죄 모두 지신 주님')">
-            <div class="liturgy-left">
-              <span class="liturgy-num" style="background: var(--gold-soft); color: var(--gold);">256</span>
-              <div class="liturgy-info">
-                <span class="liturgy-name">찬송 256장</span>
-                <span class="liturgy-desc">나의 죄 모두 지신 주님</span>
-              </div>
+        <div class="hymn-search-card">
+          <div class="hymn-search-input-group">
+            <div class="hymn-search-box" onclick="document.getElementById('inputDirectHymn').focus()">
+              <i data-lucide="search" style="width: 18px; height: 18px; color: var(--forest); margin-right: 6px; flex-shrink: 0;"></i>
+              <input 
+                type="number" 
+                inputmode="numeric" 
+                pattern="[0-9]*" 
+                id="inputDirectHymn" 
+                class="hymn-direct-input" 
+                placeholder="찬송가 장 번호 입력 (예: 93, 304, 50, 445)" 
+                min="1" 
+                max="645"
+              />
             </div>
-            <div class="liturgy-right">
-              <span class="action-pill">악보 보기 →</span>
-            </div>
+            <button type="button" class="hymn-direct-search-btn" onclick="handleDirectHymnSearch()">악보 찾기</button>
           </div>
-
-          <div class="liturgy-item interactive" onclick="openSearchModal()">
-            <div class="liturgy-left">
-              <span class="liturgy-num"><i data-lucide="search" style="width: 14px; height: 14px;"></i></span>
-              <div class="liturgy-info">
-                <span class="liturgy-name">찬송가 번호 직접 검색</span>
-                <span class="liturgy-desc">1장 ~ 645장 악보 바로가기</span>
-              </div>
-            </div>
-            <div class="liturgy-right">
-              <span class="action-pill">검색창 열기 →</span>
-            </div>
+          <div class="hymn-search-quick-tags">
+            <span class="quick-tag-label">오늘 찬송 바로가기:</span>
+            <button type="button" class="quick-chip" onclick="openHymn('093', '예수는 나의 힘이요')">93장</button>
+            <button type="button" class="quick-chip" onclick="openHymn('304', '그 크신 하나님의 사랑')">304장</button>
+            <button type="button" class="quick-chip" onclick="openHymn('050', '내게 있는 모든 것을')">50장</button>
+            <button type="button" class="quick-chip" onclick="openHymn('445', '태산을 넘어 험곡에 가도')">445장</button>
           </div>
         </div>
       </section>
@@ -1421,7 +1577,7 @@
         <button class="sheet-close-btn" onclick="closeModal('modalSearch')">닫기 ✕</button>
       </div>
       <div class="sheet-scroll-body">
-        <input type="number" id="inputSearchNum" class="search-box-input" placeholder="찬송가 장 번호 입력 (예: 256, 93, 304, 50, 445)" min="1" max="645">
+        <input type="number" inputmode="numeric" pattern="[0-9]*" id="inputSearchNum" class="search-box-input" placeholder="찬송가 장 번호 입력 (예: 93, 304, 50, 445)" min="1" max="645">
         <div style="font-size: 13px; font-weight: 700; color: var(--forest); margin-bottom: 10px;">오늘의 찬송가 빠른 선택</div>
         <div class="hymns-grid">
           <div class="hymn-box" onclick="openHymn('093', '예수는 나의 힘이요')">
@@ -1464,11 +1620,6 @@
         title: '예수는 나의 힘이요',
         image: 'assets/hymns/093.jpg',
         url: 'https://risen.runean.com/entry/%EC%B0%AC%EC%86%A1%EA%B0%80-93%EC%9E%A5-%EC%98%88%EC%88%98%EB%8A%94-%EB%82%98%EC%9D%98-%ED%9E%98%EC%9D%B4%EC%9A%94-%EA%B0%80%EC%82%AC%EC%95%85%EB%B3%B4NWC'
-      },
-      '256': {
-        title: '나의 죄 모두 지신 주님',
-        image: 'assets/hymns/256.jpg',
-        url: 'https://risen.runean.com/entry/%EC%B0%AC%EC%86%A1%EA%B0%80-256%EC%9E%A5-%EB%82%98%EC%9D%98-%EC%A3%84-%EB%AA%A8%EB%91%90-%EC%A7%80%EC%8B%A0-%EC%A3%BC%EB%8B%98-%EA%B0%80%EC%82%AC%EC%95%85%EB%B3%B4NWC'
       },
       '304': {
         title: '그 크신 하나님의 사랑',
@@ -1641,6 +1792,33 @@
     }
 
     // Search Trigger
+    function handleDirectHymnSearch() {
+      const input = document.getElementById('inputDirectHymn');
+      if (!input) return;
+      const val = input.value.trim();
+      if (!val) {
+        alert('찬송가 장 번호를 입력해주세요.');
+        input.focus();
+        return;
+      }
+      const n = parseInt(val, 10);
+      if (isNaN(n) || n < 1 || n > 645) {
+        alert('1장부터 645장 사이의 찬송가 번호를 입력해주세요.');
+        input.focus();
+        return;
+      }
+      openHymn(n.toString());
+    }
+
+    const directInput = document.getElementById('inputDirectHymn');
+    if (directInput) {
+      directInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          handleDirectHymnSearch();
+        }
+      });
+    }
+
     document.getElementById('btnOpenSearch').addEventListener('click', openSearchModal);
     document.getElementById('inputSearchNum').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
