@@ -1481,6 +1481,9 @@
 
     .verse-text-item {
       word-break: keep-all;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
     }
 
     .verse-text-item.krv {
@@ -1492,40 +1495,35 @@
 
     .verse-text-item.easy {
       font-family: var(--font-sans);
-      font-size: 15px;
-      line-height: 1.85;
-      color: #174232;
-      background: rgba(238, 244, 240, 0.7);
-      padding: 7px 12px;
-      border-radius: 6px;
-      border-left: 3px solid #1C543E;
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: #384A41;
+      margin-top: 4px;
+    }
+
+    .verse-text-item.easy.solo {
+      font-size: 16px;
+      line-height: 1.95;
+      color: var(--ink);
+      margin-top: 0;
     }
 
     .verse-text-item.niv {
       font-family: Georgia, -apple-system, serif;
       font-size: 14.5px;
-      line-height: 1.8;
-      color: #2D3D35;
-      background: rgba(246, 243, 236, 0.75);
-      padding: 7px 12px;
-      border-radius: 6px;
-      border-left: 3px solid #967020;
+      line-height: 1.75;
+      color: #485750;
+      font-style: italic;
+      margin-top: 4px;
     }
 
-    .trans-label {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 10px;
-      font-weight: 800;
-      padding: 1px 5px;
-      border-radius: 3px;
-      margin-right: 6px;
-      vertical-align: 1px;
+    .verse-text-item.niv.solo {
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: var(--ink);
+      font-style: normal;
+      margin-top: 0;
     }
-
-    .trans-label.krv-tag { background: rgba(18, 60, 43, 0.12); color: var(--forest); }
-    .trans-label.easy-tag { background: rgba(28, 84, 62, 0.18); color: #1C543E; }
-    .trans-label.niv-tag { background: rgba(150, 112, 32, 0.18); color: #967020; }
 
     [data-theme="dark"] #modalBible .modal-sheet {
       background-color: #151A17 !important;
@@ -1563,15 +1561,19 @@
     }
 
     [data-theme="dark"] .verse-text-item.easy {
-      color: #D6E3DB;
-      background: rgba(255, 255, 255, 0.05);
-      border-left-color: #3F8A6B;
+      color: #A3B5AC;
+    }
+
+    [data-theme="dark"] .verse-text-item.easy.solo {
+      color: var(--ink);
     }
 
     [data-theme="dark"] .verse-text-item.niv {
-      color: #E2DFD7;
-      background: rgba(255, 255, 255, 0.04);
-      border-left-color: #D6AB4D;
+      color: #B5BFB9;
+    }
+
+    [data-theme="dark"] .verse-text-item.niv.solo {
+      color: var(--ink);
     }
 
     /* Apostles Creed Card */
@@ -1987,12 +1989,13 @@
               <button class="size-btn" onclick="changeFontSize(1)">A+</button>
             </div>
           </div>
-          <!-- Translation Selector Tabs -->
+          <!-- Translation Selector Tabs (최대 2개 역본 선택 대조) -->
           <div class="bible-ver-tabs" style="margin-bottom: 16px;">
-            <button class="ver-tab-btn active" data-ver="compare" onclick="setBibleVersion('compare')">📖 다역본 대조</button>
+            <button class="ver-tab-btn active" data-ver="krv_easy" onclick="setBibleVersion('krv_easy')">개역개정 + 쉬운성경</button>
+            <button class="ver-tab-btn" data-ver="krv_niv" onclick="setBibleVersion('krv_niv')">개역개정 + NIV</button>
             <button class="ver-tab-btn" data-ver="krv" onclick="setBibleVersion('krv')">개역개정</button>
             <button class="ver-tab-btn" data-ver="easy" onclick="setBibleVersion('easy')">쉬운성경</button>
-            <button class="ver-tab-btn" data-ver="niv" onclick="setBibleVersion('niv')">NIV (영어)</button>
+            <button class="ver-tab-btn" data-ver="niv" onclick="setBibleVersion('niv')">NIV</button>
           </div>
           <div class="bible-text-flow" id="bibleVerseContainer">
             <!-- Verses populated here -->
@@ -2110,11 +2113,14 @@
         </div>
       </div>
 
-      <!-- Translation Selector Bar -->
+      <!-- Translation Selector Bar (최대 2개 역본 선택 대조) -->
       <div class="bible-version-bar">
         <div class="bible-ver-tabs">
-          <button class="ver-tab-btn active" data-ver="compare" onclick="setBibleVersion('compare')">
-            📖 다역본 대조 (함께보기)
+          <button class="ver-tab-btn active" data-ver="krv_easy" onclick="setBibleVersion('krv_easy')">
+            개역개정 + 쉬운성경
+          </button>
+          <button class="ver-tab-btn" data-ver="krv_niv" onclick="setBibleVersion('krv_niv')">
+            개역개정 + NIV
           </button>
           <button class="ver-tab-btn" data-ver="krv" onclick="setBibleVersion('krv')">
             개역개정
@@ -2123,7 +2129,7 @@
             쉬운성경
           </button>
           <button class="ver-tab-btn" data-ver="niv" onclick="setBibleVersion('niv')">
-            NIV (영어)
+            NIV
           </button>
         </div>
       </div>
@@ -2413,7 +2419,7 @@
       }
 ];
 
-    let currentBibleVersion = 'compare'; // 'compare' | 'krv' | 'easy' | 'niv'
+    let currentBibleVersion = 'krv_easy'; // 'krv_easy' | 'krv_niv' | 'krv' | 'easy' | 'niv'
 
     function setBibleVersion(ver) {
       currentBibleVersion = ver;
@@ -2434,17 +2440,23 @@
 
       container.innerHTML = genesisVerses.map(item => {
         let contentHtml = '';
-        if (currentBibleVersion === 'krv') {
-          contentHtml = '<p class="verse-text-item krv">' + item.krv + '</p>';
+        if (currentBibleVersion === 'krv_easy') {
+          // 최대 2개: 개역개정 + 쉬운성경 (태그/괄호색 없이 깨끗하게 인쇄)
+          contentHtml = '<p class="verse-text-item krv">' + item.krv + '</p>' +
+                        '<p class="verse-text-item easy">' + item.easy + '</p>';
+        } else if (currentBibleVersion === 'krv_niv') {
+          // 최대 2개: 개역개정 + NIV 영어
+          contentHtml = '<p class="verse-text-item krv">' + item.krv + '</p>' +
+                        '<p class="verse-text-item niv">' + item.niv + '</p>';
         } else if (currentBibleVersion === 'easy') {
-          contentHtml = '<p class="verse-text-item easy"><span class="trans-label easy-tag">쉬운성경</span>' + item.easy + '</p>';
+          // 쉬운성경 단독
+          contentHtml = '<p class="verse-text-item easy solo">' + item.easy + '</p>';
         } else if (currentBibleVersion === 'niv') {
-          contentHtml = '<p class="verse-text-item niv"><span class="trans-label niv-tag">NIV</span>' + item.niv + '</p>';
+          // NIV 단독
+          contentHtml = '<p class="verse-text-item niv solo">' + item.niv + '</p>';
         } else {
-          // compare mode (모든 역본 대조 표시)
-          contentHtml = '<div class="verse-text-item krv"><span class="trans-label krv-tag">개역</span>' + item.krv + '</div>' +
-                        '<div class="verse-text-item easy"><span class="trans-label easy-tag">쉬운</span>' + item.easy + '</div>' +
-                        '<div class="verse-text-item niv"><span class="trans-label niv-tag">NIV</span>' + item.niv + '</div>';
+          // 개역개정 단독 ('krv')
+          contentHtml = '<p class="verse-text-item krv">' + item.krv + '</p>';
         }
 
         return '<div class="verse-line">' +
