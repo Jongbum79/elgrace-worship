@@ -1302,6 +1302,278 @@
       border-color: rgba(255, 255, 255, 0.15) !important;
     }
 
+    /* Dedicated Smartphone Fullscreen Viewer for Bible Reader (스마트폰 전체화면 성경 본문 뷰어) */
+    #modalBible {
+      align-items: center !important;
+      justify-content: center !important;
+      background: rgba(18, 36, 26, 0.65) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0 !important;
+    }
+
+    #modalBible .modal-sheet {
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      max-height: 100vh !important;
+      max-height: 100dvh !important;
+      max-width: 100vw !important;
+      border-radius: 0 !important;
+      border: none !important;
+      background-color: var(--paper-bg) !important;
+      background-image: url("assets/images/tintoretto_sheet.jpg") !important;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      transform: scale(0.97);
+      opacity: 0;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      box-shadow: none !important;
+      margin: 0 !important;
+    }
+
+    #modalBible.open .modal-sheet {
+      transform: scale(1) !important;
+      opacity: 1 !important;
+    }
+
+    #modalBible .sheet-handle-bar {
+      display: none !important;
+    }
+
+    #modalBible .sheet-header-bar {
+      background: rgba(250, 248, 242, 0.94) !important;
+      border-bottom: 1px solid rgba(18, 60, 43, 0.14) !important;
+      padding: 12px 18px !important;
+      flex-shrink: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+
+    .bible-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .bible-sub-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .bible-header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #modalBible .sheet-title-text {
+      color: var(--forest-dark) !important;
+      font-size: 16px !important;
+      font-weight: 700;
+    }
+
+    #modalBible .sheet-close-btn {
+      background: var(--forest) !important;
+      color: #FAF8F2 !important;
+      border: 1px solid rgba(18, 60, 43, 0.2) !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      padding: 6px 14px !important;
+      border-radius: var(--radius-full);
+      box-shadow: 0 1px 3px rgba(18, 60, 43, 0.15);
+      cursor: pointer;
+    }
+
+    #modalBible .sheet-close-btn:hover {
+      background: var(--forest-light) !important;
+    }
+
+    /* Bible Version Selector Bar (역본 선택 탭) */
+    .bible-version-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(250, 248, 242, 0.88);
+      border-bottom: 1px solid rgba(18, 60, 43, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .bible-ver-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .ver-tab-btn {
+      background: var(--mint);
+      border: 1px solid rgba(18, 60, 43, 0.16);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--forest);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .ver-tab-btn:hover {
+      background: var(--sage);
+    }
+
+    .ver-tab-btn.active {
+      background: var(--forest);
+      color: #FAF8F2;
+      border-color: var(--forest);
+      box-shadow: 0 1px 4px rgba(18, 60, 43, 0.2);
+    }
+
+    #modalBible .sheet-scroll-body {
+      flex: 1 !important;
+      padding: 22px 18px 50px !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      background: transparent !important;
+    }
+
+    /* Verses Styling */
+    .verse-line {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .verse-badge {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--forest);
+      background: rgba(214, 227, 219, 0.85);
+      border: 1px solid rgba(18, 60, 43, 0.15);
+      border-radius: 4px;
+      padding: 2px 6px;
+      flex-shrink: 0;
+      margin-top: 4px;
+      line-height: 1.2;
+    }
+
+    .verse-content-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .verse-text-item {
+      word-break: keep-all;
+    }
+
+    .verse-text-item.krv {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      line-height: 1.95;
+      color: var(--ink);
+    }
+
+    .verse-text-item.easy {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.85;
+      color: #174232;
+      background: rgba(238, 244, 240, 0.7);
+      padding: 7px 12px;
+      border-radius: 6px;
+      border-left: 3px solid #1C543E;
+    }
+
+    .verse-text-item.niv {
+      font-family: Georgia, -apple-system, serif;
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: #2D3D35;
+      background: rgba(246, 243, 236, 0.75);
+      padding: 7px 12px;
+      border-radius: 6px;
+      border-left: 3px solid #967020;
+    }
+
+    .trans-label {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: 1px;
+    }
+
+    .trans-label.krv-tag { background: rgba(18, 60, 43, 0.12); color: var(--forest); }
+    .trans-label.easy-tag { background: rgba(28, 84, 62, 0.18); color: #1C543E; }
+    .trans-label.niv-tag { background: rgba(150, 112, 32, 0.18); color: #967020; }
+
+    [data-theme="dark"] #modalBible .modal-sheet {
+      background-color: #151A17 !important;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(26, 33, 29, 0.85) 0%, rgba(16, 21, 18, 0.95) 100%),
+        url("assets/images/tintoretto_sheet.jpg") !important;
+    }
+
+    [data-theme="dark"] #modalBible .sheet-header-bar,
+    [data-theme="dark"] .bible-version-bar {
+      background: rgba(26, 32, 29, 0.94) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    [data-theme="dark"] #modalBible .sheet-title-text {
+      color: #F2F4F2 !important;
+    }
+
+    [data-theme="dark"] #modalBible .sheet-close-btn {
+      background: #2D634E !important;
+      color: #FFFFFF !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    [data-theme="dark"] .ver-tab-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #D6E3DB;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    [data-theme="dark"] .ver-tab-btn.active {
+      background: #3F8A6B;
+      color: #FFFFFF;
+      border-color: #3F8A6B;
+    }
+
+    [data-theme="dark"] .verse-text-item.easy {
+      color: #D6E3DB;
+      background: rgba(255, 255, 255, 0.05);
+      border-left-color: #3F8A6B;
+    }
+
+    [data-theme="dark"] .verse-text-item.niv {
+      color: #E2DFD7;
+      background: rgba(255, 255, 255, 0.04);
+      border-left-color: #D6AB4D;
+    }
+
     /* Apostles Creed Card */
     .creed-prayer-card {
       font-size: 16px;
@@ -1705,11 +1977,22 @@
 
         <div class="bible-reader-box">
           <div class="bible-meta-bar">
-            <span class="bible-chap-title">요셉과 보디발의 아내</span>
-            <div class="bible-size-controls">
-              <button class="size-btn" onclick="changeFontSize(-1)">글자 작게 A-</button>
-              <button class="size-btn" onclick="changeFontSize(1)">글자 크게 A+</button>
+            <div>
+              <span class="bible-chap-title">요셉과 보디발의 아내</span>
+              <span style="font-size: 11px; color: var(--muted); margin-left: 6px;">구약 60p</span>
             </div>
+            <div class="bible-size-controls">
+              <button class="size-btn" onclick="openBibleModal()" style="font-weight: 700; background: var(--forest); color: #FAF8F2; border-color: var(--forest);">⛶ 전체화면</button>
+              <button class="size-btn" onclick="changeFontSize(-1)">A-</button>
+              <button class="size-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+          </div>
+          <!-- Translation Selector Tabs -->
+          <div class="bible-ver-tabs" style="margin-bottom: 16px;">
+            <button class="ver-tab-btn active" data-ver="compare" onclick="setBibleVersion('compare')">📖 다역본 대조</button>
+            <button class="ver-tab-btn" data-ver="krv" onclick="setBibleVersion('krv')">개역개정</button>
+            <button class="ver-tab-btn" data-ver="easy" onclick="setBibleVersion('easy')">쉬운성경</button>
+            <button class="ver-tab-btn" data-ver="niv" onclick="setBibleVersion('niv')">NIV (영어)</button>
           </div>
           <div class="bible-text-flow" id="bibleVerseContainer">
             <!-- Verses populated here -->
@@ -1809,22 +2092,43 @@
     </div>
   </div>
 
-  <!-- MODAL 2: Bible Reader Modal -->
+  <!-- MODAL 2: Bible Reader Modal (스마트폰 전체화면 띤또레또 종이 성경 뷰어) -->
   <div class="modal-backdrop" id="modalBible">
     <div class="modal-sheet">
       <div class="sheet-handle-bar"></div>
       <div class="sheet-header-bar">
-        <h3 class="sheet-title-text">창세기 39장 1~23절 (개역개정)</h3>
-        <button class="sheet-close-btn" onclick="closeModal('modalBible')">닫기 ✕</button>
-      </div>
-      <div class="sheet-scroll-body">
-        <div class="bible-meta-bar">
-          <span class="bible-chap-title">요셉과 보디발의 아내 (구약 60p)</span>
+        <div class="bible-header-left">
+          <h3 class="sheet-title-text" id="bibleModalTitle">창세기 39장 1~23절</h3>
+          <span class="bible-sub-label">요셉과 보디발의 아내 (구약 60p)</span>
+        </div>
+        <div class="bible-header-right">
           <div class="bible-size-controls">
             <button class="size-btn" onclick="changeFontSize(-1)">A-</button>
             <button class="size-btn" onclick="changeFontSize(1)">A+</button>
           </div>
+          <button class="sheet-close-btn" onclick="closeModal('modalBible')">닫기 ✕</button>
         </div>
+      </div>
+
+      <!-- Translation Selector Bar -->
+      <div class="bible-version-bar">
+        <div class="bible-ver-tabs">
+          <button class="ver-tab-btn active" data-ver="compare" onclick="setBibleVersion('compare')">
+            📖 다역본 대조 (함께보기)
+          </button>
+          <button class="ver-tab-btn" data-ver="krv" onclick="setBibleVersion('krv')">
+            개역개정
+          </button>
+          <button class="ver-tab-btn" data-ver="easy" onclick="setBibleVersion('easy')">
+            쉬운성경
+          </button>
+          <button class="ver-tab-btn" data-ver="niv" onclick="setBibleVersion('niv')">
+            NIV (영어)
+          </button>
+        </div>
+      </div>
+
+      <div class="sheet-scroll-body">
         <div class="bible-text-flow" id="bibleVerseModal">
           <!-- Verses populated here -->
         </div>
@@ -1967,45 +2271,193 @@
       }
     };
 
-    // Genesis 39 Verses Data
+    // Genesis 39 Verses Data (개역개정 · 쉬운성경 · NIV)
     const genesisVerses = [
-      { v: 1, t: "요셉이 이끌려 애굽에 내려가매 바로의 신하 친위대장 애굽 사람 보디발이 그를 그리로 데려간 이스마엘 사람의 손에서 요셉을 사니라" },
-      { v: 2, t: "여호와께서 요셉과 함께 하시므로 그가 형통한 자가 되어 그의 주인 애굽 사람의 집에 있으니" },
-      { v: 3, t: "그의 주인이 여호와께서 그와 함께 하심을 보며 또 여호와께서 그의 범사에 형통하게 하심을 보았더라" },
-      { v: 4, t: "요셉이 그의 주인에게 은혜를 입어 섬기매 그가 요셉을 가정 총무로 삼고 자기의 소유를 다 그의 손에 위탁하니" },
-      { v: 5, t: "그가 요셉에게 자기의 집과 그의 모든 소유물을 주관하게 한 때부터 여호와께서 요셉을 위하여 그 애굽 사람의 집에 복을 내리시므로 여호와의 복이 그의 집과 밭에 있는 모든 소유에 미친지라" },
-      { v: 6, t: "주인이 그의 소유를 다 요셉의 손에 위탁하고 자기가 먹는 음식 외에는 간섭하지 아니하였더라 요셉은 용모가 빼어나고 아름다웠더라" },
-      { v: 7, t: "그 후에 그의 주인의 아내가 요셉에게 눈짓하다가 동침하기를 청하니" },
-      { v: 8, t: "요셉이 거절하며 자기 주인의 아내에게 이르되 내 주인이 집안의 모든 소유를 간섭하지 아니하고 다 내 손에 위탁하였으니" },
-      { v: 9, t: "이 집에는 나보다 큰 이가 없으며 주인이 아무것도 내게 금하지 아니하였어도 금한 것은 당신뿐이니 당신은 그의 아내임이라 그런즉 내가 어찌 이 큰 악을 행하여 하나님께 죄를 지으리이까" },
-      { v: 10, t: "여인이 날마다 요셉에게 청하였으나 요셉이 듣지 아니하여 동침하지 아니할 뿐더러 함께 있지도 아니하니라" },
-      { v: 11, t: "그러할 때에 요셉이 그의 일을 하러 그 집에 들어갔더니 그 집 사람들은 하나도 거기에 없었더라" },
-      { v: 12, t: "그 여인이 그의 옷을 잡고 이르되 나와 동침하자 그러나 요셉이 자기의 옷을 그 여인의 손에 버려두고 밖으로 나가매" },
-      { v: 13, t: "그 여인이 요셉이 그의 옷을 자기 손에 버려두고 도망하여 나감을 보고" },
-      { v: 14, t: "그 여인의 집 사람들을 불러서 그들에게 이르되 보라 주인이 히브리 사람을 우리에게 데려다가 우리를 희롱하게 하는도다 그가 나와 동침하고자 내게로 들어오므로 내가 크게 소리 질렀더니" },
-      { v: 15, t: "그가 나의 소리 질러 부름을 듣고 그의 옷을 내게 버려두고 도망하여 나갔느니라 하고" },
-      { v: 16, t: "그의 옷을 곁에 두고 자기 주인이 집으로 돌아오기를 기다려" },
-      { v: 17, t: "이 말로 그에게 말하여 이르되 당신이 우리에게 데려온 히브리 종이 나를 희롱하려고 내게로 들어왔으므로" },
-      { v: 18, t: "내가 소리 질러 불렀더니 그가 그의 옷을 내게 버려두고 밖으로 도망하여 나갔나이다" },
-      { v: 19, t: "그의 주인이 자기 아내가 자기에게 이르기를 당신의 종이 내게 이같이 행하였다 하는 말을 듣고 심히 노한지라" },
-      { v: 20, t: "이에 요셉의 주인이 그를 잡아 옥에 가두니 그 옥은 왕의 죄수를 가두는 곳이었더라 요셉이 옥에 갇혔으나" },
-      { v: 21, t: "여호와께서 요셉과 함께 하시고 그에게 인자를 더하사 간수장에게 은혜를 받게 하시매" },
-      { v: 22, t: "간수장이 옥중 죄수를 다 요셉의 손에 맡기므로 그 제반 사무를 요셉이 처리하고" },
-      { v: 23, t: "간수장은 그의 손에 맡긴 것을 무엇이든지 살펴보지 아니하였으니 이는 여호와께서 요셉과 함께 하심이라 여호와께서 그를 범사에 형통하게 하셨더라" }
-    ];
+      {
+            "v": 1,
+            "krv": "요셉이 이끌려 애굽에 내려가매 바로의 신하 친위대장 애굽 사람 보디발이 그를 그리로 데려간 이스마엘 사람의 손에서 요셉을 사니라",
+            "easy": "요셉이 이집트로 끌려갔습니다. 보디발이라는 이집트 사람이 있었는데, 그 사람은 파라오의 신하였습니다. 그 사람은 왕궁 경호대의 대장이기도 했습니다. 보디발이 요셉을 끌고 온 이스마엘 사람들에게서 요셉을 샀습니다.",
+            "niv": "Now Joseph had been taken down to Egypt. Potiphar, an Egyptian who was one of Pharaoh’s officials, the captain of the guard, bought him from the Ishmaelites who had taken him there."
+      },
+      {
+            "v": 2,
+            "krv": "여호와께서 요셉과 함께 하시므로 그가 형통한 자가 되어 그의 주인 애굽 사람의 집에 있으니",
+            "easy": "여호와께서 요셉과 함께하시므로, 요셉이 성공하게 되었습니다. 요셉은 자기 주인인 이집트 사람 보디발의 집에서 살았습니다.",
+            "niv": "The Lord was with Joseph so that he prospered, and he lived in the house of his Egyptian master."
+      },
+      {
+            "v": 3,
+            "krv": "그의 주인이 여호와께서 그와 함께 하심을 보며 또 여호와께서 그의 범사에 형통하게 하심을 보았더라",
+            "easy": "보디발은 여호와께서 요셉과 함께 계시다는 것을 알았습니다. 보디발은 여호와께서 요셉이 하는 일마다 성공하게 해 주신다는 것을 알았습니다.",
+            "niv": "When his master saw that the Lord was with him and that the Lord gave him success in everything he did,"
+      },
+      {
+            "v": 4,
+            "krv": "요셉이 그의 주인에게 은혜를 입어 섬기매 그가 요셉을 가정 총무로 삼고 자기의 소유를 다 그의 손에 위탁하니",
+            "easy": "그래서 보디발은 요셉을 매우 좋아했습니다. 보디발은 요셉을 마음놓고 믿을 수 있는 부하로 삼았습니다. 그는 요셉에게 집안 일과 자기가 가진 모든 것을 맡겼습니다.",
+            "niv": "Joseph found favor in his eyes and became his attendant. Potiphar put him in charge of his household, and he entrusted to his care everything he owned."
+      },
+      {
+            "v": 5,
+            "krv": "그가 요셉에게 자기의 집과 그의 모든 소유물을 주관하게 한 때부터 여호와께서 요셉을 위하여 그 애굽 사람의 집에 복을 내리시므로 여호와의 복이 그의 집과 밭에 있는 모든 소유에 미친지라",
+            "easy": "그래서 요셉은 집안 일과 보디발이 가진 모든 것을 맡게 되었습니다. 그러자 여호와께서는 요셉으로 인해 보디발의 집에 있는 모든 사람들에게 복을 주셨습니다. 그리고 여호와께서는 보디발이 가진 모든 것, 집에 있는 것이나 들에 있는 모든 것에 복을 주셨습니다.",
+            "niv": "From the time he put him in charge of his household and of all that he owned, the Lord blessed the household of the Egyptian because of Joseph. The blessing of the Lord was on everything Potiphar had, both in the house and in the field."
+      },
+      {
+            "v": 6,
+            "krv": "주인이 그의 소유를 다 요셉의 손에 위탁하고 자기가 먹는 음식 외에는 간섭하지 아니하였더라 요셉은 용모가 빼어나고 아름다웠더라",
+            "easy": "그리하여 보디발은 자기가 가진 모든 것을 요셉에게 맡겼습니다. 보디발은 자기가 먹는 음식 말고는 요셉이 하는 일에 참견하지 않았습니다. 요셉은 멋지고 잘생긴 사람이었습니다.",
+            "niv": "So Potiphar left everything he had in Joseph’s care; with Joseph in charge, he did not concern himself with anything except the food he ate. Now Joseph was well-built and handsome,"
+      },
+      {
+            "v": 7,
+            "krv": "그 후에 그의 주인의 아내가 요셉에게 눈짓하다가 동침하기를 청하니",
+            "easy": "시간이 흐르자 주인의 아내가 요셉에게 점점 눈길을 주기 시작했습니다. 어느 날, 주인의 아내가 요셉에게 말했습니다. “나와 같이 자자.”",
+            "niv": "and after a while his master’s wife took notice of Joseph and said, “Come to bed with me!”"
+      },
+      {
+            "v": 8,
+            "krv": "요셉이 거절하며 자기 주인의 아내에게 이르되 내 주인이 집안의 모든 소유를 간섭하지 아니하고 다 내 손에 위탁하였으니",
+            "easy": "그러나 요셉은 거절했습니다. 요셉이 주인의 아내에게 말했습니다. “제 주인께서는 이 집의 모든 일을 저에게 맡기셨습니다.",
+            "niv": "But he refused. “With me in charge,” he told her, “my master does not concern himself with anything in the house; everything he owns he has entrusted to my care."
+      },
+      {
+            "v": 9,
+            "krv": "이 집에는 나보다 큰 이가 없으며 주인이 아무것도 내게 금하지 아니하였어도 금한 것은 당신뿐이니 당신은 그의 아내임이라 그런즉 내가 어찌 이 큰 악을 행하여 하나님께 죄를 지으리이까",
+            "easy": "주인의 집에는 저보다 높은 사람이 없습니다. 주인께서는 마님만 빼놓고 모든 것을 저에게 맡기셨습니다. 마님께서는 주인의 아내이기 때문입니다. 그런데 제가 어떻게 그런 나쁜 일을 할 수가 있겠습니까? 그것은 하나님께 죄를 짓는 일입니다.”",
+            "niv": "No one is greater in this house than I am. My master has withheld nothing from me except you, because you are his wife. How then could I do such a wicked thing and sin against God?”"
+      },
+      {
+            "v": 10,
+            "krv": "여인이 날마다 요셉에게 청하였으나 요셉이 듣지 아니하여 동침하지 아니할 뿐더러 함께 있지도 아니하니라",
+            "easy": "주인의 아내는 요셉에게 매일 말을 건넸지만, 요셉은 주인의 아내와 같이 자는 것은 말할 것도 없고 함께 있으려 하지도 않았습니다.",
+            "niv": "And though she spoke to Joseph day after day, he refused to go to bed with her or even be with her."
+      },
+      {
+            "v": 11,
+            "krv": "그러할 때에 요셉이 그의 일을 하러 그 집에 들어갔더니 그 집 사람들은 하나도 거기에 없었더라",
+            "easy": "어느 날, 요셉은 보통 때처럼 집으로 들어가서 일을 했습니다. 그러나 그 시간에 집에는 요셉밖에 없었습니다.",
+            "niv": "One day he went into the house to attend to his duties, and none of the household servants was inside."
+      },
+      {
+            "v": 12,
+            "krv": "그 여인이 그의 옷을 잡고 이르되 나와 동침하자 그러나 요셉이 자기의 옷을 그 여인의 손에 버려두고 밖으로 나가매",
+            "easy": "주인의 아내가 요셉의 옷자락을 붙잡고 말했습니다. “와서 나와 같이 자자.” 그러나 요셉은 붙잡힌 옷을 남겨 둔 채 집 밖으로 뛰쳐나갔습니다.",
+            "niv": "She caught him by his cloak and said, “Come to bed with me!” But he left his cloak in her hand and ran out of the house."
+      },
+      {
+            "v": 13,
+            "krv": "그 여인이 요셉이 그의 옷을 자기 손에 버려두고 도망하여 나감을 보고",
+            "easy": "주인의 아내는 요셉이 옷을 남겨 놓은 채 밖으로 뛰쳐나간 것을 보고",
+            "niv": "When she saw that he had left his cloak in her hand and had run out of the house,"
+      },
+      {
+            "v": 14,
+            "krv": "그 여인의 집 사람들을 불러서 그들에게 이르되 보라 주인이 히브리 사람을 우리에게 데려다가 우리를 희롱하게 하는도다 그가 나와 동침하고자 내게로 들어오므로 내가 크게 소리 질렀더니",
+            "easy": "집에 있던 종들을 불러서 말했습니다. “내 남편이 우리를 창피스럽게 만들려고 저 히브리 노예를 데리고 왔나 보다. 저놈이 들어와서 나를 강간하려 했다. 내가 소리를 지르니까",
+            "niv": "she called her household servants. “Look,” she said to them, “this Hebrew has been brought to us to make sport of us! He came in here to sleep with me, but I screamed."
+      },
+      {
+            "v": 15,
+            "krv": "그가 나의 소리 질러 부름을 듣고 그의 옷을 내게 버려두고 도망하여 나갔느니라 하고",
+            "easy": "저 놈이 놀라서 도망쳤다. 저 놈이 도망치다가 떨어뜨린 옷이 여기에 있다.”",
+            "niv": "When he heard me scream for help, he left his cloak beside me and ran out of the house.”"
+      },
+      {
+            "v": 16,
+            "krv": "그의 옷을 곁에 두고 자기 주인이 집으로 돌아오기를 기다려",
+            "easy": "주인의 아내는 남편이 돌아올 때까지 요셉의 옷을 가지고 있었습니다.",
+            "niv": "She kept his cloak beside her until his master came home."
+      },
+      {
+            "v": 17,
+            "krv": "이 말로 그에게 말하여 이르되 당신이 우리에게 데려온 히브리 종이 나를 희롱하려고 내게로 들어왔으므로",
+            "easy": "그리고 남편에게 똑같은 이야기를 했습니다. “당신이 데리고 온 저 히브리 노예가 나를 강간하려 했어요.",
+            "niv": "Then she told him this story: “That Hebrew slave you brought us came to me to make sport of me."
+      },
+      {
+            "v": 18,
+            "krv": "내가 소리 질러 불렀더니 그가 그의 옷을 내게 버려두고 밖으로 도망하여 나갔나이다",
+            "easy": "그 놈이 가까이 오길래 내가 소리를 질렀더니 이 옷을 버려 두고 도망쳤어요.”",
+            "niv": "But as soon as I screamed for help, he left his cloak beside me and ran out of the house.”"
+      },
+      {
+            "v": 19,
+            "krv": "그의 주인이 자기 아내가 자기에게 이르기를 당신의 종이 내게 이같이 행하였다 하는 말을 듣고 심히 노한지라",
+            "easy": "요셉의 주인은 자기 아내가 요셉에 대해 하는 말을 듣고 매우 화가 났습니다.",
+            "niv": "When his master heard the story his wife told him, saying, “This is how your slave treated me,” he burned with anger."
+      },
+      {
+            "v": 20,
+            "krv": "이에 요셉의 주인이 그를 잡아 옥에 가두니 그 옥은 왕의 죄수를 가두는 곳이었더라 요셉이 옥에 갇혔으나",
+            "easy": "그래서 보디발은 요셉을 붙잡아 감옥에 넣었습니다. 그 감옥은 왕의 죄수들을 넣는 곳이었습니다. 요셉은 감옥에서 살게 되었습니다.",
+            "niv": "Joseph’s master took him and put him in prison, the place where the king’s prisoners were confined. But while Joseph was there in the prison,"
+      },
+      {
+            "v": 21,
+            "krv": "여호와께서 요셉과 함께 하시고 그에게 인자를 더하사 간수장에게 은혜를 받게 하시매",
+            "easy": "하지만 여호와께서는 요셉과 함께 계셨으며, 요셉에게 한결같은 사랑을 베푸셨습니다. 그래서 요셉을 간수장의 마음에 들게 하셨습니다.",
+            "niv": "the Lord was with him; he showed him kindness and granted him favor in the eyes of the prison warden."
+      },
+      {
+            "v": 22,
+            "krv": "간수장이 옥중 죄수를 다 요셉의 손에 맡기므로 그 제반 사무를 요셉이 처리하고",
+            "easy": "간수장은 요셉에게 감옥에 있는 모든 죄수를 맡겼습니다. 요셉은 감옥에서 이루어지는 모든 일을 맡았습니다.",
+            "niv": "So the warden put Joseph in charge of all those held in the prison, and he was made responsible for all that was done there."
+      },
+      {
+            "v": 23,
+            "krv": "간수장은 그의 손에 맡긴 것을 무엇이든지 살펴보지 아니하였으니 이는 여호와께서 요셉과 함께 하심이라 여호와께서 그를 범사에 형통하게 하셨더라",
+            "easy": "간수장은 요셉이 하는 일에 조금도 간섭하지 않았습니다. 그것은 여호와께서 요셉과 함께 계셨기 때문이었습니다. 여호와께서는 요셉이 무슨 일을 하든 성공하게 만드셨습니다.",
+            "niv": "The warden paid no attention to anything under Joseph’s care, because the Lord was with Joseph and gave him success in whatever he did."
+      }
+];
+
+    let currentBibleVersion = 'compare'; // 'compare' | 'krv' | 'easy' | 'niv'
+
+    function setBibleVersion(ver) {
+      currentBibleVersion = ver;
+      document.querySelectorAll('.ver-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-ver') === ver) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      renderBibleVerses('bibleVerseContainer');
+      renderBibleVerses('bibleVerseModal');
+    }
 
     function renderBibleVerses(containerId) {
       const container = document.getElementById(containerId);
       if (!container) return;
-      container.innerHTML = genesisVerses.map(item => `
-        <div class="verse-line">
-          <span class="verse-badge">${item.v}</span>
-          <p class="verse-content">${item.t}</p>
-        </div>
-      `).join('');
+
+      container.innerHTML = genesisVerses.map(item => {
+        let contentHtml = '';
+        if (currentBibleVersion === 'krv') {
+          contentHtml = '<p class="verse-text-item krv">' + item.krv + '</p>';
+        } else if (currentBibleVersion === 'easy') {
+          contentHtml = '<p class="verse-text-item easy"><span class="trans-label easy-tag">쉬운성경</span>' + item.easy + '</p>';
+        } else if (currentBibleVersion === 'niv') {
+          contentHtml = '<p class="verse-text-item niv"><span class="trans-label niv-tag">NIV</span>' + item.niv + '</p>';
+        } else {
+          // compare mode (모든 역본 대조 표시)
+          contentHtml = '<div class="verse-text-item krv"><span class="trans-label krv-tag">개역</span>' + item.krv + '</div>' +
+                        '<div class="verse-text-item easy"><span class="trans-label easy-tag">쉬운</span>' + item.easy + '</div>' +
+                        '<div class="verse-text-item niv"><span class="trans-label niv-tag">NIV</span>' + item.niv + '</div>';
+        }
+
+        return '<div class="verse-line">' +
+               '<span class="verse-badge">' + item.v + '</span>' +
+               '<div class="verse-content-group">' +
+               contentHtml +
+               '</div>' +
+               '</div>';
+      }).join('');
     }
 
     renderBibleVerses('bibleVerseContainer');
+
 
     // Tab Switching with Smooth Animation
     function showTab(tabName, clickedBtn) {
@@ -2132,6 +2584,10 @@
 
     function openBibleModal() {
       renderBibleVerses('bibleVerseModal');
+      const scrollBody = document.querySelector('#modalBible .sheet-scroll-body');
+      if (scrollBody) {
+        scrollBody.scrollTop = 0;
+      }
       openModal('modalBible');
     }
 
