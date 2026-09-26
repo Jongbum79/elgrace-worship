@@ -591,13 +591,14 @@
 
     .hymn-image-frame {
       width: 100%;
+      min-height: 280px;
       background: #ffffff;
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
-      overflow: hidden;
+      overflow: auto;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       border: 1px solid rgba(0, 0, 0, 0.08);
       position: relative;
     }
@@ -605,9 +606,9 @@
     .hymn-image-frame img {
       width: 100%;
       height: auto;
-      max-height: 65vh;
-      object-fit: contain;
+      display: block;
       transition: transform 0.2s ease;
+      transform-origin: top center;
     }
 
     .hymn-toolbar {
@@ -1047,11 +1048,12 @@
           </div>
           <div class="hymn-toolbar">
             <a id="hymnExternalLink" href="#" target="_blank" rel="noopener" class="hymn-source-btn">
-              🔗 고화질 원본 사이트 보기
+              🔗 해설/가사 보기
             </a>
             <div class="hymn-zoom-btns">
-              <button class="zoom-btn" onclick="zoomHymn(1.2)">🔍 확대</button>
+              <button class="zoom-btn" onclick="zoomHymn(1.35)">🔍 확대</button>
               <button class="zoom-btn" onclick="zoomHymn(1.0)">원래대로</button>
+              <button class="zoom-btn" onclick="openImageInNewTab()">🖼️ 전체화면</button>
             </div>
           </div>
         </div>
@@ -1327,6 +1329,13 @@
       currentScale = scale;
       const imgElem = document.getElementById('hymnImage');
       imgElem.style.transform = `scale(${currentScale})`;
+    }
+
+    function openImageInNewTab() {
+      const imgElem = document.getElementById('hymnImage');
+      if (imgElem && imgElem.src) {
+        window.open(imgElem.src, '_blank');
+      }
     }
 
     function openBibleModal() {
