@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>주은혜교회 주일 예배</title>
+  <meta name="description" content="주은혜교회 주일 예배 순서, 찬송가 악보 및 성경 본문 웹 뷰어">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="icon" type="image/jpeg" href="assets/images/church_logo.jpg">
+
+  <style>
+    :root {
+      --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Pretendard Variable", Pretendard, system-ui, sans-serif;
+      --bg-page: #f5f5f7;
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --bg-card-hover: rgba(255, 255, 255, 0.96);
+      --border-subtle: rgba(0, 0, 0, 0.06);
+      --border-focus: #0071e3;
+      --text-primary: #1d1d1f;
+      --text-secondary: #86868b;
+      --text-tertiary: #a1a1a6;
+      --accent: #0071e3;
+      --accent-soft: rgba(0, 113, 227, 0.1);
+      --accent-gradient: linear-gradient(135deg, #0071e3 0%, #42a5f5 100%);
+      --badge-bg: rgba(0, 0, 0, 0.04);
+      --modal-bg: rgba(255, 255, 255, 0.95);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-page: #000000;
+        --bg-card: rgba(28, 28, 30, 0.85);
+        --bg-card-hover: rgba(44, 44, 46, 0.95);
+        --border-subtle: rgba(255, 255, 255, 0.1);
+        --text-primary: #f5f5f7;
+        --text-secondary: #86868b;
+        --text-tertiary: #6e6e73;
+        --accent: #2997ff;
+        --accent-soft: rgba(41, 151, 255, 0.15);
+        --badge-bg: rgba(255, 255, 255, 0.08);
+        --modal-bg: rgba(28, 28, 30, 0.95);
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+        --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+        --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    [data-theme="light"] {
+      --bg-page: #f5f5f7;
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --bg-card-hover: rgba(255, 255, 255, 0.96);
+      --border-subtle: rgba(0, 0, 0, 0.06);
+      --text-primary: #1d1d1f;
+      --text-secondary: #86868b;
+      --text-tertiary: #a1a1a6;
+      --accent: #0071e3;
+      --accent-soft: rgba(0, 113, 227, 0.1);
+      --badge-bg: rgba(0, 0, 0, 0.04);
+      --modal-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #000000;
+      --bg-card: rgba(28, 28, 30, 0.85);
+      --bg-card-hover: rgba(44, 44, 46, 0.95);
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --text-primary: #f5f5f7;
+      --text-secondary: #86868b;
+      --text-tertiary: #6e6e73;
+      --accent: #2997ff;
+      --accent-soft: rgba(41, 151, 255, 0.15);
+      --badge-bg: rgba(255, 255, 255, 0.08);
+      --modal-bg: rgba(28, 28, 30, 0.95);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-system);
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.5;
+      letter-spacing: -0.015em;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    /* Apple-style Navigation Bar */
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .church-logo {
+      height: 34px;
+      width: auto;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    .nav-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-church-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-service-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-icon {
+      background: var(--badge-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .btn-icon:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    .btn-icon:active {
+      transform: scale(0.95);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(0, 113, 227, 0.15) 0%, rgba(0, 113, 227, 0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-date-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-heading {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .hero-motto {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    /* Quick Action Pill Bar */
+    .quick-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .quick-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .quick-pill:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .quick-pill:active {
+      transform: scale(0.98);
+    }
+
+    .quick-pill-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .quick-pill-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .quick-pill-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .quick-pill-desc {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* Section Title */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding: 0 4px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-badge {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: var(--badge-bg);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    /* Service Order List */
+    .order-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .order-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .order-card.clickable {
+      cursor: pointer;
+    }
+
+    .order-card.clickable:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(0, 113, 227, 0.3);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .order-card.clickable:active {
+      transform: scale(0.985);
+    }
+
+    .order-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .order-step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: var(--radius-full);
+      background: var(--badge-bg);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .order-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .order-title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .order-detail {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .order-badge-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--badge-bg);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .order-badge-pill.action-hymn {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: rgba(0, 113, 227, 0.2);
+    }
+
+    .order-badge-pill.action-bible {
+      background: rgba(52, 199, 89, 0.12);
+      color: #34c759;
+      border-color: rgba(52, 199, 89, 0.25);
+    }
+
+    .order-badge-pill.action-creed {
+      background: rgba(175, 82, 222, 0.12);
+      color: #af52de;
+      border-color: rgba(175, 82, 222, 0.25);
+    }
+
+    .order-badge-pill.action-news {
+      background: rgba(255, 149, 0, 0.12);
+      color: #ff9500;
+      border-color: rgba(255, 149, 0, 0.25);
+    }
+
+    /* Modal / Bottom Sheet */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    @media (min-width: 640px) {
+      .modal-overlay {
+        align-items: center;
+        padding: 20px;
+      }
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-sheet {
+      background: var(--modal-bg);
+      border: 1px solid var(--border-subtle);
+      width: 100%;
+      max-width: 640px;
+      border-radius: 28px 28px 0 0;
+      box-shadow: var(--shadow-lg);
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(100%);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+
+    @media (min-width: 640px) {
+      .modal-sheet {
+        border-radius: 24px;
+        transform: scale(0.95);
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+
+    .modal-overlay.active .modal-sheet {
+      transform: translateY(0);
+    }
+
+    @media (min-width: 640px) {
+      .modal-overlay.active .modal-sheet {
+        transform: scale(1);
+      }
+    }
+
+    .modal-header {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .modal-grabber {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 36px;
+      height: 4px;
+      background: var(--text-tertiary);
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    @media (min-width: 640px) {
+      .modal-grabber {
+        display: none;
+      }
+    }
+
+    .modal-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-category {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      background: var(--badge-bg);
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: background 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background: var(--border-subtle);
+    }
+
+    .modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      flex: 1;
+    }
+
+    /* Hymn Sheet Image Viewer */
+    .hymn-viewer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hymn-image-frame {
+      width: 100%;
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .hymn-image-frame img {
+      width: 100%;
+      height: auto;
+      max-height: 65vh;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+
+    .hymn-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 8px;
+    }
+
+    .hymn-source-btn {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 600;
+    }
+
+    .hymn-zoom-btns {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .zoom-btn {
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      background: var(--badge-bg);
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    /* Bible Passage Reader */
+    .bible-reader {
+      font-family: -apple-system, BlinkMacSystemFont, "Nanum Myeongjo", "KoPub Batang", "Georgia", serif;
+      font-size: 17px;
+      line-height: 1.85;
+      color: var(--text-primary);
+    }
+
+    .bible-reader-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-system);
+    }
+
+    .bible-size-btn {
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      background: var(--badge-bg);
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    .verse-item {
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .verse-num {
+      font-family: var(--font-system);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: var(--radius-full);
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .verse-text {
+      flex: 1;
+      word-break: keep-all;
+    }
+
+    /* Creed & News Styles */
+    .creed-text {
+      font-size: 16px;
+      line-height: 1.9;
+      word-break: keep-all;
+      padding: 10px;
+      background: var(--badge-bg);
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--accent);
+    }
+
+    .news-card-item {
+      background: var(--badge-bg);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+
+    .news-card-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .news-card-item p {
+      font-size: 13px;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Hymn Search Modal */
+    .search-input-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 42px;
+      font-size: 16px;
+      font-family: var(--font-system);
+      background: var(--badge-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+      font-size: 16px;
+    }
+
+    .hymn-quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+    }
+
+    .hymn-chip {
+      background: var(--badge-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .hymn-chip:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    .hymn-chip-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .hymn-chip-title {
+      font-size: 12px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Footer */
+    .page-footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-tertiary);
+      font-size: 12px;
+    }
+
+    .page-footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="nav-bar">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <img src="assets/images/church_logo.jpg" alt="주은혜교회 로고" class="church-logo" onerror="this.style.display='none'">
+        <div class="nav-title-wrap">
+          <span class="nav-church-name">Elgrace Presbyterian Church</span>
+          <span class="nav-service-title">주일 예배</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <button class="btn-icon" id="btnSearchHymn" title="찬송가 검색" aria-label="찬송가 검색">🔍</button>
+        <button class="btn-icon" id="btnThemeToggle" title="화면 테마 변경" aria-label="테마 전환">🌓</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <span class="hero-date-badge">2026년 9월 27일 주일 예배</span>
+      <h1 class="hero-heading">주일 2부 예배 순서</h1>
+      <p class="hero-motto">“하나님을 알아가고 알려주자” (오전 11:00)</p>
+    </section>
+
+    <!-- Quick Action Pills -->
+    <div class="quick-bar">
+      <div class="quick-pill" onclick="openBibleModal()">
+        <div class="quick-pill-icon">📖</div>
+        <div class="quick-pill-text">
+          <span class="quick-pill-title">오늘의 성경 본문</span>
+          <span class="quick-pill-desc">창세기 39장 (요셉의 이야기)</span>
+        </div>
+      </div>
+      <div class="quick-pill" onclick="openHymnModal('093', '예수는 나의 힘이요')">
+        <div class="quick-pill-icon">♫</div>
+        <div class="quick-pill-text">
+          <span class="quick-pill-title">입례 찬송 (93장)</span>
+          <span class="quick-pill-desc">예수는 나의 힘이요 악보</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Liturgy Order -->
+    <div class="section-header">
+      <h2 class="section-title">예배 순서 안내</h2>
+      <span class="section-badge">주보 연동</span>
+    </div>
+
+    <div class="order-list">
+      <!-- 1. 사회 -->
+      <div class="order-card">
+        <div class="order-left">
+          <span class="order-step-num">1</span>
+          <div class="order-info">
+            <span class="order-title">사회</span>
+            <span class="order-detail">예배의 부름</span>
+          </div>
+        </div>
+        <span class="order-badge-pill">민상현 목사</span>
+      </div>
+
+      <!-- 2. 묵도 -->
+      <div class="order-card">
+        <div class="order-left">
+          <span class="order-step-num">2</span>
+          <div class="order-info">
+            <span class="order-title">묵도</span>
+            <span class="order-detail">마음을 가다듬는 기도</span>
+          </div>
+        </div>
+        <span class="order-badge-pill">다같이</span>
+      </div>
+
+      <!-- 3. 찬송 93장 -->
+      <div class="order-card clickable" onclick="openHymnModal('093', '예수는 나의 힘이요')">
+        <div class="order-left">
+          <span class="order-step-num">3</span>
+          <div class="order-info">
+            <span class="order-title">찬송 93장</span>
+            <span class="order-detail">예수는 나의 힘이요</span>
+          </div>
+        </div>
+        <span class="order-badge-pill action-hymn">악보 보기 ♫</span>
+      </div>
+
+      <!-- 4. 신앙고백 -->
+      <div class="order-card clickable" onclick="openCreedModal()">
+        <div class="order-left">
+          <span class="order-step-num">4</span>
+          <div class="order-info">
+            <span class="order-title">신앙고백</span>
+            <span class="order-detail">사도신경</span>
+          </div>
+        </div>
+        <span class="order-badge-pill action-creed">전문 읽기 ✝</span>
+      </div>
+
+      <!-- 5. 찬송 304장 -->
+      <div class="order-card clickable" onclick="openHymnModal('304', '그 크신 하나님의 사랑')">
+        <div class="order-left">
+          <span class="order-step-num">5</span>
+          <div class="order-info">
+            <span class="order-title">찬송 304장</span>
+            <span class="order-detail">그 크신 하나님의 사랑</span>
+          </div>
+        </div>
+        <span class="order-badge-pill action-hymn">악보 보기 ♫</span>
+      </div>
+
+      <!-- 6. 대표기도 -->
+      <div class="order-card">
+        <div class="order-left">
+          <span class="order-step-num">6</span>
+          <div class="order-info">
+            <span class="order-title">대표기도</span>
+            <span class="order-detail">회중을 대표한 간구</span>
+          </div>
+        </div>
+        <span class="order-badge-pill">김보근 장로</span>
+      </div>
+
+      <!-- 7. 성경봉독 (창세기 39장) -->
+      <div class="order-card clickable" onclick="openBibleModal()">
+        <div class="order-left">
+          <span class="order-step-num">7</span>
+          <div class="order-info">
+            <span class="order-title">성경봉독</span>
+            <span class="order-detail">창세기 39장 (구약 60p)</span>
+          </div>
+        </div>
+        <span class="order-badge-pill action-bible">말씀 읽기 📖</span>
+      </div>
+
+      <!-- 8. 헌금 찬송 50장 -->
+      <div class="order-card clickable" onclick="openHymnModal('050', '내게 있는 모든 것을')">
+        <div class="order-left">
+          <span class="order-step-num">8</span>
+          <div class="order-info">
+            <span class="order-title">봉헌 찬송 50장</span>
+            <span class="order-detail">내게 있는 모든 것을</span>
+          </div>
+        </div>
+        <span class="order-badge-pill action-hymn">악보 보기 ♫</span>
+      </div>
+
+      <!-- 9. 찬양 -->
+      <div class="order-card">
+        <div class="order-left">
+          <span class="order-step-num">9</span>
+          <div class="order-info">
+            <span class="order-title">찬양</span>
+            <span class="order-detail">주은혜 찬양대</span>
+          </div>
+        </div>
+        <span class="order-badge-pill">성가대</span>
+      </div>
+
+      <!-- 10. 설교 -->
+      <div class="order-card clickable" onclick="openBibleModal()">
+        <div class="order-left">
+          <span class="order-step-num">10</span>
+          <div class="order-info">
+            <span class="order-title">말씀 선포 (설교)</span>
+            <span class="order-detail">본문: 창세기 39장 1~23절</span>
+          </div>
+        </div>
+        <span class="order-badge-pill action-bible">박철진 담임목사</span>
+      </div>
+
+      <!-- 11. 환영 및 소식 -->
+      <div class="order-card clickable" onclick="openNewsModal()">
+        <div class="order-left">
+          <span class="order-step-num">11</span>
+          <div class="order-info">
+            <span class="order-title">환영 및 소식</span>
+            <span class="order-detail">전교인 기도회 / 사경회 / 성경공부</span>
+          </div>
+        </div>
+        <span class="order-badge-pill action-news">주요 소식 📢</span>
+      </div>
+
+      <!-- 12. 찬송 445장 -->
+      <div class="order-card clickable" onclick="openHymnModal('445', '태산을 넘어 험곡에 가도')">
+        <div class="order-left">
+          <span class="order-step-num">12</span>
+          <div class="order-info">
+            <span class="order-title">결단 찬송 445장</span>
+            <span class="order-detail">태산을 넘어 험곡에 가도</span>
+          </div>
+        </div>
+        <span class="order-badge-pill action-hymn">악보 보기 ♫</span>
+      </div>
+
+      <!-- 13. 축도 -->
+      <div class="order-card">
+        <div class="order-left">
+          <span class="order-step-num">13</span>
+          <div class="order-info">
+            <span class="order-title">축도</span>
+            <span class="order-detail">주님의 은혜와 축복</span>
+          </div>
+        </div>
+        <span class="order-badge-pill">박철진 담임목사</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <p>대한예수교장로회 <strong>주은혜교회</strong> (Elgrace Church)</p>
+    <p style="margin-top: 4px;">담임목사 박철진 · <a href="https://www.elgrace.org" target="_blank" rel="noopener">www.elgrace.org</a></p>
+  </footer>
+
+  <!-- 1. Hymn Sheet Modal -->
+  <div class="modal-overlay" id="hymnModal">
+    <div class="modal-sheet">
+      <div class="modal-grabber"></div>
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-category">찬송가 악보</span>
+          <h3 class="modal-title" id="hymnModalTitle">찬송가</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('hymnModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="hymn-viewer">
+          <div class="hymn-image-frame" id="hymnImageFrame">
+            <img id="hymnImage" src="" alt="찬송가 악보" loading="lazy">
+          </div>
+          <div class="hymn-toolbar">
+            <a id="hymnExternalLink" href="#" target="_blank" rel="noopener" class="hymn-source-btn">
+              🔗 고화질 원본 사이트 보기
+            </a>
+            <div class="hymn-zoom-btns">
+              <button class="zoom-btn" onclick="zoomHymn(1.2)">🔍 확대</button>
+              <button class="zoom-btn" onclick="zoomHymn(1.0)">원래대로</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Bible Reader Modal -->
+  <div class="modal-overlay" id="bibleModal">
+    <div class="modal-sheet">
+      <div class="modal-grabber"></div>
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-category">성경 봉독 (개역개정)</span>
+          <h3 class="modal-title">창세기 39장 1~23절</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('bibleModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="bible-reader">
+          <div class="bible-reader-controls">
+            <span style="font-size: 13px; color: var(--text-secondary);">요셉과 보디발의 아내 (구약 60p)</span>
+            <div style="display: flex; gap: 6px;">
+              <button class="bible-size-btn" onclick="changeFontSize(-1)">A-</button>
+              <button class="bible-size-btn" onclick="changeFontSize(1)">A+</button>
+            </div>
+          </div>
+          <div id="bibleVersesContainer">
+            <!-- Verses injected via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Apostles' Creed Modal -->
+  <div class="modal-overlay" id="creedModal">
+    <div class="modal-sheet">
+      <div class="modal-grabber"></div>
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-category">신앙고백</span>
+          <h3 class="modal-title">사도신경 (Apostles' Creed)</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('creedModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="creed-text">
+          전능하사 천지를 만드신 하나님 아버지를 내가 믿사오며,<br><br>
+          그 외아들 우리 주 예수 그리스도를 믿사오니,<br>
+          이는 성령으로 잉태하사 동정녀 마리아에게 나시고,<br>
+          본디오 빌라도에게 고난을 받으사, 십자가에 못 박혀 죽으시고,<br>
+          장사한 지 사흘 만에 죽은 자 가운데서 다시 살아나시며,<br>
+          하늘에 오르사, 전능하신 하나님 아버지 우편에 앉아 계시다가,<br>
+          저리로서 산 자와 죽은 자를 심판하러 오시리라.<br><br>
+          성령을 믿사오며, 거룩한 공회와,<br>
+          성도가 서로 교통하는 것과,<br>
+          죄를 사하여 주시는 것과,<br>
+          몸이 다시 사는 것과,<br>
+          영원히 사는 것을 믿사옵나이다. 아멘.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Church News Modal -->
+  <div class="modal-overlay" id="newsModal">
+    <div class="modal-sheet">
+      <div class="modal-grabber"></div>
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-category">주은혜교회 소식</span>
+          <h3 class="modal-title">교회 주요 소식 및 일정</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('newsModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="news-card-item">
+          <h4>1. 교회를 위한 전교인 기도회</h4>
+          <p>• 기간: 9월 28일(월)부터 문제해결 시까지<br>• 방식: 매일 밤 9시 온라인(부서별 인도), 수/금 합심기도 후 개인기도(당회 인도)<br>• 기도제목: 한 마음, 대안 마련, 구체적 헌신, 더 단단해지는 교회 되도록</p>
+        </div>
+        <div class="news-card-item">
+          <h4>2. 직분자 기도회</h4>
+          <p>• 일시: 10월 2일(금) 오후 8:00 전교인 기도회</p>
+        </div>
+        <div class="news-card-item">
+          <h4>3. 10월 주요 행사 안내</h4>
+          <p>• 산상기도회: 10월 24일(토) 천마산기도원<br>• 제4회 말씀과 삶 사경회: 10월 26일(월) ~ 28일(수), 강사 문태언 목사(제자들교회)</p>
+        </div>
+        <div class="news-card-item">
+          <h4>4. 봉사 및 식사 순서</h4>
+          <p>• 배식: 청년부 연합조 (다음 주: 청년부 7, 8조)<br>• 청소: 장년부 형제 11(김보근), 12(김세원)조 (다음 주: 형제 13, 14조)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Hymn Search & Direct Access Modal -->
+  <div class="modal-overlay" id="searchModal">
+    <div class="modal-sheet">
+      <div class="modal-grabber"></div>
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-category">찬송가 빠른 찾기</span>
+          <h3 class="modal-title">찬송가 번호 검색</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('searchModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="number" id="hymnNumberInput" class="search-input" placeholder="찬송가 장 번호 입력 (예: 256, 93, 304, 50, 445)" min="1" max="645">
+        </div>
+        <div style="margin-bottom: 12px; font-size: 13px; font-weight: 700; color: var(--text-secondary);">
+          오늘의 찬송 & 주요 찬송가
+        </div>
+        <div class="hymn-quick-grid">
+          <div class="hymn-chip" onclick="openHymnModal('093', '예수는 나의 힘이요')">
+            <div class="hymn-chip-num">93장</div>
+            <div class="hymn-chip-title">예수는 나의 힘이요</div>
+          </div>
+          <div class="hymn-chip" onclick="openHymnModal('304', '그 크신 하나님의 사랑')">
+            <div class="hymn-chip-num">304장</div>
+            <div class="hymn-chip-title">그 크신 하나님의 사랑</div>
+          </div>
+          <div class="hymn-chip" onclick="openHymnModal('050', '내게 있는 모든 것을')">
+            <div class="hymn-chip-num">50장</div>
+            <div class="hymn-chip-title">내게 있는 모든 것을</div>
+          </div>
+          <div class="hymn-chip" onclick="openHymnModal('445', '태산을 넘어 험곡에 가도')">
+            <div class="hymn-chip-num">445장</div>
+            <div class="hymn-chip-title">태산을 넘어 험곡에 가도</div>
+          </div>
+          <div class="hymn-chip" onclick="openHymnModal('256', '나의 죄 모두 지신 주님')">
+            <div class="hymn-chip-num">256장</div>
+            <div class="hymn-chip-title">나의 죄 모두 지신 주님</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Hymn Database & External Links
+    const hymnDatabase = {
+      '050': {
+        title: '내게 있는 모든 것을',
+        localImage: 'assets/hymns/050.jpg',
+        externalUrl: 'https://risen.runean.com/entry/%EC%83%88%EC%B0%AC%EC%86%A1%EA%B0%80-50%EC%9E%A5-%EB%82%B4%EA%B2%8C-%EC%9E%88%EB%8A%94-%EB%AA%A8%EB%93%A0-%EA%B2%83%EC%9D%84-%EA%B0%80%EC%82%AC%EC%95%85%EB%B3%B4NWC'
+      },
+      '093': {
+        title: '예수는 나의 힘이요',
+        localImage: 'assets/hymns/093.jpg',
+        externalUrl: 'https://risen.runean.com/entry/%EC%B0%AC%EC%86%A1%EA%B0%80-93%EC%9E%A5-%EC%98%88%EC%88%98%EB%8A%94-%EB%82%98%EC%9D%98-%ED%9E%98%EC%9D%B4%EC%9A%94-%EA%B0%80%EC%82%AC%EC%95%85%EB%B3%B4NWC'
+      },
+      '256': {
+        title: '나의 죄 모두 지신 주님',
+        localImage: 'assets/hymns/256.jpg',
+        externalUrl: 'https://risen.runean.com/entry/%EC%B0%AC%EC%86%A1%EA%B0%80-256%EC%9E%A5-%EB%82%98%EC%9D%98-%EC%A3%84-%EB%AA%A8%EB%91%90-%EC%A7%80%EC%8B%A0-%EC%A3%BC%EB%8B%98-%EA%B0%80%EC%82%AC%EC%95%85%EB%B3%B4NWC'
+      },
+      '304': {
+        title: '그 크신 하나님의 사랑',
+        localImage: 'assets/hymns/304.jpg',
+        externalUrl: 'https://risen.runean.com/entry/%EC%B0%AC%EC%86%A1%EA%B0%80-304%EC%9E%A5-%EA%B7%B8-%ED%81%AC%EC%8B%A0-%ED%95%98%EB%82%98%EB%8B%98%EC%9D%98-%EC%82%AC%EB%9E%91-%EA%B0%80%EC%82%AC%EC%95%85%EB%B3%B4NWCMP3-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C'
+      },
+      '445': {
+        title: '태산을 넘어 험곡에 가도',
+        localImage: 'assets/hymns/445.jpg',
+        externalUrl: 'https://risen.runean.com/entry/%EC%B0%AC%EC%86%A1%EA%B0%80-445%EC%9E%A5-%ED%83%9C%EC%82%B0%EC%9D%84-%EB%84%98%EC%96%B4-%ED%97%98%EA%B3%A1%EC%97%90-%EA%B0%80%EB%8F%84-%EA%B0%80%EC%82%AC%EC%95%85%EB%B3%B4NWCMP3-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C'
+      }
+    };
+
+    // Genesis 39 Verses Data
+    const genesisVerses = [
+      { v: 1, t: "요셉이 이끌려 애굽에 내려가매 바로의 신하 친위대장 애굽 사람 보디발이 그를 그리로 데려간 이스마엘 사람의 손에서 요셉을 사니라" },
+      { v: 2, t: "여호와께서 요셉과 함께 하시므로 그가 형통한 자가 되어 그의 주인 애굽 사람의 집에 있으니" },
+      { v: 3, t: "그의 주인이 여호와께서 그와 함께 하심을 보며 또 여호와께서 그의 범사에 형통하게 하심을 보았더라" },
+      { v: 4, t: "요셉이 그의 주인에게 은혜를 입어 섬기매 그가 요셉을 가정 총무로 삼고 자기의 소유를 다 그의 손에 위탁하니" },
+      { v: 5, t: "그가 요셉에게 자기의 집과 그의 모든 소유물을 주관하게 한 때부터 여호와께서 요셉을 위하여 그 애굽 사람의 집에 복을 내리시므로 여호와의 복이 그의 집과 밭에 있는 모든 소유에 미친지라" },
+      { v: 6, t: "주인이 그의 소유를 다 요셉의 손에 위탁하고 자기가 먹는 음식 외에는 간섭하지 아니하였더라 요셉은 용모가 빼어나고 아름다웠더라" },
+      { v: 7, t: "그 후에 그의 주인의 아내가 요셉에게 눈짓하다가 동침하기를 청하니" },
+      { v: 8, t: "요셉이 거절하며 자기 주인의 아내에게 이르되 내 주인이 집안의 모든 소유를 간섭하지 아니하고 다 내 손에 위탁하였으니" },
+      { v: 9, t: "이 집에는 나보다 큰 이가 없으며 주인이 아무것도 내게 금하지 아니하였어도 금한 것은 당신뿐이니 당신은 그의 아내임이라 그런즉 내가 어찌 이 큰 악을 행하여 하나님께 죄를 지으리이까" },
+      { v: 10, t: "여인이 날마다 요셉에게 청하였으나 요셉이 듣지 아니하여 동침하지 아니할 뿐더러 함께 있지도 아니하니라" },
+      { v: 11, t: "그러할 때에 요셉이 그의 일을 하러 그 집에 들어갔더니 그 집 사람들은 하나도 거기에 없었더라" },
+      { v: 12, t: "그 여인이 그의 옷을 잡고 이르되 나와 동침하자 그러나 요셉이 자기의 옷을 그 여인의 손에 버려두고 밖으로 나가매" },
+      { v: 13, t: "그 여인이 요셉이 그의 옷을 자기 손에 버려두고 도망하여 나감을 보고" },
+      { v: 14, t: "그 여인의 집 사람들을 불러서 그들에게 이르되 보라 주인이 히브리 사람을 우리에게 데려다가 우리를 희롱하게 하는도다 그가 나와 동침하고자 내게로 들어오므로 내가 크게 소리 질렀더니" },
+      { v: 15, t: "그가 나의 소리 질러 부름을 듣고 그의 옷을 내게 버려두고 도망하여 나갔느니라 하고" },
+      { v: 16, t: "그의 옷을 곁에 두고 자기 주인이 집으로 돌아오기를 기다려" },
+      { v: 17, t: "이 말로 그에게 말하여 이르되 당신이 우리에게 데려온 히브리 종이 나를 희롱하려고 내게로 들어왔으므로" },
+      { v: 18, t: "내가 소리 질러 불렀더니 그가 그의 옷을 내게 버려두고 밖으로 도망하여 나갔나이다" },
+      { v: 19, t: "그의 주인이 자기 아내가 자기에게 이르기를 당신의 종이 내게 이같이 행하였다 하는 말을 듣고 심히 노한지라" },
+      { v: 20, t: "이에 요셉의 주인이 그를 잡아 옥에 가두니 그 옥은 왕의 죄수를 가두는 곳이었더라 요셉이 옥에 갇혔으나" },
+      { v: 21, t: "여호와께서 요셉과 함께 하시고 그에게 인자를 더하사 간수장에게 은혜를 받게 하시매" },
+      { v: 22, t: "간수장이 옥중 죄수를 다 요셉의 손에 맡기므로 그 제반 사무를 요셉이 처리하고" },
+      { v: 23, t: "간수장은 그의 손에 맡긴 것을 무엇이든지 살펴보지 아니하였으니 이는 여호와께서 요셉과 함께 하심이라 여호와께서 그를 범사에 형통하게 하셨더라" }
+    ];
+
+    // Initialize Bible Verses
+    function renderBibleVerses() {
+      const container = document.getElementById('bibleVersesContainer');
+      container.innerHTML = genesisVerses.map(item => `
+        <div class="verse-item">
+          <span class="verse-num">${item.v}</span>
+          <span class="verse-text">${item.t}</span>
+        </div>
+      `).join('');
+    }
+
+    // Modal Control Functions
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close on clicking outside modal sheet
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          closeModal(overlay.id);
+        }
+      });
+    });
+
+    // Hymn Modal Controller
+    let currentScale = 1.0;
+    function openHymnModal(numberStr, title) {
+      const paddedNum = numberStr.toString().padStart(3, '0');
+      const data = hymnDatabase[paddedNum];
+      
+      const titleElem = document.getElementById('hymnModalTitle');
+      const imgElem = document.getElementById('hymnImage');
+      const linkElem = document.getElementById('hymnExternalLink');
+
+      const hymnTitle = title || (data ? data.title : `${parseInt(paddedNum, 10)}장`);
+      titleElem.textContent = `찬송가 ${parseInt(paddedNum, 10)}장 - ${hymnTitle}`;
+
+      currentScale = 1.0;
+      imgElem.style.transform = `scale(${currentScale})`;
+
+      if (data) {
+        imgElem.src = data.localImage;
+        linkElem.href = data.externalUrl;
+        linkElem.style.display = 'inline-flex';
+      } else {
+        // Fallback to direct search link on risen.runean.com
+        imgElem.src = `assets/hymns/${paddedNum}.jpg`;
+        imgElem.onerror = () => {
+          imgElem.src = 'https://via.placeholder.com/600x800?text=' + encodeURIComponent(`찬송가 ${parseInt(paddedNum, 10)}장\n악보 준비 중`);
+        };
+        linkElem.href = `https://risen.runean.com/search/${encodeURIComponent(parseInt(paddedNum, 10) + '장')}`;
+        linkElem.style.display = 'inline-flex';
+      }
+
+      // Close search modal if open
+      closeModal('searchModal');
+      openModal('hymnModal');
+    }
+
+    function zoomHymn(scale) {
+      currentScale = scale;
+      const imgElem = document.getElementById('hymnImage');
+      imgElem.style.transform = `scale(${currentScale})`;
+    }
+
+    function openBibleModal() {
+      renderBibleVerses();
+      openModal('bibleModal');
+    }
+
+    function openCreedModal() {
+      openModal('creedModal');
+    }
+
+    function openNewsModal() {
+      openModal('newsModal');
+    }
+
+    // Font size changer for Bible reader
+    let currentBibleFontSize = 17;
+    function changeFontSize(delta) {
+      currentBibleFontSize = Math.max(14, Math.min(24, currentBibleFontSize + delta));
+      const reader = document.querySelector('.bible-reader');
+      if (reader) {
+        reader.style.fontSize = currentBibleFontSize + 'px';
+      }
+    }
+
+    // Quick Hymn Search
+    document.getElementById('btnSearchHymn').addEventListener('click', () => {
+      openModal('searchModal');
+      setTimeout(() => document.getElementById('hymnNumberInput').focus(), 300);
+    });
+
+    document.getElementById('hymnNumberInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = e.target.value.trim();
+        if (val) {
+          openHymnModal(val);
+        }
+      }
+    });
+
+    // Theme Toggle
+    const themeBtn = document.getElementById('btnThemeToggle');
+    let currentTheme = localStorage.getItem('elgrace-theme') || 'auto';
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const activeTheme = document.documentElement.getAttribute('data-theme');
+      if (!activeTheme) {
+        const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(isSystemDark ? 'light' : 'dark');
+        localStorage.setItem('elgrace-theme', isSystemDark ? 'light' : 'dark');
+      } else if (activeTheme === 'dark') {
+        applyTheme('light');
+        localStorage.setItem('elgrace-theme', 'light');
+      } else {
+        applyTheme('dark');
+        localStorage.setItem('elgrace-theme', 'dark');
+      }
+    });
+
+    if (currentTheme !== 'auto') {
+      applyTheme(currentTheme);
+    }
+  </script>
+</body>
+</html>
