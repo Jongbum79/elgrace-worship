@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>성경 본문 뷰어</title>
   
+  <link rel="alternate" type="application/json+oembed" href="https://jongbum79.github.io/elgrace-worship/oembed.json" title="성경 본문 뷰어" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" />
@@ -56,12 +57,14 @@
       font-family: var(--font-sans);
       line-height: 1.6;
       width: 100%;
+      min-height: 700px;
       overflow-x: hidden;
     }
 
     .viewer-container {
       width: 100%;
       max-width: 100%;
+      min-height: 700px;
       padding: 6px 4px 20px 4px;
     }
 

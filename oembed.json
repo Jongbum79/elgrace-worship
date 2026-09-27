@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "type": "rich",
+  "provider_name": "Elgrace Bible Viewer",
+  "provider_url": "https://jongbum79.github.io/elgrace-worship/",
+  "title": "성경 본문 뷰어",
+  "height": 750,
+  "width": 800,
+  "html": "<iframe src=\"https://jongbum79.github.io/elgrace-worship/bible-viewer.html\" width=\"100%\" height=\"750\" frameborder=\"0\" allowfullscreen></iframe>"
+}
