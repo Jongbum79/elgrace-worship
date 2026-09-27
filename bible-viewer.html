@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>성경 본문 뷰어</title>
+  
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --forest: #123C2B;
+      --forest-light: #1C543E;
+      --sage-light: #E7EFEA;
+      --card-border: rgba(0, 0, 0, 0.08);
+      --card-hover: rgba(0, 0, 0, 0.04);
+      --ink: #2F3437;
+      --muted: #787774;
+      --muted-light: #9B9A97;
+      --bg-color: transparent;
+      --drawer-bg: #FFFFFF;
+      --btn-bg: #F7F6F3;
+      --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --font-serif: "Nanum Myeongjo", "KoPub Batang", Georgia, serif;
+    }
+
+    /* Notion Dark Theme Support */
+    [data-theme="dark"], @media (prefers-color-scheme: dark) {
+      :root {
+        --forest: #438368;
+        --forest-light: #529E7E;
+        --sage-light: rgba(67, 131, 104, 0.2);
+        --card-border: rgba(255, 255, 255, 0.1);
+        --card-hover: rgba(255, 255, 255, 0.06);
+        --ink: #E6E5E3;
+        --muted: #9B9A97;
+        --muted-light: #6A6966;
+        --drawer-bg: #202020;
+        --btn-bg: #2F2F2F;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      background: var(--bg-color);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .viewer-container {
+      width: 100%;
+      max-width: 100%;
+      padding: 6px 4px 20px 4px;
+    }
+
+    /* Top Controls Bar */
+    .controls-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+    }
+
+    [data-theme="dark"] .controls-bar {
+      background: rgba(32, 32, 32, 0.94);
+    }
+
+    .controls-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .control-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      background: var(--btn-bg);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .control-btn:hover {
+      border-color: var(--forest);
+      color: var(--forest);
+    }
+
+    .control-btn.active {
+      background: var(--forest);
+      color: #FFFFFF;
+      border-color: var(--forest);
+    }
+
+    .passage-summary-tag {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Drawers */
+    .sliding-drawer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      margin-bottom: 0;
+      transition: max-height 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, margin-bottom 0.25s ease;
+    }
+
+    .sliding-drawer.open {
+      max-height: 340px;
+      opacity: 1;
+      margin-bottom: 14px;
+    }
+
+    .drawer-card {
+      background: var(--drawer-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Version Selection */
+    .ver-group {
+      margin-bottom: 12px;
+    }
+
+    .ver-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .ver-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ver-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .ver-btn {
+      padding: 6px 4px;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      background: var(--btn-bg);
+      color: var(--ink);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+
+    .ver-btn:hover {
+      border-color: var(--forest);
+    }
+
+    .ver-btn.primary-active {
+      background: var(--forest);
+      color: #FFFFFF;
+      border-color: var(--forest);
+    }
+
+    .ver-btn.secondary-active {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #2563EB;
+    }
+
+    /* Font Size Chips */
+    .font-chips-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .font-chip {
+      flex: 1;
+      padding: 6px 2px;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      background: var(--btn-bg);
+      color: var(--ink);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s ease;
+    }
+
+    .font-chip:hover {
+      border-color: var(--forest);
+    }
+
+    .font-chip.active {
+      background: var(--forest);
+      color: #FFFFFF;
+      border-color: var(--forest);
+    }
+
+    /* Bible Verses Flow */
+    .bible-flow {
+      font-size: 16px;
+      line-height: 1.95;
+      padding: 4px 6px;
+    }
+
+    .verse-line {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .verse-badge {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--forest);
+      background: var(--sage-light);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      padding: 2px 6px;
+      flex-shrink: 0;
+      margin-top: 5px;
+      line-height: 1.2;
+    }
+
+    .verse-content-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .verse-text-item {
+      word-break: keep-all;
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .verse-text-item.krv {
+      font-family: var(--font-serif);
+      font-size: 1em;
+      line-height: 1.95;
+      color: var(--ink);
+    }
+
+    .verse-text-item.easy {
+      font-family: var(--font-sans);
+      font-size: 0.94em;
+      line-height: 1.8;
+      color: #2F5241;
+    }
+
+    [data-theme="dark"] .verse-text-item.easy {
+      color: #A3C9B8;
+    }
+
+    .verse-text-item.easy.solo {
+      font-size: 1em;
+      line-height: 1.95;
+      color: var(--ink);
+    }
+
+    .verse-text-item.niv {
+      font-family: Georgia, -apple-system, serif;
+      font-size: 0.93em;
+      line-height: 1.75;
+      color: #495851;
+      font-style: italic;
+    }
+
+    [data-theme="dark"] .verse-text-item.niv {
+      color: #B5C4BC;
+    }
+
+    .verse-text-item.niv.solo {
+      font-size: 0.98em;
+      line-height: 1.85;
+      color: var(--ink);
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+  <div class="viewer-container">
+    <!-- Top Controls Bar -->
+    <div class="controls-bar">
+      <div class="controls-left">
+        <button id="btnToggleVersion" class="control-btn" onclick="toggleVersionDrawer()" title="역본 선택">
+          <i data-lucide="languages" style="width: 14px; height: 14px;"></i>
+          <span>역본 선택</span>
+        </button>
+        <button id="btnToggleFont" class="control-btn" onclick="toggleFontDrawer()" title="글자 크기">
+          <i data-lucide="type" style="width: 14px; height: 14px;"></i>
+          <span>글자 크기</span>
+        </button>
+      </div>
+      <span class="passage-summary-tag" id="verSummaryTag">개역개정</span>
+    </div>
+
+    <!-- Version Selection Drawer -->
+    <div id="versionDrawer" class="sliding-drawer">
+      <div class="drawer-card">
+        <div class="ver-group">
+          <div class="ver-label">
+            <span>1차 기본 역본</span>
+          </div>
+          <div class="ver-grid" id="primaryVerOptions">
+            <button class="ver-btn primary-active" data-ver="krv" onclick="setPrimaryVersion('krv')">개역개정</button>
+            <button class="ver-btn" data-ver="easy" onclick="setPrimaryVersion('easy')">쉬운성경</button>
+            <button class="ver-btn" data-ver="niv" onclick="setPrimaryVersion('niv')">NIV (영어)</button>
+          </div>
+        </div>
+
+        <div class="ver-group">
+          <div class="ver-label">
+            <span>2차 추가 대조 역본</span>
+          </div>
+          <div class="ver-grid" id="secondaryVerOptions">
+            <!-- Dynamically rendered -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Font Size Drawer -->
+    <div id="fontDrawer" class="sliding-drawer">
+      <div class="drawer-card">
+        <div class="font-chips-row">
+          <button class="font-chip" data-size="14" onclick="setFontSize(14)">14px (작게)</button>
+          <button class="font-chip active" data-size="16" onclick="setFontSize(16)">16px (기본)</button>
+          <button class="font-chip" data-size="18" onclick="setFontSize(18)">18px (보통)</button>
+          <button class="font-chip" data-size="20" onclick="setFontSize(20)">20px (크게)</button>
+          <button class="font-chip" data-size="22" onclick="setFontSize(22)">22px (아주크게)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bible Verses Flow -->
+    <div id="bibleFlow" class="bible-flow">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Data: Fallback Exodus 19 (출애굽기 19장 1~25절)
+    let currentVerses = [
+      {
+        "v": 1,
+        "krv": "이스라엘 자손이 애굽 땅을 떠난 지 삼 개월이 되던 날 그들이 시내 광야에 이르니라",
+        "easy": "이집트를 떠난 지 꼭 석 달 만에 이스라엘 백성은 시내 광야에 이르렀습니다.",
+        "niv": "On the first day of the third month after the Israelites left Egypt—on that very day—they came to the Desert of Sinai."
+      },
+      {
+        "v": 2,
+        "krv": "그들이 르비딤을 떠나 시내 광야에 이르러 그 광야에 장막을 치되 이스라엘이 거기 산 앞에 장막을 치니라",
+        "easy": "그들은 르비딤을 떠나서 시내 광야로 들어갔습니다. 이스라엘 백성은 그 광야, 시내 산 앞에 진을 쳤습니다.",
+        "niv": "After they set out from Rephidim, they entered the Desert of Sinai, and Israel camped there in the desert in front of the mountain."
+      },
+      {
+        "v": 3,
+        "krv": "모세가 하나님 앞에 올라가니 여호와께서 산에서 그를 불러 말씀하시되 너는 이같이 야곱의 집에 말하고 이스라엘 자손들에게 말하라",
+        "easy": "모세가 산으로 올라가 하나님을 만나려 하자, 여호와께서 산에서 모세를 불러 말씀하셨습니다. \"너는 야곱의 백성 곧 이스라엘 백성에게 이렇게 말하여라.",
+        "niv": "Then Moses went up to God, and the Lord called to him from the mountain and said, “This is what you are to say to the descendants of Jacob and what you are to tell the people of Israel:"
+      },
+      {
+        "v": 4,
+        "krv": "내가 애굽 사람에게 어떻게 행하였음과 내가 어떻게 독수리 날개로 너희를 업어 내게로 인도하였음을 너희가 보았느니라",
+        "easy": "'너희는 내가 이집트 사람들에게 한 일을 보았고, 독수리가 날개로 새끼를 업어 나르듯 내가 너희를 나에게 데려온 것도 보았다.",
+        "niv": "‘You yourselves have seen what I did to Egypt, and how I carried you on eagles’ wings and brought you to myself."
+      },
+      {
+        "v": 5,
+        "krv": "세계가 다 내게 속하였나니 너희가 내 말을 잘 듣고 내 언약을 지키면 너희는 모든 민족 중에서 내 소유가 되겠고",
+        "easy": "그러므로 이제 너희가 내 말을 듣고 내 언약을 지키면, 너희는 모든 백성 가운데서 나의 보물이 될 것이다. 온 세상이 다 내 것이다.",
+        "niv": "Now if you obey me fully and keep my covenant, then out of all nations you will be my treasured possession. Although the whole earth is mine,"
+      },
+      {
+        "v": 6,
+        "krv": "너희가 내게 대하여 제사장 나라가 되며 거룩한 백성이 되리라 너는 이 말을 이스라엘 자손에게 전할지니라",
+        "easy": "그러나 너희는 나를 섬기는 제사장 나라가 되며, 거룩한 백성이 될 것이다.' 너는 이스라엘 백성에게 이 말을 전하여라.\"",
+        "niv": "you will be for me a kingdom of priests and a holy nation.’ These are the words you are to speak to the Israelites.”"
+      },
+      {
+        "v": 7,
+        "krv": "모세가 내려와서 백성의 장로들을 불러 여호와께서 자기에게 명령하신 그 모든 말씀을 그들 앞에 진술하니",
+        "easy": "모세가 산에서 내려와 백성의 장로들을 불렀습니다. 모세는 여호와께서 명령하신 모든 말씀을 그들에게 전했습니다.",
+        "niv": "So Moses went back and summoned the elders of the people and set before them all the words the Lord had commanded him to speak."
+      },
+      {
+        "v": 8,
+        "krv": "백성이 일제히 응답하여 이르되 여호와께서 명령하신 대로 우리가 다 행하리이다 모세가 백성의 말을 여호와께 전하매",
+        "easy": "모든 백성이 한목소리로 \"여호와께서 말씀하신 것을 다 지키겠습니다\" 하고 대답했습니다. 모세는 백성이 대답한 말을 여호와께 전했습니다.",
+        "niv": "The people all responded together, “We will do everything the Lord has said.” So Moses brought their answer back to the Lord."
+      },
+      {
+        "v": 9,
+        "krv": "여호와께서 모세에게 이르시되 내가 빽빽한 구름 가운데서 네게 임함은 내가 너와 말하는 것을 백성이 듣게 하며 또한 너를 영영히 믿게 하려 함이니라 모세가 백성의 말을 여호와께 아뢰었으므로",
+        "easy": "여호와께서 모세에게 말씀하셨습니다. \"내가 짙은 구름 속에서 너에게 나타날 것이다. 내가 너와 이야기하는 것을 백성이 듣게 하겠다. 그러면 백성이 너를 영원히 믿을 것이다.\" 모세는 백성이 한 말을 여호와께 전했습니다.",
+        "niv": "The Lord said to Moses, “I am going to come to you in a dense cloud, so that the people will hear me speaking with you and will always put their trust in you.” Then Moses told the Lord what the people had said."
+      },
+      {
+        "v": 10,
+        "krv": "여호와께서 모세에게 이르시되 너는 백성에게로 가서 오늘과 내일 그들을 성결하게 하며 그들에게 옷을 빨게 하고",
+        "easy": "여호와께서 모세에게 말씀하셨습니다. \"백성에게 가거라. 오늘과 내일, 그들을 거룩하게 하여라. 그들에게 옷을 빨게 하여라.",
+        "niv": "And the Lord said to Moses, “Go to the people and consecrate them today and tomorrow. Have them wash their clothes"
+      },
+      {
+        "v": 11,
+        "krv": "준비하게 하여 셋째 날을 기다리게 하라 이는 셋째 날에 나 여호와가 온 백성의 목전에서 시내 산에 강림할 것임이니",
+        "easy": "셋째 날을 준비하게 하여라. 그 날에 나 여호와가 모든 백성이 보는 앞에서 시내 산으로 내려갈 것이다.",
+        "niv": "and be ready by the third day, because on that day the Lord will come down on Mount Sinai in the sight of all the people."
+      },
+      {
+        "v": 12,
+        "krv": "너는 백성을 위하여 주위에 경계를 정하고 이르기를 너희는 삼가 산에 오르거나 그 경계를 침범하지 말지니 산을 침범하는 자는 반드시 죽임을 당할 것이라",
+        "easy": "너는 산 주위에 경계선을 만들어 백성이 산으로 올라가지 못하게 하여라. 그리고 백성에게 '산에 올라가지 마시오. 산 경계선을 넘지 마시오. 누구든지 산에 오르는 사람은 반드시 죽임을 당할 것이오.",
+        "niv": "Put limits for the people around the mountain and tell them, ‘Be careful that you do not approach the mountain or touch the foot of it. Whoever touches the mountain is to be put to death."
+      },
+      {
+        "v": 13,
+        "krv": "그런 자에게는 손을 대지 말고 돌로 쳐죽이거나 화살로 쏘아 죽여야 하리니 짐승이나 사람을 막론하고 살아남지 못하리라 하고 나팔을 길게 불거든 산 앞에 이를 것이니라 하라",
+        "easy": "산에 오르는 사람은 손을 대지 말고, 돌로 쳐죽이거나 활을 쏘아 죽여야 하오. 사람이든 짐승이든 산에 오른 것은 살려 두지 마시오' 하고 말하여라. 나팔 소리가 길게 울리면, 백성은 산으로 나아가도 좋다.\"",
+        "niv": "They are to be stoned or shot with arrows; not a hand is to be laid on them. No person or animal shall be permitted to live.’ Only when the ram’s horn sounds a long blast may they approach the mountain.”"
+      },
+      {
+        "v": 14,
+        "krv": "모세가 산에서 내려와 백성에게 이르러 백성을 성결하게 하니 그들이 자기 옷을 빨더라",
+        "easy": "모세는 산에서 내려와 백성에게 갔습니다. 모세는 백성을 거룩하게 했고, 백성은 옷을 빨았습니다.",
+        "niv": "After Moses had gone down the mountain to the people, he consecrated them, and they washed their clothes."
+      },
+      {
+        "v": 15,
+        "krv": "모세가 백성에게 이르되 준비하여 셋째 날을 기다리고 여인을 가까이 하지 말라 하니라",
+        "easy": "모세가 백성에게 말했습니다. \"셋째 날을 준비하십시오. 그 날까지는 여자를 가까이 하지 마십시오.\"",
+        "niv": "Then he said to the people, “Prepare yourselves for the third day. Abstain from sexual relations.”"
+      },
+      {
+        "v": 16,
+        "krv": "셋째 날 아침에 우레와 번개와 빽빽한 구름이 산 위에 있고 나팔 소리가 매우 크게 들리니 진중에 있는 모든 백성이 다 떨더라",
+        "easy": "셋째 날 아침이 되었습니다. 산 위에 짙은 구름이 끼더니 천둥이 치고 번개가 일어났습니다. 그리고 매우 큰 나팔 소리가 울려 퍼졌습니다. 진에 있던 모든 백성이 두려워서 떨었습니다.",
+        "niv": "On the morning of the third day there was thunder and lightning, with a thick cloud over the mountain, and a very loud trumpet blast. Everyone in the camp trembled."
+      },
+      {
+        "v": 17,
+        "krv": "모세가 하나님을 맞으려고 백성을 거느리고 진에서 나오매 그들이 산 기슭에 서 있는데",
+        "easy": "모세는 하나님을 맞이하려고 백성을 진 밖으로 나오게 했습니다. 백성은 산기슭에 섰습니다.",
+        "niv": "Then Moses led the people out of the camp to meet with God, and they stood at the foot of the mountain."
+      },
+      {
+        "v": 18,
+        "krv": "시내 산에 연기가 자욱하니 여호와께서 불 가운데서 거기 강림하심이라 그 연기가 온기 가마 연기 같이 떠오르고 온 산이 크게 진동하며",
+        "easy": "시내 산은 연기로 덮였습니다. 여호와께서 불 가운데서 산으로 내려오셨기 때문입니다. 가마에서 나오는 연기처럼 연기가 솟아올랐고, 온 산이 크게 흔들렸습니다.",
+        "niv": "Mount Sinai was covered with smoke, because the Lord descended on it in fire. The smoke billowed up from it like smoke from a furnace, and the whole mountain trembled violently."
+      },
+      {
+        "v": 19,
+        "krv": "나팔 소리가 점점 커질 때에 모세가 말한즉 하나님이 음성으로 대답하시더라",
+        "easy": "나팔 소리가 점점 더 커졌습니다. 모세가 말하자 하나님께서 음성으로 모세에게 대답하셨습니다.",
+        "niv": "As the sound of the trumpet grew louder and louder, Moses spoke and the voice of God answered him."
+      },
+      {
+        "v": 20,
+        "krv": "여호와께서 시내 산 곧 그 산꼭대기에 강림하시고 모세를 그리로 부르시니 모세가 올라가매",
+        "easy": "여호와께서 시내 산꼭대기로 내려오셨습니다. 그리고 모세를 산꼭대기로 부르셨습니다. 그래서 모세는 산꼭대기로 올라갔습니다.",
+        "niv": "The Lord descended to the top of Mount Sinai and called Moses to the top of the mountain. So Moses went up"
+      },
+      {
+        "v": 21,
+        "krv": "여호와께서 모세에게 이르시되 내려가서 백성을 경고하라 백성이 밀고 들어와 나 여호와에게로 와서 보려고 하다가 많이 죽을까 하노라",
+        "easy": "여호와께서 모세에게 말씀하셨습니다. \"내려가서 백성에게 경고하여라. 백성이 나를 보려고 경계선을 넘어오다가 죽을까 염려된다.",
+        "niv": "and the Lord said to him, “Go down and warn the people so they do not force their way through to see the Lord and many of them perish."
+      },
+      {
+        "v": 22,
+        "krv": "또 여호와에게 가까이 하는 제사장들에게 그 몸을 성결히 하게 하라 나 여호와가 그들을 칠까 하노라",
+        "easy": "나에게 가까이 오는 제사장들도 자신을 거룩하게 해야 한다. 그렇지 않으면 내가 그들을 칠 것이다.\"",
+        "niv": "Even the priests, who approach the Lord, must consecrate themselves, or the Lord will break out against them.”"
+      },
+      {
+        "v": 23,
+        "krv": "모세가 여호와께 아뢰되 주께서 우리에게 명령하여 이르시기를 산 주위에 경계를 세워 산을 거룩하게 하라 하셨사온즉 백성이 시내 산에 오르지 못하리이다",
+        "easy": "모세가 여호와께 말했습니다. \"주께서 저희에게 '산 주위에 경계선을 만들어 산을 거룩하게 하라'고 말씀하셨으므로 백성은 시내 산으로 올라오지 못할 것입니다.\"",
+        "niv": "Moses said to the Lord, “The people cannot come up Mount Sinai, because you yourself warned us, ‘Put limits around the mountain and set it apart as holy.’ ”"
+      },
+      {
+        "v": 24,
+        "krv": "여호와께서 그에게 이르시되 가라 너는 내려가서 아론과 함께 올라오고 제사장들과 백성에게는 경계를 넘어 나 여호와에게로 올라오지 못하게 하라 내가 그들을 칠까 하노라",
+        "easy": "여호와께서 모세에게 말씀하셨습니다. \"내려가거라. 그리고 아론을 데리고 올라오너라. 하지만 제사장들과 백성은 경계선을 넘지 못하게 하여라. 그들이 나에게 올라오면, 내가 그들을 칠 것이다.\"",
+        "niv": "The Lord replied, “Go down and bring Aaron up with you. But the priests and the people must not force their way through to come up to the Lord, or he will break out against them.”"
+      },
+      {
+        "v": 25,
+        "krv": "모세가 백성에게 내려가서 그들에게 알리니라",
+        "easy": "모세가 백성에게 내려가서 여호와의 말씀을 전했습니다.",
+        "niv": "So Moses went down to the people and told them."
+      }
+    ];
+
+    let primaryVersion = localStorage.getItem('elgrace-embed-primary') || 'krv';
+    let secondaryVersion = localStorage.getItem('elgrace-embed-secondary') || 'none';
+    let currentBibleFontSize = parseInt(localStorage.getItem('elgrace-embed-font-size'), 10) || 16;
+
+    const versionNames = {
+      krv: '개역개정',
+      easy: '쉬운성경',
+      niv: 'NIV'
+    };
+
+    function toggleVersionDrawer() {
+      const vDrawer = document.getElementById('versionDrawer');
+      const fDrawer = document.getElementById('fontDrawer');
+      const vBtn = document.getElementById('btnToggleVersion');
+      const fBtn = document.getElementById('btnToggleFont');
+
+      if (fDrawer.classList.contains('open')) {
+        fDrawer.classList.remove('open');
+        fBtn.classList.remove('active');
+      }
+
+      const isOpen = vDrawer.classList.toggle('open');
+      vBtn.classList.toggle('active', isOpen);
+      if (isOpen) renderVersionDrawerUI();
+    }
+
+    function toggleFontDrawer() {
+      const vDrawer = document.getElementById('versionDrawer');
+      const fDrawer = document.getElementById('fontDrawer');
+      const vBtn = document.getElementById('btnToggleVersion');
+      const fBtn = document.getElementById('btnToggleFont');
+
+      if (vDrawer.classList.contains('open')) {
+        vDrawer.classList.remove('open');
+        vBtn.classList.remove('active');
+      }
+
+      const isOpen = fDrawer.classList.toggle('open');
+      fBtn.classList.toggle('active', isOpen);
+    }
+
+    function setPrimaryVersion(ver) {
+      primaryVersion = ver;
+      localStorage.setItem('elgrace-embed-primary', primaryVersion);
+
+      if (secondaryVersion === primaryVersion) {
+        secondaryVersion = 'none';
+        localStorage.setItem('elgrace-embed-secondary', 'none');
+      }
+
+      renderVersionDrawerUI();
+      renderBibleVerses();
+      updateSummaryTag();
+    }
+
+    function setSecondaryVersion(ver) {
+      secondaryVersion = ver;
+      localStorage.setItem('elgrace-embed-secondary', secondaryVersion);
+      renderVersionDrawerUI();
+      renderBibleVerses();
+      updateSummaryTag();
+    }
+
+    function renderVersionDrawerUI() {
+      document.querySelectorAll('#primaryVerOptions .ver-btn').forEach(btn => {
+        const ver = btn.getAttribute('data-ver');
+        if (ver === primaryVersion) {
+          btn.classList.add('primary-active');
+        } else {
+          btn.classList.remove('primary-active');
+        }
+      });
+
+      const secGrid = document.getElementById('secondaryVerOptions');
+      if (!secGrid) return;
+
+      const allVers = ['krv', 'easy', 'niv'];
+      const availableSec = ['none', ...allVers.filter(v => v !== primaryVersion)];
+
+      secGrid.innerHTML = availableSec.map(ver => {
+        let name = '없음 (단독)';
+        if (ver !== 'none') name = versionNames[ver];
+        const isActive = (secondaryVersion === ver) ? 'secondary-active' : '';
+
+        return `<button class="ver-btn ${isActive}" data-ver="${ver}" onclick="setSecondaryVersion('${ver}')">${name}</button>`;
+      }).join('');
+    }
+
+    function updateSummaryTag() {
+      const tag = document.getElementById('verSummaryTag');
+      if (!tag) return;
+      const p = versionNames[primaryVersion];
+      if (secondaryVersion === 'none') {
+        tag.textContent = `${p}`;
+      } else {
+        const s = versionNames[secondaryVersion];
+        tag.textContent = `${p} + ${s}`;
+      }
+    }
+
+    function setFontSize(size) {
+      currentBibleFontSize = Math.max(14, Math.min(22, size));
+      localStorage.setItem('elgrace-embed-font-size', currentBibleFontSize);
+      applyFontSize();
+      document.querySelectorAll('.font-chip').forEach(c => {
+        if (parseInt(c.getAttribute('data-size'), 10) === currentBibleFontSize) {
+          c.classList.add('active');
+        } else {
+          c.classList.remove('active');
+        }
+      });
+    }
+
+    function applyFontSize() {
+      const el = document.getElementById('bibleFlow');
+      if (el) el.style.fontSize = currentBibleFontSize + 'px';
+    }
+
+    function renderBibleVerses() {
+      const flow = document.getElementById('bibleFlow');
+      if (!flow) return;
+
+      const isSolo = (secondaryVersion === 'none');
+
+      flow.innerHTML = currentVerses.map(item => {
+        const pText = item[primaryVersion] || '';
+        let secHtml = '';
+        if (!isSolo && item[secondaryVersion]) {
+          secHtml = `<p class="verse-text-item ${secondaryVersion}">${item[secondaryVersion]}</p>`;
+        }
+
+        return `
+          <div class="verse-line">
+            <span class="verse-badge">${item.v}절</span>
+            <div class="verse-content-group">
+              <p class="verse-text-item ${primaryVersion} ${isSolo ? 'solo' : ''}">${pText}</p>
+              ${secHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      applyFontSize();
+    }
+
+    // Load Dynamic Data if provided in URL (e.g. ?date=2026-10-04)
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateParam = urlParams.get('date');
+    if (dateParam) {
+      fetch(`assets/pbs/${dateParam}.json`)
+        .then(r => r.json())
+        .then(data => {
+          if (data && data.verses) {
+            currentVerses = data.verses;
+            renderBibleVerses();
+          }
+        })
+        .catch(err => console.log('Using default verses:', err));
+    }
+
+    // Init
+    window.addEventListener('DOMContentLoaded', () => {
+      renderVersionDrawerUI();
+      updateSummaryTag();
+      renderBibleVerses();
+      setFontSize(currentBibleFontSize);
+    });
+  </script>
+</body>
+</html>
