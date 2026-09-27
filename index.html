@@ -232,32 +232,38 @@
       flex: 1;
     }
 
-    /* Liturgy Card List */
+    /* Liturgy Card List - Transparent to show Tintoretto paper background */
     .liturgy-card-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      background: transparent;
     }
 
     .liturgy-print-frame {
-      background: rgba(250, 248, 242, 0.88);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      padding: 16px;
+      background: transparent !important;
+      border: 1.5px solid rgba(18, 60, 43, 0.22);
+      outline: 1px solid rgba(18, 60, 43, 0.1);
+      outline-offset: -5px;
+      border-radius: 6px;
+      box-shadow: none;
+      padding: 18px 14px 12px;
     }
 
     [data-theme="dark"] .liturgy-print-frame {
-      background: rgba(26, 32, 29, 0.88);
+      border-color: rgba(255, 255, 255, 0.18);
+      outline-color: rgba(255, 255, 255, 0.08);
+      background: transparent !important;
     }
 
     .liturgy-print-header {
       text-align: center;
       padding-bottom: 14px;
-      margin-bottom: 14px;
-      border-bottom: 2px dashed var(--soft-line);
+      margin-bottom: 12px;
+      border-bottom: 1.5px double rgba(18, 60, 43, 0.2);
+    }
+
+    [data-theme="dark"] .liturgy-print-header {
+      border-bottom-color: rgba(255, 255, 255, 0.15);
     }
 
     .liturgy-print-header-eyebrow {
@@ -288,20 +294,22 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 14px;
-      border-radius: var(--radius-sm);
-      margin-bottom: 6px;
-      background: rgba(249, 247, 241, 0.9);
-      border: 1px solid var(--card-border);
-      transition: all 0.2s ease;
+      padding: 12px 6px;
+      border-radius: 0;
+      margin-bottom: 0;
+      background: transparent !important;
+      border: none;
+      border-bottom: 1px solid rgba(18, 60, 43, 0.1);
+      transition: background 0.15s ease;
     }
 
     [data-theme="dark"] .liturgy-item {
-      background: rgba(23, 28, 25, 0.9);
+      background: transparent !important;
+      border-bottom-color: rgba(255, 255, 255, 0.08);
     }
 
     .liturgy-item:last-child {
-      margin-bottom: 0;
+      border-bottom: none;
     }
 
     .liturgy-item.interactive {
@@ -309,10 +317,14 @@
     }
 
     .liturgy-item.interactive:hover {
-      border-color: var(--forest);
-      background: var(--card-hover);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-sm);
+      background: rgba(18, 60, 43, 0.045);
+      border-color: rgba(18, 60, 43, 0.1);
+      transform: none;
+      box-shadow: none;
+    }
+
+    [data-theme="dark"] .liturgy-item.interactive:hover {
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .liturgy-left {
@@ -1182,7 +1194,7 @@
               </div>
             </div>
             <div class="liturgy-right">
-              <span class="action-pill">악보 보기 →</span>
+              <span class="action-pill">악보 보기</span>
             </div>
           </div>
 
@@ -1196,7 +1208,7 @@
               </div>
             </div>
             <div class="liturgy-right">
-              <span class="action-pill">전문 읽기 →</span>
+              <span class="action-pill">본문 보기</span>
             </div>
           </div>
 
@@ -1210,7 +1222,7 @@
               </div>
             </div>
             <div class="liturgy-right">
-              <span class="action-pill">악보 보기 →</span>
+              <span class="action-pill">악보 보기</span>
             </div>
           </div>
 
@@ -1238,7 +1250,7 @@
               </div>
             </div>
             <div class="liturgy-right">
-              <span class="action-pill">말씀 읽기 →</span>
+              <span class="action-pill">말씀 읽기</span>
             </div>
           </div>
 
@@ -1252,7 +1264,7 @@
               </div>
             </div>
             <div class="liturgy-right">
-              <span class="action-pill">악보 보기 →</span>
+              <span class="action-pill">악보 보기</span>
             </div>
           </div>
 
@@ -1294,7 +1306,7 @@
               </div>
             </div>
             <div class="liturgy-right">
-              <span class="action-pill">소식 보기 →</span>
+              <span class="action-pill">소식 보기</span>
             </div>
           </div>
 
@@ -1308,7 +1320,7 @@
               </div>
             </div>
             <div class="liturgy-right">
-              <span class="action-pill">악보 보기 →</span>
+              <span class="action-pill">악보 보기</span>
             </div>
           </div>
 
