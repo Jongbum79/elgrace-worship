@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>주은혜교회 장년부 PBS 묵상 · 출애굽기 19장</title>
+  
+  <meta name="description" content="대한예수교장로회 주은혜교회 장년부 주간 성경연구 나눔 (PBS) · 출애굽기 19장 3대 역본 대조 및 묵상 작성 양식">
+  <meta name="theme-color" content="#123C2B">
+  
+  <link rel="icon" type="image/png" href="assets/images/church_logo.png">
+  <link rel="apple-touch-icon" href="assets/images/church_logo.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --forest: #123C2B;
+      --forest-dark: #0A261B;
+      --forest-light: #1C543E;
+      --sage: #D6E3DB;
+      --sage-light: #E7EFEA;
+      --mint: #EEF4F0;
+      --gold: #967020;
+      --gold-soft: rgba(150, 112, 32, 0.12);
+      
+      /* Fedrigoni Tintoretto Fine Paper Palette */
+      --paper-bg: #F4F1EA;
+      --paper-gesso: #FAF8F2;
+      --card-bg: rgba(250, 248, 242, 0.96);
+      --paper-sheet: rgba(249, 247, 241, 0.98);
+      --card-border: rgba(26, 44, 34, 0.14);
+      --card-hover: rgba(242, 239, 231, 0.98);
+      
+      /* Rich Printer's Ink Tokens */
+      --ink: #18221D;
+      --ink-print: #141C18;
+      --muted: #5A6961;
+      --muted-light: #839189;
+      --soft-line: rgba(18, 60, 43, 0.1);
+      
+      --shadow-sm: 0 1px 4px rgba(25, 35, 29, 0.05);
+      --shadow-md: 0 4px 16px rgba(18, 60, 43, 0.07);
+      --shadow-lg: 0 14px 36px rgba(15, 30, 22, 0.11);
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      
+      --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-serif: "Nanum Myeongjo", "KoPub Batang", "Apple SD Gothic Neo", Georgia, serif;
+    }
+
+    [data-theme="dark"] {
+      --paper-bg: #141715;
+      --paper-gesso: #1A211D;
+      --card-bg: rgba(26, 32, 29, 0.94);
+      --paper-sheet: rgba(23, 28, 25, 0.96);
+      --card-border: rgba(255, 255, 255, 0.09);
+      --card-hover: rgba(35, 44, 39, 0.98);
+      --forest: #3F8A6B;
+      --forest-dark: #2A634C;
+      --sage: #274034;
+      --sage-light: #1D3127;
+      --mint: #1B2822;
+      --gold: #D6AB4D;
+      --gold-soft: rgba(214, 171, 77, 0.15);
+      --ink: #F2F4F2;
+      --ink-print: #F2F4F2;
+      --muted: #9BA6A0;
+      --muted-light: #6C7972;
+      --soft-line: rgba(255, 255, 255, 0.08);
+      --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Fixed Fullscreen Fedrigoni Tintoretto 300DPI Single Paper Sheet */
+    .tintoretto-bg-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background-color: var(--paper-bg);
+      background-image: url("assets/images/tintoretto_sheet.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      z-index: -10;
+      pointer-events: none;
+      transform: translate3d(0, 0, 0);
+    }
+
+    [data-theme="dark"] .tintoretto-bg-layer {
+      background-color: #121614;
+      filter: brightness(0.24) contrast(1.1);
+    }
+
+    body {
+      background-color: transparent;
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Topbar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--paper-sheet);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0 16px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .topbar-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo-img {
+      height: 36px;
+      width: auto;
+      max-width: 96px;
+      object-fit: contain;
+      display: block;
+      background: transparent;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.04));
+    }
+
+    [data-theme="dark"] .brand-logo-img {
+      filter: brightness(1.25) contrast(1.1);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1.2;
+    }
+
+    .brand-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .action-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--card-border);
+      background: var(--paper-warm, var(--card-bg));
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .action-icon-btn:hover {
+      color: var(--forest);
+      border-color: var(--forest);
+      background: var(--card-hover);
+    }
+
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    [data-theme="dark"] .icon-sun { display: block; }
+    [data-theme="dark"] .icon-moon { display: none; }
+
+    /* Main Container */
+    .main-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 16px 16px 48px 16px;
+      flex: 1;
+    }
+
+    /* Print Frame */
+    .liturgy-print-frame {
+      background: transparent !important;
+      border: 1.5px solid rgba(18, 60, 43, 0.22);
+      outline: 1px solid rgba(18, 60, 43, 0.1);
+      outline-offset: -5px;
+      border-radius: 6px;
+      box-shadow: none;
+      padding: 20px 16px 16px;
+      margin-bottom: 24px;
+    }
+
+    [data-theme="dark"] .liturgy-print-frame {
+      border-color: rgba(255, 255, 255, 0.18);
+      outline-color: rgba(255, 255, 255, 0.08);
+      background: transparent !important;
+    }
+
+    .liturgy-print-header {
+      text-align: center;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1.5px double rgba(18, 60, 43, 0.2);
+    }
+
+    [data-theme="dark"] .liturgy-print-header {
+      border-bottom-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .liturgy-print-header-eyebrow {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 4px;
+    }
+
+    .liturgy-print-header-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .liturgy-print-header-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      color: var(--muted);
+      font-weight: 600;
+      background: rgba(18, 60, 43, 0.05);
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+
+    [data-theme="dark"] .liturgy-print-header-date {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Bible Viewer Controls Header */
+    .bible-controls-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--paper-sheet);
+      border: 1px solid var(--card-border);
+    }
+
+    .bible-tool-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bible-tool-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      border: 1px solid var(--card-border);
+      background: var(--paper-sheet);
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] .bible-tool-btn {
+      color: #A8D5BA;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .bible-tool-btn:hover {
+      border-color: var(--forest);
+      background: var(--card-hover);
+    }
+
+    .bible-tool-btn.active {
+      background: var(--forest);
+      color: #FFFFFF;
+      border-color: var(--forest);
+      box-shadow: 0 2px 8px rgba(18, 60, 43, 0.25);
+    }
+
+    /* Sliding Accordion Drawers for Font & Version */
+    .bible-sliding-drawer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      margin-bottom: 0;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, margin-bottom 0.35s ease;
+    }
+
+    .bible-sliding-drawer.open {
+      max-height: 380px;
+      opacity: 1;
+      margin-bottom: 16px;
+    }
+
+    .drawer-inner-card {
+      background: var(--paper-sheet);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .drawer-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .drawer-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--forest);
+    }
+
+    [data-theme="dark"] .drawer-title {
+      color: #A8D5BA;
+    }
+
+    .drawer-indicator {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      background: rgba(0, 0, 0, 0.05);
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+
+    [data-theme="dark"] .drawer-indicator {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Font Size Stepper & Chips */
+    .font-stepper-container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .font-step-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      background: var(--paper-gesso);
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+    }
+
+    .font-step-btn:hover {
+      background: var(--sage-light);
+      color: var(--forest);
+    }
+
+    .font-chips-bar {
+      display: flex;
+      flex: 1;
+      gap: 4px;
+      justify-content: space-between;
+    }
+
+    .font-chip {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 2px;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      background: var(--paper-gesso);
+      color: var(--ink);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .font-chip small {
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .font-chip:hover {
+      border-color: var(--forest);
+    }
+
+    .font-chip.active {
+      background: var(--forest);
+      color: #FFFFFF;
+      border-color: var(--forest);
+    }
+
+    .font-chip.active small {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* Version Selector Section */
+    .ver-select-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .ver-section-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ver-badge-num {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--forest);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ver-badge-num.secondary {
+      background: #2563EB;
+    }
+
+    .ver-section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .ver-section-hint {
+      font-size: 11px;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    .ver-choice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .ver-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 4px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      background: var(--paper-gesso);
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: center;
+    }
+
+    .ver-btn .ver-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .ver-btn .ver-desc {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .ver-btn:hover {
+      border-color: var(--forest);
+    }
+
+    .ver-btn.primary-active {
+      background: var(--forest);
+      color: #FFFFFF;
+      border-color: var(--forest);
+      box-shadow: 0 2px 6px rgba(18, 60, 43, 0.25);
+    }
+
+    .ver-btn.primary-active .ver-desc {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .ver-btn.secondary-active {
+      background: #2563EB;
+      color: #FFFFFF;
+      border-color: #2563EB;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+    }
+
+    .ver-btn.secondary-active .ver-desc {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* Bible Verses Flow (태그/괄호색 없이 깨끗한 활판 인쇄) */
+    .bible-text-flow {
+      font-size: 16px;
+      line-height: 1.95;
+      color: var(--ink);
+      padding: 6px 2px;
+    }
+
+    .verse-line {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .verse-badge {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--forest);
+      background: var(--sage-light);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      padding: 2px 6px;
+      flex-shrink: 0;
+      margin-top: 4px;
+      line-height: 1.2;
+    }
+
+    [data-theme="dark"] .verse-badge {
+      background: rgba(63, 138, 107, 0.25);
+      color: #A8D5BA;
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .verse-content-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .verse-text-item {
+      word-break: keep-all;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .verse-text-item.krv {
+      font-family: var(--font-serif);
+      font-size: 1em;
+      line-height: 1.95;
+      color: var(--ink);
+    }
+
+    .verse-text-item.easy {
+      font-family: var(--font-sans);
+      font-size: 0.92em;
+      line-height: 1.8;
+      color: #384A41;
+      margin-top: 4px;
+    }
+
+    .verse-text-item.easy.solo {
+      font-size: 1em;
+      line-height: 1.95;
+      color: var(--ink);
+      margin-top: 0;
+    }
+
+    .verse-text-item.niv {
+      font-family: Georgia, -apple-system, serif;
+      font-size: 0.92em;
+      line-height: 1.75;
+      color: #485750;
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    .verse-text-item.niv.solo {
+      font-size: 0.96em;
+      line-height: 1.85;
+      color: var(--ink);
+      font-style: normal;
+      margin-top: 0;
+    }
+
+    [data-theme="dark"] .verse-text-item.easy {
+      color: #A3B5AC;
+    }
+
+    [data-theme="dark"] .verse-text-item.easy.solo {
+      color: var(--ink);
+    }
+
+    [data-theme="dark"] .verse-text-item.niv {
+      color: #B5BFB9;
+    }
+
+    [data-theme="dark"] .verse-text-item.niv.solo {
+      color: var(--ink);
+    }
+
+    /* PBS Section Dividers & Cards */
+    .pbs-section-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0 16px 0;
+    }
+
+    .pbs-section-divider::before,
+    .pbs-section-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--soft-line);
+    }
+
+    .pbs-section-pill {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: var(--forest);
+      background: var(--paper-sheet);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      border: 1px solid var(--card-border);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    [data-theme="dark"] .pbs-section-pill {
+      color: #A8D5BA;
+    }
+
+    .pbs-study-card {
+      background: var(--paper-sheet);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pbs-study-card:focus-within {
+      border-color: var(--forest);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pbs-card-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .pbs-card-icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .pbs-card-meta {
+      flex: 1;
+    }
+
+    .pbs-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .pbs-card-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 3px;
+      line-height: 1.5;
+    }
+
+    .pbs-textarea {
+      width: 100%;
+      min-height: 90px;
+      background: var(--paper-gesso);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-family: var(--font-sans);
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--ink);
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .pbs-textarea:focus {
+      border-color: var(--forest);
+      background: var(--paper-sheet);
+    }
+
+    .pbs-textarea::placeholder {
+      color: var(--muted-light);
+      font-size: 13.5px;
+    }
+
+    /* Fixed Sticky Action Bar at Bottom */
+    .pbs-floating-actions {
+      position: sticky;
+      bottom: 16px;
+      margin-top: 24px;
+      background: var(--paper-sheet);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 9999px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: var(--shadow-lg);
+      z-index: 90;
+    }
+
+    .pbs-status-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      padding-left: 6px;
+    }
+
+    .save-indicator-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+    }
+
+    .pbs-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-pbs-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 14px;
+      border-radius: 9999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--card-border);
+      background: var(--paper-warm, var(--card-bg));
+      color: var(--ink);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-pbs-action:hover {
+      border-color: var(--forest);
+      color: var(--forest);
+      background: var(--card-hover);
+    }
+
+    .btn-pbs-action.primary {
+      background: var(--forest);
+      color: #FFFFFF;
+      border-color: var(--forest);
+    }
+
+    .btn-pbs-action.primary:hover {
+      background: var(--forest-light);
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed Fullscreen Tintoretto Single Sheet -->
+  <div class="tintoretto-bg-layer"></div>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand-wrap">
+        <img src="assets/images/church_logo.png" alt="주은혜교회" class="brand-logo-img" />
+        <div class="brand-text">
+          <span class="brand-eyebrow">ELGRACE BIBLE STUDY</span>
+          <span class="brand-title">장년부 PBS 묵상</span>
+        </div>
+      </a>
+      <div class="topbar-actions">
+        <a href="index.html" class="action-icon-btn" title="주일 주보 보기">
+          <i data-lucide="book-open" style="width: 18px; height: 18px;"></i>
+        </a>
+        <button id="btnToggleTheme" class="action-icon-btn" title="테마 변경">
+          <i data-lucide="moon" class="icon-moon" style="width: 18px; height: 18px;"></i>
+          <i data-lucide="sun" class="icon-sun" style="width: 18px; height: 18px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Wrap -->
+  <main class="main-wrap">
+    <!-- Frame Header -->
+    <div class="liturgy-print-frame">
+      <div class="liturgy-print-header">
+        <span class="liturgy-print-header-eyebrow">WEEKLY PERSONAL BIBLE STUDY</span>
+        <h1 class="liturgy-print-header-title" id="pbsPassageHeader">출애굽기 19장</h1>
+        <div class="liturgy-print-header-date">
+          <i data-lucide="calendar" style="width: 13px; height: 13px;"></i>
+          <span id="pbsDateHeader">2026년 10월 4일 (주일) · 1~25절</span>
+        </div>
+      </div>
+
+      <!-- Controls Bar -->
+      <div class="bible-controls-bar">
+        <div class="bible-tool-actions">
+          <button id="btnToggleVersion" class="bible-tool-btn" onclick="toggleVersionDrawer()">
+            <i data-lucide="languages" style="width: 15px; height: 15px;"></i>
+            <span>역본 선택</span>
+          </button>
+          <button id="btnToggleFont" class="bible-tool-btn" onclick="toggleFontDrawer()">
+            <i data-lucide="type" style="width: 15px; height: 15px;"></i>
+            <span>글자 크기</span>
+          </button>
+        </div>
+        <span id="activeVerSummary" style="font-size: 12px; font-weight: 700; color: var(--muted);">개역개정 (단독)</span>
+      </div>
+
+      <!-- Version Drawer Accordion -->
+      <div id="bibleVersionDrawer" class="bible-sliding-drawer">
+        <div class="drawer-inner-card">
+          <!-- 1차 역본 -->
+          <div class="ver-select-section" style="margin-bottom: 14px;">
+            <div class="ver-section-header">
+              <span class="ver-badge-num">1</span>
+              <span class="ver-section-title">1차 기본 역본</span>
+              <span class="ver-section-hint">가장 먼저 표시되는 성경</span>
+            </div>
+            <div class="ver-choice-grid" id="primaryVerOptions">
+              <button class="ver-btn primary-active" data-ver="krv" onclick="setPrimaryVersion('krv')">
+                <span class="ver-name">개역개정</span>
+                <span class="ver-desc">표준 한국어</span>
+              </button>
+              <button class="ver-btn" data-ver="easy" onclick="setPrimaryVersion('easy')">
+                <span class="ver-name">쉬운성경</span>
+                <span class="ver-desc">쉬운 현대어</span>
+              </button>
+              <button class="ver-btn" data-ver="niv" onclick="setPrimaryVersion('niv')">
+                <span class="ver-name">NIV</span>
+                <span class="ver-desc">English</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2차 대조 역본 -->
+          <div class="ver-select-section">
+            <div class="ver-section-header">
+              <span class="ver-badge-num secondary">2</span>
+              <span class="ver-section-title">2차 추가 대조 역본</span>
+              <span class="ver-section-hint">선택 시 절마다 아래에 함께 표기</span>
+            </div>
+            <div class="ver-choice-grid" id="secondaryVerOptions">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Font Size Drawer Accordion -->
+      <div id="bibleFontDrawer" class="bible-sliding-drawer">
+        <div class="drawer-inner-card">
+          <div class="drawer-header-row">
+            <span class="drawer-title">
+              <i data-lucide="type" style="width: 15px; height: 15px;"></i>
+              본문 글자 크기
+            </span>
+            <span class="drawer-indicator" id="fontCurrentLabel">16px (기본)</span>
+          </div>
+          <div class="font-stepper-container">
+            <button class="font-step-btn" onclick="changeFontSize(-1)" title="작게">A-</button>
+            <div class="font-chips-bar">
+              <button class="font-chip" data-size="14" onclick="setFontSize(14)">14<small>작게</small></button>
+              <button class="font-chip active" data-size="16" onclick="setFontSize(16)">16<small>기본</small></button>
+              <button class="font-chip" data-size="18" onclick="setFontSize(18)">18<small>보통</small></button>
+              <button class="font-chip" data-size="20" onclick="setFontSize(20)">20<small>크게</small></button>
+              <button class="font-chip" data-size="22" onclick="setFontSize(22)">22<small>최대</small></button>
+            </div>
+            <button class="font-step-btn" onclick="changeFontSize(1)" title="크게">A+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bible Verses Flow -->
+      <div id="bibleVerseFlow" class="bible-text-flow">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </div>
+
+    <!-- PBS Study 3-Step Section -->
+    <div class="pbs-section-divider">
+      <span class="pbs-section-pill">
+        <i data-lucide="edit-3" style="width: 14px; height: 14px;"></i>
+        나의 PBS 묵상 기록
+      </span>
+    </div>
+
+    <!-- 1) 본문 나누기 -->
+    <div class="pbs-study-card">
+      <div class="pbs-card-head">
+        <span class="pbs-card-icon">📌</span>
+        <div class="pbs-card-meta">
+          <h2 class="pbs-card-title">1) 본문 나누기</h2>
+          <p class="pbs-card-desc">문단 구분 및 각 문단의 소제목을 작성해 보세요. (예: 1~8절, 9~15절, 16~25절)</p>
+        </div>
+      </div>
+      <textarea id="pbsSection1" class="pbs-textarea" placeholder="• 1문단 (1~8절): &#10;• 2문단 (9~15절): &#10;• 3문단 (16~25절): "></textarea>
+    </div>
+
+    <!-- 2) 본문 분석 -->
+    <div class="pbs-study-card">
+      <div class="pbs-card-head">
+        <span class="pbs-card-icon">🔎</span>
+        <div class="pbs-card-meta">
+          <h2 class="pbs-card-title">2) 본문 분석</h2>
+          <p class="pbs-card-desc">본문을 관찰하고 묵상한 내용을 기록해 보세요.</p>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div>
+          <label style="font-size: 13px; font-weight: 700; color: var(--forest); display: block; margin-bottom: 4px;">1. 하나님(예수님, 성령님)은 어떤 분이신가?</label>
+          <textarea id="pbsSection2_god" class="pbs-textarea" style="min-height: 70px;" placeholder="본문 속에 계시된 하나님의 성품, 뜻, 역사하심을 기록해보세요."></textarea>
+        </div>
+        <div>
+          <label style="font-size: 13px; font-weight: 700; color: var(--forest); display: block; margin-bottom: 4px;">2. 영적 교훈과 원리 / 깨달은 점</label>
+          <textarea id="pbsSection2_lesson" class="pbs-textarea" style="min-height: 70px;" placeholder="오늘 내 삶에 주시는 성경적 원리와 교훈을 적어보세요."></textarea>
+        </div>
+        <div>
+          <label style="font-size: 13px; font-weight: 700; color: var(--forest); display: block; margin-bottom: 4px;">3. 질문 및 조원들과 나눌 질문</label>
+          <textarea id="pbsSection2_question" class="pbs-textarea" style="min-height: 60px;" placeholder="형제조 모임에서 함께 나누고 싶은 질문을 적어보세요."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3) 적용 -->
+    <div class="pbs-study-card">
+      <div class="pbs-card-head">
+        <span class="pbs-card-icon">💡</span>
+        <div class="pbs-card-meta">
+          <h2 class="pbs-card-title">3) 삶의 적용 및 기도</h2>
+          <p class="pbs-card-desc">구체적이고 실천 가능한 삶의 결단과 기도를 적어보세요.</p>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div>
+          <label style="font-size: 13px; font-weight: 700; color: var(--forest); display: block; margin-bottom: 4px;">3P 삶의 적용 (Personal 개인적, Practical 구체적, Possible 실천가능한)</label>
+          <textarea id="pbsSection3_apply" class="pbs-textarea" style="min-height: 70px;" placeholder="이번 한 주 동안 내가 실천할 구체적인 행동 결단을 기록하세요."></textarea>
+        </div>
+        <div>
+          <label style="font-size: 13px; font-weight: 700; color: var(--forest); display: block; margin-bottom: 4px;">한 줄 기도문</label>
+          <textarea id="pbsSection3_prayer" class="pbs-textarea" style="min-height: 50px;" placeholder="묵상을 마무리하며 하나님께 드리는 진솔한 기도"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Bottom Bar -->
+    <div class="pbs-floating-actions">
+      <div class="pbs-status-wrap">
+        <span class="save-indicator-dot"></span>
+        <span id="saveStatusText">로컬 자동 저장됨</span>
+      </div>
+      <div class="pbs-btn-group">
+        <button class="btn-pbs-action" onclick="copyPbsContent()" title="모임 나눔용으로 클립보드 복사">
+          <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+          <span>나눔 복사</span>
+        </button>
+        <a href="https://app.notion.com/p/PBS-132b2d68806c805f91e8e6f7bc25d815" target="_blank" rel="noopener" class="btn-pbs-action primary" title="노션 PBS 대시보드로 이동">
+          <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+          <span>노션 열기</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Script -->
+  <script>
+    // Lucide Icons
+    lucide.createIcons();
+
+    // Data: Exodus 19 (출애굽기 19장 1~25절 3대 역본)
+    const exodus19Verses = [
+      {
+        "v": 1,
+        "krv": "이스라엘 자손이 애굽 땅을 떠난 지 삼 개월이 되던 날 그들이 시내 광야에 이르니라",
+        "easy": "이집트를 떠난 지 꼭 석 달 만에 이스라엘 백성은 시내 광야에 이르렀습니다.",
+        "niv": "On the first day of the third month after the Israelites left Egypt—on that very day—they came to the Desert of Sinai."
+      },
+      {
+        "v": 2,
+        "krv": "그들이 르비딤을 떠나 시내 광야에 이르러 그 광야에 장막을 치되 이스라엘이 거기 산 앞에 장막을 치니라",
+        "easy": "그들은 르비딤을 떠나서 시내 광야로 들어갔습니다. 이스라엘 백성은 그 광야, 시내 산 앞에 진을 쳤습니다.",
+        "niv": "After they set out from Rephidim, they entered the Desert of Sinai, and Israel camped there in the desert in front of the mountain."
+      },
+      {
+        "v": 3,
+        "krv": "모세가 하나님 앞에 올라가니 여호와께서 산에서 그를 불러 말씀하시되 너는 이같이 야곱의 집에 말하고 이스라엘 자손들에게 말하라",
+        "easy": "모세가 산으로 올라가 하나님을 만나려 하자, 여호와께서 산에서 모세를 불러 말씀하셨습니다. \"너는 야곱의 백성 곧 이스라엘 백성에게 이렇게 말하여라.",
+        "niv": "Then Moses went up to God, and the Lord called to him from the mountain and said, “This is what you are to say to the descendants of Jacob and what you are to tell the people of Israel:"
+      },
+      {
+        "v": 4,
+        "krv": "내가 애굽 사람에게 어떻게 행하였음과 내가 어떻게 독수리 날개로 너희를 업어 내게로 인도하였음을 너희가 보았느니라",
+        "easy": "'너희는 내가 이집트 사람들에게 한 일을 보았고, 독수리가 날개로 새끼를 업어 나르듯 내가 너희를 나에게 데려온 것도 보았다.",
+        "niv": "‘You yourselves have seen what I did to Egypt, and how I carried you on eagles’ wings and brought you to myself."
+      },
+      {
+        "v": 5,
+        "krv": "세계가 다 내게 속하였나니 너희가 내 말을 잘 듣고 내 언약을 지키면 너희는 모든 민족 중에서 내 소유가 되겠고",
+        "easy": "그러므로 이제 너희가 내 말을 듣고 내 언약을 지키면, 너희는 모든 백성 가운데서 나의 보물이 될 것이다. 온 세상이 다 내 것이다.",
+        "niv": "Now if you obey me fully and keep my covenant, then out of all nations you will be my treasured possession. Although the whole earth is mine,"
+      },
+      {
+        "v": 6,
+        "krv": "너희가 내게 대하여 제사장 나라가 되며 거룩한 백성이 되리라 너는 이 말을 이스라엘 자손에게 전할지니라",
+        "easy": "그러나 너희는 나를 섬기는 제사장 나라가 되며, 거룩한 백성이 될 것이다.' 너는 이스라엘 백성에게 이 말을 전하여라.\"",
+        "niv": "you will be for me a kingdom of priests and a holy nation.’ These are the words you are to speak to the Israelites.”"
+      },
+      {
+        "v": 7,
+        "krv": "모세가 내려와서 백성의 장로들을 불러 여호와께서 자기에게 명령하신 그 모든 말씀을 그들 앞에 진술하니",
+        "easy": "모세가 산에서 내려와 백성의 장로들을 불렀습니다. 모세는 여호와께서 명령하신 모든 말씀을 그들에게 전했습니다.",
+        "niv": "So Moses went back and summoned the elders of the people and set before them all the words the Lord had commanded him to speak."
+      },
+      {
+        "v": 8,
+        "krv": "백성이 일제히 응답하여 이르되 여호와께서 명령하신 대로 우리가 다 행하리이다 모세가 백성의 말을 여호와께 전하매",
+        "easy": "모든 백성이 한목소리로 \"여호와께서 말씀하신 것을 다 지키겠습니다\" 하고 대답했습니다. 모세는 백성이 대답한 말을 여호와께 전했습니다.",
+        "niv": "The people all responded together, “We will do everything the Lord has said.” So Moses brought their answer back to the Lord."
+      },
+      {
+        "v": 9,
+        "krv": "여호와께서 모세에게 이르시되 내가 빽빽한 구름 가운데서 네게 임함은 내가 너와 말하는 것을 백성이 듣게 하며 또한 너를 영영히 믿게 하려 함이니라 모세가 백성의 말을 여호와께 아뢰었으므로",
+        "easy": "여호와께서 모세에게 말씀하셨습니다. \"내가 짙은 구름 속에서 너에게 나타날 것이다. 내가 너와 이야기하는 것을 백성이 듣게 하겠다. 그러면 백성이 너를 영원히 믿을 것이다.\" 모세는 백성이 한 말을 여호와께 전했습니다.",
+        "niv": "The Lord said to Moses, “I am going to come to you in a dense cloud, so that the people will hear me speaking with you and will always put their trust in you.” Then Moses told the Lord what the people had said."
+      },
+      {
+        "v": 10,
+        "krv": "여호와께서 모세에게 이르시되 너는 백성에게로 가서 오늘과 내일 그들을 성결하게 하며 그들에게 옷을 빨게 하고",
+        "easy": "여호와께서 모세에게 말씀하셨습니다. \"백성에게 가거라. 오늘과 내일, 그들을 거룩하게 하여라. 그들에게 옷을 빨게 하여라.",
+        "niv": "And the Lord said to Moses, “Go to the people and consecrate them today and tomorrow. Have them wash their clothes"
+      },
+      {
+        "v": 11,
+        "krv": "준비하게 하여 셋째 날을 기다리게 하라 이는 셋째 날에 나 여호와가 온 백성의 목전에서 시내 산에 강림할 것임이니",
+        "easy": "셋째 날을 준비하게 하여라. 그 날에 나 여호와가 모든 백성이 보는 앞에서 시내 산으로 내려갈 것이다.",
+        "niv": "and be ready by the third day, because on that day the Lord will come down on Mount Sinai in the sight of all the people."
+      },
+      {
+        "v": 12,
+        "krv": "너는 백성을 위하여 주위에 경계를 정하고 이르기를 너희는 삼가 산에 오르거나 그 경계를 침범하지 말지니 산을 침범하는 자는 반드시 죽임을 당할 것이라",
+        "easy": "너는 산 주위에 경계선을 만들어 백성이 산으로 올라가지 못하게 하여라. 그리고 백성에게 '산에 올라가지 마시오. 산 경계선을 넘지 마시오. 누구든지 산에 오르는 사람은 반드시 죽임을 당할 것이오.",
+        "niv": "Put limits for the people around the mountain and tell them, ‘Be careful that you do not approach the mountain or touch the foot of it. Whoever touches the mountain is to be put to death."
+      },
+      {
+        "v": 13,
+        "krv": "그런 자에게는 손을 대지 말고 돌로 쳐죽이거나 화살로 쏘아 죽여야 하리니 짐승이나 사람을 막론하고 살아남지 못하리라 하고 나팔을 길게 불거든 산 앞에 이를 것이니라 하라",
+        "easy": "산에 오르는 사람은 손을 대지 말고, 돌로 쳐죽이거나 활을 쏘아 죽여야 하오. 사람이든 짐승이든 산에 오른 것은 살려 두지 마시오' 하고 말하여라. 나팔 소리가 길게 울리면, 백성은 산으로 나아가도 좋다.\"",
+        "niv": "They are to be stoned or shot with arrows; not a hand is to be laid on them. No person or animal shall be permitted to live.’ Only when the ram’s horn sounds a long blast may they approach the mountain.”"
+      },
+      {
+        "v": 14,
+        "krv": "모세가 산에서 내려와 백성에게 이르러 백성을 성결하게 하니 그들이 자기 옷을 빨더라",
+        "easy": "모세는 산에서 내려와 백성에게 갔습니다. 모세는 백성을 거룩하게 했고, 백성은 옷을 빨았습니다.",
+        "niv": "After Moses had gone down the mountain to the people, he consecrated them, and they washed their clothes."
+      },
+      {
+        "v": 15,
+        "krv": "모세가 백성에게 이르되 준비하여 셋째 날을 기다리고 여인을 가까이 하지 말라 하니라",
+        "easy": "모세가 백성에게 말했습니다. \"셋째 날을 준비하십시오. 그 날까지는 여자를 가까이 하지 마십시오.\"",
+        "niv": "Then he said to the people, “Prepare yourselves for the third day. Abstain from sexual relations.”"
+      },
+      {
+        "v": 16,
+        "krv": "셋째 날 아침에 우레와 번개와 빽빽한 구름이 산 위에 있고 나팔 소리가 매우 크게 들리니 진중에 있는 모든 백성이 다 떨더라",
+        "easy": "셋째 날 아침이 되었습니다. 산 위에 짙은 구름이 끼더니 천둥이 치고 번개가 일어났습니다. 그리고 매우 큰 나팔 소리가 울려 퍼졌습니다. 진에 있던 모든 백성이 두려워서 떨었습니다.",
+        "niv": "On the morning of the third day there was thunder and lightning, with a thick cloud over the mountain, and a very loud trumpet blast. Everyone in the camp trembled."
+      },
+      {
+        "v": 17,
+        "krv": "모세가 하나님을 맞으려고 백성을 거느리고 진에서 나오매 그들이 산 기슭에 서 있는데",
+        "easy": "모세는 하나님을 맞이하려고 백성을 진 밖으로 나오게 했습니다. 백성은 산기슭에 섰습니다.",
+        "niv": "Then Moses led the people out of the camp to meet with God, and they stood at the foot of the mountain."
+      },
+      {
+        "v": 18,
+        "krv": "시내 산에 연기가 자욱하니 여호와께서 불 가운데서 거기 강림하심이라 그 연기가 온기 가마 연기 같이 떠오르고 온 산이 크게 진동하며",
+        "easy": "시내 산은 연기로 덮였습니다. 여호와께서 불 가운데서 산으로 내려오셨기 때문입니다. 가마에서 나오는 연기처럼 연기가 솟아올랐고, 온 산이 크게 흔들렸습니다.",
+        "niv": "Mount Sinai was covered with smoke, because the Lord descended on it in fire. The smoke billowed up from it like smoke from a furnace, and the whole mountain trembled violently."
+      },
+      {
+        "v": 19,
+        "krv": "나팔 소리가 점점 커질 때에 모세가 말한즉 하나님이 음성으로 대답하시더라",
+        "easy": "나팔 소리가 점점 더 커졌습니다. 모세가 말하자 하나님께서 음성으로 모세에게 대답하셨습니다.",
+        "niv": "As the sound of the trumpet grew louder and louder, Moses spoke and the voice of God answered him."
+      },
+      {
+        "v": 20,
+        "krv": "여호와께서 시내 산 곧 그 산꼭대기에 강림하시고 모세를 그리로 부르시니 모세가 올라가매",
+        "easy": "여호와께서 시내 산꼭대기로 내려오셨습니다. 그리고 모세를 산꼭대기로 부르셨습니다. 그래서 모세는 산꼭대기로 올라갔습니다.",
+        "niv": "The Lord descended to the top of Mount Sinai and called Moses to the top of the mountain. So Moses went up"
+      },
+      {
+        "v": 21,
+        "krv": "여호와께서 모세에게 이르시되 내려가서 백성을 경고하라 백성이 밀고 들어와 나 여호와에게로 와서 보려고 하다가 많이 죽을까 하노라",
+        "easy": "여호와께서 모세에게 말씀하셨습니다. \"내려가서 백성에게 경고하여라. 백성이 나를 보려고 경계선을 넘어오다가 죽을까 염려된다.",
+        "niv": "and the Lord said to him, “Go down and warn the people so they do not force their way through to see the Lord and many of them perish."
+      },
+      {
+        "v": 22,
+        "krv": "또 여호와에게 가까이 하는 제사장들에게 그 몸을 성결히 하게 하라 나 여호와가 그들을 칠까 하노라",
+        "easy": "나에게 가까이 오는 제사장들도 자신을 거룩하게 해야 한다. 그렇지 않으면 내가 그들을 칠 것이다.\"",
+        "niv": "Even the priests, who approach the Lord, must consecrate themselves, or the Lord will break out against them.”"
+      },
+      {
+        "v": 23,
+        "krv": "모세가 여호와께 아뢰되 주께서 우리에게 명령하여 이르시기를 산 주위에 경계를 세워 산을 거룩하게 하라 하셨사온즉 백성이 시내 산에 오르지 못하리이다",
+        "easy": "모세가 여호와께 말했습니다. \"주께서 저희에게 '산 주위에 경계선을 만들어 산을 거룩하게 하라'고 말씀하셨으므로 백성은 시내 산으로 올라오지 못할 것입니다.\"",
+        "niv": "Moses said to the Lord, “The people cannot come up Mount Sinai, because you yourself warned us, ‘Put limits around the mountain and set it apart as holy.’ ”"
+      },
+      {
+        "v": 24,
+        "krv": "여호와께서 그에게 이르시되 가라 너는 내려가서 아론과 함께 올라오고 제사장들과 백성에게는 경계를 넘어 나 여호와에게로 올라오지 못하게 하라 내가 그들을 칠까 하노라",
+        "easy": "여호와께서 모세에게 말씀하셨습니다. \"내려가거라. 그리고 아론을 데리고 올라오너라. 하지만 제사장들과 백성은 경계선을 넘지 못하게 하여라. 그들이 나에게 올라오면, 내가 그들을 칠 것이다.\"",
+        "niv": "The Lord replied, “Go down and bring Aaron up with you. But the priests and the people must not force their way through to come up to the Lord, or he will break out against them.”"
+      },
+      {
+        "v": 25,
+        "krv": "모세가 백성에게 내려가서 그들에게 알리니라",
+        "easy": "모세가 백성에게 내려가서 여호와의 말씀을 전했습니다.",
+        "niv": "So Moses went down to the people and told them."
+      }
+    ];
+
+    // State Variables
+    let primaryVersion = localStorage.getItem('elgrace-pbs-primary') || 'krv';
+    let secondaryVersion = localStorage.getItem('elgrace-pbs-secondary') || 'none';
+    let currentBibleFontSize = parseInt(localStorage.getItem('elgrace-pbs-font-size'), 10) || 16;
+
+    const versionNames = {
+      krv: { name: '개역개정', desc: '표준 한국어' },
+      easy: { name: '쉬운성경', desc: '쉬운 현대어' },
+      niv: { name: 'NIV', desc: 'English' }
+    };
+
+    // Accordion Drawers
+    function toggleVersionDrawer() {
+      const verDrawer = document.getElementById('bibleVersionDrawer');
+      const fontDrawer = document.getElementById('bibleFontDrawer');
+      const btnVer = document.getElementById('btnToggleVersion');
+      const btnFont = document.getElementById('btnToggleFont');
+
+      if (fontDrawer.classList.contains('open')) {
+        fontDrawer.classList.remove('open');
+        btnFont.classList.remove('active');
+      }
+
+      const isOpen = verDrawer.classList.toggle('open');
+      btnVer.classList.toggle('active', isOpen);
+      if (isOpen) {
+        renderVersionDrawerUI();
+      }
+    }
+
+    function toggleFontDrawer() {
+      const fontDrawer = document.getElementById('bibleFontDrawer');
+      const verDrawer = document.getElementById('bibleVersionDrawer');
+      const btnFont = document.getElementById('btnToggleFont');
+      const btnVer = document.getElementById('btnToggleVersion');
+
+      if (verDrawer.classList.contains('open')) {
+        verDrawer.classList.remove('open');
+        btnVer.classList.remove('active');
+      }
+
+      const isOpen = fontDrawer.classList.toggle('open');
+      btnFont.classList.toggle('active', isOpen);
+    }
+
+    // Version Selection
+    function setPrimaryVersion(ver) {
+      primaryVersion = ver;
+      localStorage.setItem('elgrace-pbs-primary', primaryVersion);
+
+      if (secondaryVersion === primaryVersion) {
+        secondaryVersion = 'none';
+        localStorage.setItem('elgrace-pbs-secondary', 'none');
+      }
+
+      renderVersionDrawerUI();
+      renderBibleVerses();
+      updateVerSummary();
+    }
+
+    function setSecondaryVersion(ver) {
+      secondaryVersion = ver;
+      localStorage.setItem('elgrace-pbs-secondary', secondaryVersion);
+      renderVersionDrawerUI();
+      renderBibleVerses();
+      updateVerSummary();
+    }
+
+    function renderVersionDrawerUI() {
+      // Primary Buttons
+      document.querySelectorAll('#primaryVerOptions .ver-btn').forEach(btn => {
+        const ver = btn.getAttribute('data-ver');
+        if (ver === primaryVersion) {
+          btn.classList.add('primary-active');
+        } else {
+          btn.classList.remove('primary-active');
+        }
+      });
+
+      // Secondary Grid
+      const secGrid = document.getElementById('secondaryVerOptions');
+      if (!secGrid) return;
+
+      const allVers = ['krv', 'easy', 'niv'];
+      const availableSec = ['none', ...allVers.filter(v => v !== primaryVersion)];
+
+      secGrid.innerHTML = availableSec.map(ver => {
+        let name = '없음 (단독)';
+        let desc = '1차 역본만 보기';
+        if (ver !== 'none') {
+          name = versionNames[ver].name;
+          desc = versionNames[ver].desc;
+        }
+
+        const isActive = (secondaryVersion === ver) ? 'secondary-active' : '';
+
+        return `
+          <button class="ver-btn ${isActive}" data-ver="${ver}" onclick="setSecondaryVersion('${ver}')">
+            <span class="ver-name">${name}</span>
+            <span class="ver-desc">${desc}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function updateVerSummary() {
+      const summaryEl = document.getElementById('activeVerSummary');
+      if (!summaryEl) return;
+      const pName = versionNames[primaryVersion].name;
+      if (secondaryVersion === 'none') {
+        summaryEl.textContent = `${pName} (단독)`;
+      } else {
+        const sName = versionNames[secondaryVersion].name;
+        summaryEl.textContent = `${pName} + ${sName}`;
+      }
+    }
+
+    // Font Sizing
+    function setFontSize(size) {
+      currentBibleFontSize = Math.max(14, Math.min(22, size));
+      localStorage.setItem('elgrace-pbs-font-size', currentBibleFontSize);
+      applyFontSize();
+      updateFontDrawerUI();
+    }
+
+    function changeFontSize(delta) {
+      setFontSize(currentBibleFontSize + (delta * 2));
+    }
+
+    function applyFontSize() {
+      const flow = document.getElementById('bibleVerseFlow');
+      if (flow) {
+        flow.style.fontSize = currentBibleFontSize + 'px';
+      }
+    }
+
+    function updateFontDrawerUI() {
+      const label = document.getElementById('fontCurrentLabel');
+      if (label) {
+        const descMap = { 14: '작게', 16: '기본', 18: '보통', 20: '크게', 22: '아주크게' };
+        label.textContent = `${currentBibleFontSize}px (${descMap[currentBibleFontSize] || '맞춤'})`;
+      }
+      document.querySelectorAll('.font-chip').forEach(chip => {
+        const sz = parseInt(chip.getAttribute('data-size'), 10);
+        if (sz === currentBibleFontSize) {
+          chip.classList.add('active');
+        } else {
+          chip.classList.remove('active');
+        }
+      });
+      applyFontSize();
+    }
+
+    // Bible Verses Rendering
+    function renderBibleVerses() {
+      const container = document.getElementById('bibleVerseFlow');
+      if (!container) return;
+
+      const isSolo = (secondaryVersion === 'none');
+
+      container.innerHTML = exodus19Verses.map(item => {
+        const primaryText = item[primaryVersion] || '';
+        let secHtml = '';
+
+        if (!isSolo && item[secondaryVersion]) {
+          secHtml = `<p class="verse-text-item ${secondaryVersion}">${item[secondaryVersion]}</p>`;
+        }
+
+        return `
+          <div class="verse-line">
+            <span class="verse-badge">${item.v}절</span>
+            <div class="verse-content-group">
+              <p class="verse-text-item ${primaryVersion} ${isSolo ? 'solo' : ''}">${primaryText}</p>
+              ${secHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      applyFontSize();
+    }
+
+    // Theme Switcher
+    const themeBtn = document.getElementById('btnToggleTheme');
+    themeBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = (current === 'dark') ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('elgrace-theme', target);
+    });
+
+    // Auto-Save PBS Inputs to LocalStorage
+    const pbsDateKey = 'pbs-storage-2026-10-04';
+    const fieldIds = [
+      'pbsSection1',
+      'pbsSection2_god',
+      'pbsSection2_lesson',
+      'pbsSection2_question',
+      'pbsSection3_apply',
+      'pbsSection3_prayer'
+    ];
+
+    function loadSavedPbs() {
+      try {
+        const raw = localStorage.getItem(pbsDateKey);
+        if (raw) {
+          const data = JSON.parse(raw);
+          fieldIds.forEach(id => {
+            const el = document.getElementById(id);
+            if (el && data[id]) el.value = data[id];
+          });
+        }
+      } catch (e) {
+        console.error('Error loading saved PBS:', e);
+      }
+    }
+
+    function savePbs() {
+      try {
+        const data = {};
+        fieldIds.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) data[id] = el.value;
+        });
+        localStorage.setItem(pbsDateKey, JSON.stringify(data));
+        
+        const statusEl = document.getElementById('saveStatusText');
+        if (statusEl) {
+          statusEl.textContent = '자동 저장 완료 (' + new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ')';
+        }
+      } catch (e) {
+        console.error('Error saving PBS:', e);
+      }
+    }
+
+    // Attach Input Listeners
+    fieldIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('input', () => {
+          savePbs();
+        });
+      }
+    });
+
+    // Copy Content to Clipboard for Sharing
+    function copyPbsContent() {
+      const sec1 = document.getElementById('pbsSection1')?.value || '';
+      const god = document.getElementById('pbsSection2_god')?.value || '';
+      const lesson = document.getElementById('pbsSection2_lesson')?.value || '';
+      const q = document.getElementById('pbsSection2_question')?.value || '';
+      const apply = document.getElementById('pbsSection3_apply')?.value || '';
+      const prayer = document.getElementById('pbsSection3_prayer')?.value || '';
+
+      const fullText = `🕊️ [주은혜교회 장년부 PBS 묵상 나눔]
+본문: 출애굽기 19장 (2026-10-04 주일)
+
+📌 1) 본문 나누기
+${sec1.trim() || '(작성 내용 없음)'}
+
+🔎 2) 본문 분석
+1. 하나님은 어떤 분이신가?
+${god.trim() || '-'}
+
+2. 영적 교훈과 원리 / 깨달은 점
+${lesson.trim() || '-'}
+
+3. 나눔 질문
+${q.trim() || '-'}
+
+💡 3) 삶의 적용 및 기도
+• 3P 적용:
+${apply.trim() || '-'}
+
+• 한 줄 기도문:
+${prayer.trim() || '-'}`;
+
+      navigator.clipboard.writeText(fullText).then(() => {
+        alert('📋 이번 주 PBS 묵상 내용이 클립보드에 복사되었습니다!\n단톡방이나 모임에 바로 붙여넣으실 수 있습니다.');
+      }).catch(err => {
+        prompt('아래 내용을 복사하세요:', fullText);
+      });
+    }
+
+    // Init Execution
+    window.addEventListener('DOMContentLoaded', () => {
+      // Sync Theme
+      const savedTheme = localStorage.getItem('elgrace-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+
+      renderVersionDrawerUI();
+      updateFontDrawerUI();
+      updateVerSummary();
+      renderBibleVerses();
+      loadSavedPbs();
+    });
+  </script>
+</body>
+</html>
