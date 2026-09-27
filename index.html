@@ -922,9 +922,8 @@
       color: rgba(255, 255, 255, 0.85);
     }
 
-    /* Bible Verses Flow & Dual Contrast */
+    /* Bible Verses Flow (태그/괄호색 없이 깨끗한 활판 인쇄) */
     .bible-text-flow {
-      font-family: var(--font-serif);
       font-size: 16px;
       line-height: 1.95;
       color: var(--ink);
@@ -938,129 +937,93 @@
     }
 
     .verse-badge {
-      min-width: 22px;
-      height: 22px;
-      border-radius: 6px;
-      background: var(--sage-light);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 800;
       color: var(--forest);
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 3px;
+      background: var(--sage-light);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      padding: 2px 6px;
       flex-shrink: 0;
+      margin-top: 4px;
+      line-height: 1.2;
     }
 
     [data-theme="dark"] .verse-badge {
       background: rgba(63, 138, 107, 0.25);
       color: #A8D5BA;
+      border-color: rgba(255, 255, 255, 0.1);
     }
 
     .verse-content-group {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    .verse-text-item.primary {
+    .verse-text-item {
+      word-break: keep-all;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .verse-text-item.krv {
+      font-family: var(--font-serif);
+      font-size: 1em;
       line-height: 1.95;
       color: var(--ink);
-      word-break: keep-all;
-      margin: 0;
     }
 
-    .verse-text-item.primary.krv {
-      font-family: var(--font-serif);
-    }
-
-    .verse-text-item.primary.easy {
+    .verse-text-item.easy {
       font-family: var(--font-sans);
-    }
-
-    .verse-text-item.primary.niv {
-      font-family: Georgia, -apple-system, serif;
-    }
-
-    /* 2차 역본 대조 박스 (Requirement 6) */
-    .verse-secondary-box {
-      margin-top: 8px;
-      padding: 8px 12px;
-      background: rgba(30, 75, 55, 0.05);
-      border-left: 3px solid #2B5741;
-      border-radius: 4px 8px 8px 4px;
-    }
-
-    [data-theme="dark"] .verse-secondary-box {
-      background: rgba(255, 255, 255, 0.05);
-      border-left-color: #5AA77E;
-    }
-
-    .verse-sec-tag-bar {
-      display: flex;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-
-    .verse-ver-pill {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 4px;
-      letter-spacing: 0.02em;
-    }
-
-    .verse-ver-pill.krv {
-      background: #E8F0EC;
-      color: #1E4B37;
-    }
-
-    .verse-ver-pill.easy {
-      background: #EBF3FA;
-      color: #1E5C8A;
-    }
-
-    .verse-ver-pill.niv {
-      background: #F5EFEB;
-      color: #8A4F1E;
-    }
-
-    [data-theme="dark"] .verse-ver-pill.krv {
-      background: rgba(90, 167, 126, 0.25);
-      color: #8ED4AD;
-    }
-
-    [data-theme="dark"] .verse-ver-pill.easy {
-      background: rgba(56, 189, 248, 0.2);
-      color: #7DD3FC;
-    }
-
-    [data-theme="dark"] .verse-ver-pill.niv {
-      background: rgba(245, 158, 11, 0.2);
-      color: #FCD34D;
-    }
-
-    .verse-text-item.secondary {
+      font-size: 0.92em;
       line-height: 1.8;
-      color: #2c4436;
-      word-break: keep-all;
-      margin: 0;
-      font-size: 0.94em;
+      color: #384A41;
+      margin-top: 4px;
     }
 
-    [data-theme="dark"] .verse-text-item.secondary {
-      color: #C8D8CF;
+    .verse-text-item.easy.solo {
+      font-size: 1em;
+      line-height: 1.95;
+      color: var(--ink);
+      margin-top: 0;
     }
 
-    .verse-text-item.secondary.krv {
-      font-family: var(--font-serif);
-    }
-
-    .verse-text-item.secondary.easy {
-      font-family: var(--font-sans);
-    }
-
-    .verse-text-item.secondary.niv {
+    .verse-text-item.niv {
       font-family: Georgia, -apple-system, serif;
+      font-size: 0.92em;
+      line-height: 1.75;
+      color: #485750;
       font-style: italic;
+      margin-top: 4px;
+    }
+
+    .verse-text-item.niv.solo {
+      font-size: 0.96em;
+      line-height: 1.85;
+      color: var(--ink);
+      font-style: normal;
+      margin-top: 0;
+    }
+
+    [data-theme="dark"] .verse-text-item.easy {
+      color: #A3B5AC;
+    }
+
+    [data-theme="dark"] .verse-text-item.easy.solo {
+      color: var(--ink);
+    }
+
+    [data-theme="dark"] .verse-text-item.niv {
+      color: #B5BFB9;
+    }
+
+    [data-theme="dark"] .verse-text-item.niv.solo {
+      color: var(--ink);
     }
 
     /* Creed & News Specific */
@@ -2037,28 +2000,21 @@
       const container = document.getElementById('bibleVerseModal');
       if (!container) return;
 
+      const isSolo = (secondaryVersion === 'none');
+
       container.innerHTML = genesisVerses.map(item => {
         const primaryText = item[primaryVersion] || '';
         let secHtml = '';
 
-        if (secondaryVersion !== 'none' && item[secondaryVersion]) {
-          const secText = item[secondaryVersion];
-          const secName = versionNames[secondaryVersion].name;
-          secHtml = `
-            <div class="verse-secondary-box">
-              <div class="verse-sec-tag-bar">
-                <span class="verse-ver-pill ${secondaryVersion}">${secName}</span>
-              </div>
-              <p class="verse-text-item secondary ${secondaryVersion}">${secText}</p>
-            </div>
-          `;
+        if (!isSolo && item[secondaryVersion]) {
+          secHtml = `<p class="verse-text-item ${secondaryVersion}">${item[secondaryVersion]}</p>`;
         }
 
         return `
           <div class="verse-line">
             <span class="verse-badge">${item.v}</span>
             <div class="verse-content-group">
-              <p class="verse-text-item primary ${primaryVersion}">${primaryText}</p>
+              <p class="verse-text-item ${primaryVersion} ${isSolo ? 'solo' : ''}">${primaryText}</p>
               ${secHtml}
             </div>
           </div>
