@@ -84,25 +84,38 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    body {
-      font-family: var(--font-sans);
+    /* Fixed Fullscreen Fedrigoni Tintoretto 300DPI Single Paper Sheet (스마트폰 통 단일 1810x2560 원단) */
+    .tintoretto-bg-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
       background-color: var(--paper-bg);
-      background-image: 
-        radial-gradient(rgba(18, 60, 43, 0.035) 1px, transparent 0),
-        linear-gradient(to bottom, var(--paper-gesso) 0%, var(--paper-bg) 100%);
-      background-size: 16px 16px, 100% 100%;
-      background-attachment: fixed;
-      color: var(--ink);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background-image: url("assets/images/tintoretto_sheet.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      z-index: -10;
+      pointer-events: none;
+      transform: translate3d(0, 0, 0);
     }
 
-    [data-theme="dark"] body {
-      background-image: 
-        radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 0),
-        linear-gradient(to bottom, var(--paper-gesso) 0%, var(--paper-bg) 100%);
+    [data-theme="dark"] .tintoretto-bg-layer {
+      background-color: #121614;
+      filter: brightness(0.24) contrast(1.1);
+    }
+
+    body {
+      background-color: transparent;
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* Topbar */
@@ -227,11 +240,17 @@
     }
 
     .liturgy-print-frame {
-      background: var(--card-bg);
+      background: rgba(250, 248, 242, 0.88);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       border: 1px solid var(--card-border);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
       padding: 16px;
+    }
+
+    [data-theme="dark"] .liturgy-print-frame {
+      background: rgba(26, 32, 29, 0.88);
     }
 
     .liturgy-print-header {
@@ -272,9 +291,13 @@
       padding: 12px 14px;
       border-radius: var(--radius-sm);
       margin-bottom: 6px;
-      background: var(--paper-sheet);
+      background: rgba(249, 247, 241, 0.9);
       border: 1px solid var(--card-border);
       transition: all 0.2s ease;
+    }
+
+    [data-theme="dark"] .liturgy-item {
+      background: rgba(23, 28, 25, 0.9);
     }
 
     .liturgy-item:last-child {
@@ -411,7 +434,11 @@
     }
 
     .modal-sheet {
-      background: var(--paper-gesso);
+      background-color: var(--paper-bg);
+      background-image: url("assets/images/tintoretto_sheet.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
       width: 100%;
       max-width: 680px;
       height: 100dvh;
@@ -420,6 +447,13 @@
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       overflow: hidden;
       animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] .modal-sheet {
+      background-color: #151A17;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(26, 33, 29, 0.85) 0%, rgba(16, 21, 18, 0.95) 100%),
+        url("assets/images/tintoretto_sheet.jpg");
     }
 
     @keyframes modalSlideUp {
@@ -517,17 +551,24 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    /* HYMN VIEWER SPECIFIC (Requirement 2 & 3 & 4) */
+    /* HYMN VIEWER SPECIFIC (종이 인쇄 질감 + 배경 투과 알파 채널 모드) */
     #modalHymn .modal-sheet {
-      max-width: 100vw;
-      width: 100vw;
-      height: 100dvh;
-      border-radius: 0;
-      background: #FFFFFF;
+      max-width: 100vw !important;
+      width: 100vw !important;
+      height: 100dvh !important;
+      border-radius: 0 !important;
+      background-color: var(--paper-bg) !important;
+      background-image: url("assets/images/tintoretto_sheet.jpg") !important;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
     }
 
     [data-theme="dark"] #modalHymn .modal-sheet {
-      background: #141f18;
+      background-color: #151A17 !important;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(26, 33, 29, 0.85) 0%, rgba(16, 21, 18, 0.95) 100%),
+        url("assets/images/tintoretto_sheet.jpg") !important;
     }
 
     #modalHymn .sheet-scroll-body {
@@ -535,11 +576,11 @@
       margin: 0 !important;
       overflow-y: auto !important;
       overflow-x: hidden !important;
-      background: #FFFFFF;
+      background: transparent !important;
     }
 
     [data-theme="dark"] #modalHymn .sheet-scroll-body {
-      background: #141f18;
+      background: transparent !important;
     }
 
     #hymnFrame {
@@ -548,14 +589,14 @@
       padding: 0 !important;
       margin: 0 !important;
       display: block !important;
-      background: #FFFFFF !important;
+      background: transparent !important;
     }
 
     [data-theme="dark"] #hymnFrame {
-      background: #141f18 !important;
+      background: transparent !important;
     }
 
-    /* Always 100% device width, no tapping zoom */
+    /* Print onto Tintoretto Paper (흰색 투명화 + 알파 채널로 배경 종이 질감 100% 투과) */
     #hymnImg {
       width: 100% !important;
       max-width: 100% !important;
@@ -571,6 +612,9 @@
       cursor: default !important;
       transform: none !important;
       object-fit: contain !important;
+      background: transparent !important;
+      mix-blend-mode: multiply !important;
+      filter: brightness(1.15) contrast(1.14) !important;
     }
 
     [data-theme="dark"] #hymnImg {
@@ -1098,6 +1142,9 @@
   </style>
 </head>
 <body>
+
+  <!-- Fullscreen Single Sheet Fedrigoni Tintoretto Paper Layer (고해상도 1810x2560 300DPI 단일 종이 원단) -->
+  <div class="tintoretto-bg-layer" aria-hidden="true"></div>
 
   <!-- Topbar -->
   <header class="topbar">
