@@ -1,85 +1,230 @@
-{
-  "date": "2026-10-25",
-  "passage": "시편 85장",
-  "verse_count": 13,
-  "verses": [
-    {
-      "v": 1,
-      "krv": "여호와여, 주께서 이 땅을 축복하셔서 다시 이스라엘을 번영하게 하셨습니다.",
-      "easy": "여호와여, 주께서 이 땅을 축복하셔서 다시 이스라엘을 번영하게 하셨습니다.",
-      "niv": "You, Lord, showed favor to your land; you restored the fortunes of Jacob."
-    },
-    {
-      "v": 2,
-      "krv": "주께서는 주의 백성의 죄를 용서하시고 그들의 모든 허물을 덮어 주셨으며",
-      "easy": "주께서는 주의 백성의 죄를 용서하시고 그들의 모든 허물을 덮어 주셨으며",
-      "niv": "You forgave the iniquity of your people and covered all their sins."
-    },
-    {
-      "v": 3,
-      "krv": "주의 모든 분노를 거두셨습니다.",
-      "easy": "주의 모든 분노를 거두셨습니다.",
-      "niv": "You set aside all your wrath and turned from your fierce anger."
-    },
-    {
-      "v": 4,
-      "krv": "우리 구원의 하나님이시여, 우리를 다시 회복시켜 주시고 우리에 대한 주의 분노를 그치소서.",
-      "easy": "우리 구원의 하나님이시여, 우리를 다시 회복시켜 주시고 우리에 대한 주의 분노를 그치소서.",
-      "niv": "Restore us again, God our Savior, and put away your displeasure toward us."
-    },
-    {
-      "v": 5,
-      "krv": "주께서 우리에게 영원히 노하시며 대대로 분노하시겠습니까?",
-      "easy": "주께서 우리에게 영원히 노하시며 대대로 분노하시겠습니까?",
-      "niv": "Will you be angry with us forever? Will you prolong your anger through all generations?"
-    },
-    {
-      "v": 6,
-      "krv": "우리를 다시 살려 주소서. 그러면 주의 백성인 우리가 주를 찬양하며 기뻐하겠습니다.",
-      "easy": "우리를 다시 살려 주소서. 그러면 주의 백성인 우리가 주를 찬양하며 기뻐하겠습니다.",
-      "niv": "Will you not revive us again, that your people may rejoice in you?"
-    },
-    {
-      "v": 7,
-      "krv": "여호와여, 우리에게 주의 한결같은 사랑을 보이시고 우리에게 주의 구원을 베풀어 주소서.",
-      "easy": "여호와여, 우리에게 주의 한결같은 사랑을 보이시고 우리에게 주의 구원을 베풀어 주소서.",
-      "niv": "Show us your unfailing love, Lord, and grant us your salvation."
-    },
-    {
-      "v": 8,
-      "krv": "나는 여호와 하나님의 말씀을 들으리라. 그는 자기 백성인 성도들이 어리석은 길로 되돌아가지 않는다면 그들에게 평안을 약속하실 것이다.",
-      "easy": "나는 여호와 하나님의 말씀을 들으리라. 그는 자기 백성인 성도들이 어리석은 길로 되돌아가지 않는다면 그들에게 평안을 약속하실 것이다.",
-      "niv": "I will listen to what God the Lord says; he promises peace to his people, his faithful servants— but let them not turn to folly."
-    },
-    {
-      "v": 9,
-      "krv": "그를 두려워하는 자에게 구원이 가까우니 우리 땅에 그의 영광이 있으리라.",
-      "easy": "그를 두려워하는 자에게 구원이 가까우니 우리 땅에 그의 영광이 있으리라.",
-      "niv": "Surely his salvation is near those who fear him, that his glory may dwell in our land."
-    },
-    {
-      "v": 10,
-      "krv": "사랑과 성실이 함께 만나고 의와 평화가 서로 입맞추니",
-      "easy": "사랑과 성실이 함께 만나고 의와 평화가 서로 입맞추니",
-      "niv": "Love and faithfulness meet together; righteousness and peace kiss each other."
-    },
-    {
-      "v": 11,
-      "krv": "성실은 땅에서 솟아오르고 의는 하늘에서 굽어살피는구나.",
-      "easy": "성실은 땅에서 솟아오르고 의는 하늘에서 굽어살피는구나.",
-      "niv": "Faithfulness springs forth from the earth, and righteousness looks down from heaven."
-    },
-    {
-      "v": 12,
-      "krv": "여호와께서 좋은 것을 주시리니 우리 땅이 농산물을 내리라.",
-      "easy": "여호와께서 좋은 것을 주시리니 우리 땅이 농산물을 내리라.",
-      "niv": "The Lord will indeed give what is good, and our land will yield its harvest."
-    },
-    {
-      "v": 13,
-      "krv": "의가 여호와 앞에서 행하며 그를 위해 길을 예비하리라.",
-      "easy": "의가 여호와 앞에서 행하며 그를 위해 길을 예비하리라.",
-      "niv": "Righteousness goes before him and prepares the way for his steps."
-    }
-  ]
-}
+[
+  {
+    "v": 1,
+    "krv": "그 때에 야곱이 애굽에 곡식이 있음을 보고 아들들에게 이르되 너희는 어찌하여 서로 바라보고만 있느냐",
+    "easy": "야곱이 이집트에 곡식이 있다는 이야기를 듣고 자기 아들들에게 말했습니다. “왜 가만히 앉아서 서로 얼굴만 쳐다보고 있느냐?",
+    "niv": "When Jacob learned that there was grain in Egypt, he said to his sons, “Why do you just keep looking at each other?”"
+  },
+  {
+    "v": 2,
+    "krv": "야곱이 또 이르되 내가 들은즉 저 애굽에 곡식이 있다 하니 너희는 그리로 가서 거기서 우리를 위하여 사오라 그러면 우리가 살고 죽지 아니하리라 하매",
+    "easy": "듣자하니 이집트에는 곡식이 있다고 한다. 이집트로 내려가서 먹을 곡식을 좀 사 오너라. 그래야 먹고 살 수 있지 않겠느냐?”",
+    "niv": "He continued, “I have heard that there is grain in Egypt. Go down there and buy some for us, so that we may live and not die.”"
+  },
+  {
+    "v": 3,
+    "krv": "요셉의 형 열 사람이 애굽에서 곡식을 사려고 내려갔으나",
+    "easy": "그리하여 요셉의 형 열 명이 곡식을 사려고 이집트로 내려갔습니다.",
+    "niv": "Then ten of Joseph’s brothers went down to buy grain from Egypt."
+  },
+  {
+    "v": 4,
+    "krv": "야곱이 요셉의 아우 베냐민은 그의 형들과 함께 보내지 아니하였으니 이는 그의 생각에 재난이 그에게 미칠까 두려워함이었더라",
+    "easy": "하지만 야곱은 요셉의 동생 베냐민은 형들과 함께 보내지 않았습니다. 야곱은 베냐민에게 좋지 않은 일이 일어날까봐 두려워했습니다.",
+    "niv": "But Jacob did not send Benjamin, Joseph’s brother, with the others, because he was afraid that harm might come to him."
+  },
+  {
+    "v": 5,
+    "krv": "이스라엘의 아들들이 양식 사러 간 자 중에 있으니 가나안 땅에 기근이 있음이라",
+    "easy": "가나안 땅에도 가뭄이 들었기 때문에 이스라엘이라고도 부르는 야곱의 아들들은 곡식을 사기 위해 다른 많은 사람들과 함께 이집트로 내려갔습니다.",
+    "niv": "So Israel’s sons were among those who went to buy grain, for there was famine in the land of Canaan also."
+  },
+  {
+    "v": 6,
+    "krv": "때에 요셉이 나라의 총리로서 그 땅 모든 백성에게 곡식을 팔더니 요셉의 형들이 와서 그 앞에서 땅에 엎드려 절하매",
+    "easy": "그 때, 요셉은 이집트의 총리였습니다. 요셉은 곡식을 사러 오는 사람들에게 곡식을 팔고 있었습니다. 요셉의 형들도 요셉에게 왔습니다. 요셉의 형들은 땅에 엎드려 요셉에게 절했습니다.",
+    "niv": "Now Joseph was the governor of the land, the person who sold grain to all its people. So when Joseph’s brothers arrived, they bowed down to him with their faces to the ground."
+  },
+  {
+    "v": 7,
+    "krv": "요셉이 보고 형들인 줄을 아나 모르는 체하고 엄한 소리로 그들에게 말하여 이르되 너희가 어디서 왔느냐 그들이 이르되 곡물을 사려고 가나안에서 왔나이다",
+    "easy": "요셉은 그들을 보자마자, 그들이 자기의 형들이라는 것을 알았습니다. 그러나 요셉은 모르는 체하였습니다. 요셉이 쌀쌀한 말투로 물어 보았습니다. “너희들은 어디에서 왔느냐?” 형들이 대답했습니다. “우리는 가나안 땅에서 먹을 것을 사려고 왔습니다.”",
+    "niv": "As soon as Joseph saw his brothers, he recognized them, but he pretended to be a stranger and spoke harshly to them. “Where do you come from?” he asked. “From the land of Canaan,” they replied, “to buy food.”"
+  },
+  {
+    "v": 8,
+    "krv": "요셉은 그의 형들을 알아보았으나 그들은 요셉을 알아보지 못하더라",
+    "easy": "요셉은 그들이 자기 형들이라는 것을 알았지만, 그들은 요셉을 알아보지 못했습니다.",
+    "niv": "Although Joseph recognised his brothers, they did not recognise him."
+  },
+  {
+    "v": 9,
+    "krv": "요셉이 그들에게 대하여 꾼 꿈을 생각하고 그들에게 이르되 너희는 정탐꾼들이라 이 나라의 틈을 엿보려고 왔느니라",
+    "easy": "요셉은 형들이 자기에게 절하는 꿈을 꾼 것이 생각났습니다. 요셉이 형들에게 말했습니다. “너희들은 정탐꾼이다. 너희들은 이 나라의 약점을 알아 내려고 왔다!”",
+    "niv": "Then he remembered his dreams about them and said to them, “You are spies! You have come to see where our land is unprotected.”"
+  },
+  {
+    "v": 10,
+    "krv": "그들이 그에게 이르되 내 주여 아니니이다 당신의 종들은 곡물을 사러 왔나이다",
+    "easy": "그러자 요셉의 형들이 요셉에게 말했습니다. “내 주여, 그렇지 않습니다. 당신의 종인 우리는 먹을 것을 사러 왔을 뿐입니다.",
+    "niv": "“No, my lord,” they answered. “Your servants have come to buy food."
+  },
+  {
+    "v": 11,
+    "krv": "우리는 다 한 사람의 아들들로서 확실한 자들이니 당신의 종들은 정탐꾼이 아니니이다",
+    "easy": "우리는 모두 한 아버지의 아들입니다. 우리는 정탐꾼이 아닙니다. 우리는 정직한 사람입니다.”",
+    "niv": "We are all the sons of one man. Your servants are honest men, not spies.”"
+  },
+  {
+    "v": 12,
+    "krv": "요셉이 그들에게 이르되 아니라 너희가 이 나라의 틈을 엿보러 왔느니라",
+    "easy": "그러자 요셉이 그들에게 말했습니다. “아니다! 너희들은 이 나라의 약점을 알아 내려고 왔다!”",
+    "niv": "“No!” he said to them. “You have come to see where our land is unprotected.”"
+  },
+  {
+    "v": 13,
+    "krv": "그들이 이르되 당신의 종 우리들은 열두 형제로서 가나안 땅 한 사람의 아들들이라 막내 아들은 오늘 아버지와 함께 있고 또 하나는 없어졌나이다",
+    "easy": "그들이 말했습니다. “우리는 열두 형제 중 열 명입니다. 우리는 한 아버지의 아들입니다. 우리는 가나안 땅에 살고 있습니다. 우리의 막내 동생은 지금 그 곳에 우리 아버지와 함께 있습니다. 그리고 우리의 다른 동생은 없어졌습니다.”",
+    "niv": "But they replied, “Your servants were twelve brothers, the sons of one man, who lives in the land of Canaan. The youngest is now with our father, and one is no more.”"
+  },
+  {
+    "v": 14,
+    "krv": "요셉이 그들에게 이르되 내가 너희에게 이르기를 너희는 정탐꾼들이라 한 말이 이것이니라",
+    "easy": "요셉이 그들에게 말했습니다. “내 말이 틀림없다. 너희는 정탐꾼이다.",
+    "niv": "Joseph said to them, “It is just as I told you: You are spies!"
+  },
+  {
+    "v": 15,
+    "krv": "너희는 이같이 하여 너희 진실함을 증명할 것이라 바로의 생명으로 맹세하노니 너희 막내 아우가 여기 오지 아니하면 너희가 여기서 나가지 못하리라",
+    "easy": "그러나 너희들 말이 거짓말이 아니라는 것을 증명할 기회를 주겠다. 살아 계신 파라오께 맹세하지만, 너희의 막내 동생이 여기에 오기 전까지 너희는 이 곳을 떠나지 못한다.",
+    "niv": "And this is how you will be tested: As surely as Pharaoh lives, you will not leave this place unless your youngest brother comes here."
+  },
+  {
+    "v": 16,
+    "krv": "너희 중 하나를 보내어 너희 아우를 데려오게 하고 너희는 갇히어 있으라 내가 너희의 말을 시험하여 너희 중에 진실이 있는지 보리라 바로의 생명으로 맹세하노니 그리하지 아니하면 너희는 과연 정탐꾼이니라 하고",
+    "easy": "너희들 중 한 명이 가서 너희 동생을 데리고 오너라. 나머지는 여기 감옥에 갇혀 있어야 한다. 너희의 말이 옳은지 두고 봐야 겠다. 만약 너희가 거짓말을 하는 것이라면 살아 계신 파라오를 두고 맹세하지만 너희는 정탐꾼이다.”",
+    "niv": "Send one of your number to get your brother; the rest of you will be kept in prison, so that your words may be tested to see if you are telling the truth. If you are not, then as surely as Pharaoh lives, you are spies!”"
+  },
+  {
+    "v": 17,
+    "krv": "그들을 다 함께 삼 일을 가두었더라",
+    "easy": "그리고 나서 요셉은 그들 모두를 삼 일 동안 감옥에 넣어 두었습니다.",
+    "niv": "And he put them all in custody for three days."
+  },
+  {
+    "v": 18,
+    "krv": "사흘 만에 요셉이 그들에게 이르되 나는 하나님을 경외하노니 너희는 이같이 하여 생명을 보전하라",
+    "easy": "삼 일째 되는 날, 요셉이 그들에게 말했습니다. “나는 하나님을 두려워하는 사람이다. 내 말대로 하면 너희를 살려 주겠다.",
+    "niv": "On the third day, Joseph said to them, “Do this and you will live, for I fear God:"
+  },
+  {
+    "v": 19,
+    "krv": "너희가 확실한 자들이면 너희 형제 중 한 사람만 그 옥에 갇히게 하고 너희는 곡식을 가지고 가서 너희 집안의 굶주림을 구하고",
+    "easy": "만약 너희가 정직한 사람이라면, 너희 중 한 사람만 여기 감옥에 남아 있어라. 그리고 나머지 사람들은 곡식을 가지고 돌아가서 너희의 굶주린 식구들에게 먹을 것을 주어라.",
+    "niv": "If you are honest men, let one of your brothers stay here in prison, while the rest of you go and take grain back for your starving households."
+  },
+  {
+    "v": 20,
+    "krv": "너희 막내 아우를 내게로 데리고 오라 그러면 너희 말이 진실함이 되고 너희가 죽지 아니하리라 하니 그들이 그대로 하니라",
+    "easy": "그리고 나서 너희의 막내 동생을 데리고 오너라. 만약 그렇게 하면 너희의 말이 진실인 줄 알고 너희를 살려 주겠다.” 그들은 요셉의 말대로 하기로 했습니다.",
+    "niv": "But you must bring your youngest brother to me, so that your words may be verified and that you may not die.” This they proceeded to do."
+  },
+  {
+    "v": 21,
+    "krv": "그들이 서로 말하되 우리가 아우의 일로 말미암아 범죄하였도다 그가 우리에게 애걸할 때에 그 마음의 괴로움을 보고도 듣지 아니하였으므로 이 괴로움이 우리에게 임하도다",
+    "easy": "그들이 자기들끼리 말했습니다. “우리가 동생에게 한 일 때문에 이런 벌을 받는가 보다. 우리는 동생이 고통을 당하면서 우리에게 살려 달라고 애원하는 것을 보면서도 동생의 말을 듣지 않았다. 그래서 우리가 지금 이런 고통을 당하는 것이다.”",
+    "niv": "They said to one another, “Surely we are being punished because of our brother. We saw how distressed he was when he pleaded with us for his life, but we would not listen; that’s why this distress has come on us.”"
+  },
+  {
+    "v": 22,
+    "krv": "르우벤이 그들에게 대답하여 이르되 내가 너희에게 그 아이에 대하여 죄를 짓지 말라고 하지 아니하였더냐 그래도 너희가 듣지 아니하였느니라 그러므로 그의 핏값을 치르게 되었도다 하니",
+    "easy": "그러자 르우벤이 그들에게 말했습니다. “내가 그 아이를 해치지 말라고 하지 않았느냐? 그런데도 너희는 내 말을 듣지 않았다. 그 아이에게 한 일 때문에 우리가 지금 이런 벌을 받고 있는 것이다.”",
+    "niv": "Reuben replied, “Didn’t I tell you not to sin against the boy? But you wouldn’t listen! Now we must give an accounting for his blood.”"
+  },
+  {
+    "v": 23,
+    "krv": "그들 사이에 통역을 세웠으므로 그들은 요셉이 듣는 줄을 알지 못하였더라",
+    "easy": "요셉은 자기 형들에게 말할 때 통역하는 사람을 통해서 말을 했습니다. 그래서 형들은 요셉이 자기들끼리 하는 말을 알아들을 거라고 생각하지 못했습니다.",
+    "niv": "They did not realise that Joseph could understand them, since he was using an interpreter."
+  },
+  {
+    "v": 24,
+    "krv": "요셉이 그들을 떠나가서 울고 다시 돌아와서 그들과 말하다가 그들 중에서 시므온을 끌어내어 그들의 눈 앞에서 결박하고",
+    "easy": "요셉은 형들이 있는 곳에서 나와 울었습니다. 그리고 얼마 있다가 다시 돌아와 형들에게 말했습니다. 요셉은 시므온을 붙잡아 다른 형들이 보는 앞에서 시므온을 묶었습니다.",
+    "niv": "He turned away from them and began to weep, but then turned back and spoke to them again. He had Simeon taken from them and bound before their eyes."
+  },
+  {
+    "v": 25,
+    "krv": "명하여 곡물을 그 그릇에 채우게 하고 각 사람의 돈은 그의 자루에 도로 넣게 하고 또 길 양식을 그들에게 주게 하니 그대로 행하였더라",
+    "easy": "요셉은 종들에게 자기 형들의 가방에 곡식을 가득 채우라고 말했습니다. 그리고 곡식을 사기 위해 가지고 온 돈도 다 돌려 주고, 집으로 돌아가는 동안에 필요한 물건들도 넣어 주라고 명령했습니다. 종들은 요셉이 하라는 대로 했습니다.",
+    "niv": "Joseph gave orders to fill their bags with grain, to put each man’s silver back in his sack, and to give them provisions for their journey. After this was done for them,"
+  },
+  {
+    "v": 26,
+    "krv": "그들이 곡식을 나귀에 싣고 그 곳을 떠났더니",
+    "easy": "그리하여 요셉의 형들은 곡식을 나귀에 싣고 길을 떠났습니다.",
+    "niv": "they loaded their grain on their donkeys and left."
+  },
+  {
+    "v": 27,
+    "krv": "한 사람이 여관에서 나귀에게 먹이를 주려고 자루를 풀고 본즉 그 돈이 자루 아귀에 있는지라",
+    "easy": "하룻밤을 머문 곳에서 형들 중 한 명이 나귀에게 먹이를 주려고 자루를 열었더니, 자루 안에 돈이 있는 것이 보였습니다.",
+    "niv": "At the place where they stopped for the night one of them opened his sack to get feed for his donkey, and he saw his silver in the mouth of his sack."
+  },
+  {
+    "v": 28,
+    "krv": "그가 그 형제에게 말하되 내 돈을 도로 넣었도다 보라 자루 속에 있도다 이에 그들이 혼이 나서 떨며 서로 돌아보며 말하되 하나님이 어찌하여 이런 일을 우리에게 행하셨는가 하고",
+    "easy": "그 사람이 다른 형제들에게 말했습니다. “곡식을 사려고 낸 돈이 여기 자루에 그대로 있다.” 형들은 매우 놀라면서 자기들끼리 “하나님께서 우리를 어떻게 하시려고 이런 일을 하셨는가?” 하고 말했습니다.",
+    "niv": "“My silver has been returned,” he said to his brothers. “Here it is in my sack.” Their hearts sank and they turned to each other trembling and said, “What is this that God has done to us?”"
+  },
+  {
+    "v": 29,
+    "krv": "그들이 가나안 땅에 돌아와 그들의 아버지 야곱에게 이르러 그들이 당한 일을 자세히 알리어 아뢰되",
+    "easy": "형들이 가나안 땅에 있던 자기 아버지 야곱에게 돌아갔습니다. 그들은 지금까지 일어난 일을 모두 야곱에게 이야기해 주었습니다.",
+    "niv": "When they came to their father Jacob in the land of Canaan, they told him all that had happened to them. They said,"
+  },
+  {
+    "v": 30,
+    "krv": "그 땅의 주인인 그 사람이 엄하게 우리에게 말씀하고 우리를 그 땅에 대한 정탐꾼으로 여기기로",
+    "easy": "“그 땅의 주인이 우리에게 엄하게 말했습니다. 그 사람이 우리가 자기네 나라를 정탐하러 온 줄로 알길래",
+    "niv": "“The man who is lord over the land spoke harshly to us and treated us as though we were spying on the land."
+  },
+  {
+    "v": 31,
+    "krv": "우리가 그에게 이르되 우리는 확실한 자들이요 정탐꾼이 아니니이다",
+    "easy": "우리는 정탐꾼이 아니라 정직한 사람이라고 말했습니다.",
+    "niv": "But we said to him, ‘We are honest men; we are not spies."
+  },
+  {
+    "v": 32,
+    "krv": "우리는 한 아버지의 아들 열두 형제로서 하나는 없어지고 막내는 오늘 우리 아버지와 함께 가나안 땅에 있나이다 하였더니",
+    "easy": "우리는 한 아버지의 아들들로서 열두 형제 중에서 열 명이라고 말해 주었습니다. 열두 형제 중 한 명은 없어졌고, 막내 동생은 아버지와 함께 가나안 땅에 있다는 이야기도 했습니다.",
+    "niv": "We were twelve brothers, sons of one father. One is no more, and the youngest is now with our father in Canaan.’"
+  },
+  {
+    "v": 33,
+    "krv": "그 땅의 주인인 그 사람이 우리에게 이르되 내가 이같이 하여 너희가 확실한 자들임을 알리니 너희 형제 중의 하나를 내게 두고 양식을 가지고 가서 너희 집안의 굶주림을 구하고",
+    "easy": "그러자 그 땅의 주인이 우리에게 말했습니다. ‘너희가 정직한 사람이라는 것을 증명하려면 이렇게 하여라. 너희 중 한 명은 여기에 남아라. 그리고 나머지는 곡식을 가지고 너희의 굶주린 식구들에게 돌아가거라.",
+    "niv": "“Then the man who is lord over the land said to us, ‘This is how I will know whether you are honest men: Leave one of your brothers here with me, and take food for your starving households and go."
+  },
+  {
+    "v": 34,
+    "krv": "너희 막내 아우를 내게로 데려 오라 그러면 너희가 정탐꾼이 아니요 확실한 자들임을 내가 알고 너희 형제를 너희에게 돌리리니 너희가 이 나라에서 무역하리라 하더이다 하고",
+    "easy": "그리고 너희의 막내 동생을 이리로 데려 오너라. 그래야 너희가 정탐꾼이 아니라 정직한 사람이라는 것을 알고, 너희가 남겨 두고 간 너희 형제를 돌려 주겠다. 또한 너희는 우리 땅에서 자유롭게 다닐 수도 있을 것이다.’”",
+    "niv": "But bring your youngest brother to me so I will know that you are not spies but honest men. Then I will give your brother back to you, and you can trade [Or move about freely] in the land.’"
+  },
+  {
+    "v": 35,
+    "krv": "각기 자루를 쏟고 본즉 각 사람의 돈뭉치가 그 자루 속에 있는지라 그들과 그들의 아버지가 돈뭉치를 보고 다 두려워하더니",
+    "easy": "이 말을 하고 나서 요셉의 형들은 자루를 비웠습니다. 그랬더니 자루마다 돈이 그대로 들어 있었습니다. 그들과 그들의 아버지는 그것을 보고 두려워했습니다.",
+    "niv": "As they were emptying their sacks, there in each man’s sack was his pouch of silver! When they and their father saw the money pouches, they were frightened."
+  },
+  {
+    "v": 36,
+    "krv": "그들의 아버지 야곱이 그들에게 이르되 너희가 나에게 내 자식들을 잃게 하도다 요셉도 없어졌고 시므온도 없어졌거늘 베냐민을 또 빼앗아 가고자 하니 이는 다 나를 해롭게 함이로다",
+    "easy": "아버지 야곱이 말했습니다. “너희는 내 자식들을 다 빼앗아갔다. 요셉도 없어졌고, 시므온도 없어졌다. 그런데 이제는 베냐민마저 데려가려고 하는구나. 어떻게 이런 일들이 일어날 수 있느냐?”",
+    "niv": "Their father Jacob said to them, “You have deprived me of my children. Joseph is no more and Simeon is no more, and now you want to take Benjamin. Everything is against me!”"
+  },
+  {
+    "v": 37,
+    "krv": "르우벤이 그의 아버지에게 말하여 이르되 내가 그를 아버지께로 데리고 오지 아니하거든 내 두 아들을 죽이소서 그를 내 손에 맡기소서 내가 그를 아버지께로 데리고 돌아오리이다",
+    "easy": "그러자 르우벤이 아버지에게 말했습니다. “제가 만약 베냐민을 아버지께 다시 데리고 오지 못한다면, 제 두 아들을 죽이셔도 좋습니다. 베냐민을 저에게 맡겨 주십시오. 아버지께 다시 데리고 오겠습니다.”",
+    "niv": "Then Reuben said to his father, “You may put both of my sons to death if I do not bring him back to you. Entrust him to my care, and I will bring him back.”"
+  },
+  {
+    "v": 38,
+    "krv": "야곱이 이르되 내 아들은 너희와 함께 내려가지 못하리니 그의 형은 죽고 그만 남았음이라 만일 너희가 가는 길에서 재난이 그에게 미치면 너희가 내 흰 머리를 슬퍼하며 스올로 내려가게 함이 되리라",
+    "easy": "그러나 야곱이 말했습니다. “베냐민을 너희와 함께 보낼 수 없다. 베냐민의 형은 죽었다. 이제 베냐민은 내 아내 라헬이 남긴 마지막 아들이다. 베냐민이 이집트로 가는 동안 어떤 끔찍한 일이 일어날지 모른다. 그렇게 되면 나는 죽는 날까지 슬퍼하게 될 것이다.”",
+    "niv": "But Jacob said, My son will not go down there with you his brother is dead and he is the only one left. If harm comes to him on the journey you are taking, you will bring my grey head down to the grave [Hebrew Sheol] in sorrow."
+  }
+]
