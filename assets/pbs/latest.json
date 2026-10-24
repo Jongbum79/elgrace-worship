@@ -1,109 +1,176 @@
-{
-  "date": "2026-11-01",
-  "passage": "시편 86장",
-  "verse_count": 17,
-  "verses": [
-    {
-      "v": 1,
-      "krv": "여호와여, 내가 큰 어려움을 당하고 있습니다. 나에게 귀를 기울이시고 응답하소서.",
-      "easy": "여호와여, 내가 큰 어려움을 당하고 있습니다. 나에게 귀를 기울이시고 응답하소서.",
-      "niv": "Hear me, Lord, and answer me, for I am poor and needy."
-    },
-    {
-      "v": 2,
-      "krv": "나는 주께 헌신한 자입니다. 내 생명을 지키소서. 주는 나의 하나님이십니다. 주를 의지하는 주의 종을 구원하소서.",
-      "easy": "나는 주께 헌신한 자입니다. 내 생명을 지키소서. 주는 나의 하나님이십니다. 주를 의지하는 주의 종을 구원하소서.",
-      "niv": "Guard my life, for I am faithful to you; save your servant who trusts in you. You are my God;"
-    },
-    {
-      "v": 3,
-      "krv": "여호와여, 나를 불쌍히 여기소서. 내가 하루 종일 주께 부르짖습니다.",
-      "easy": "여호와여, 나를 불쌍히 여기소서. 내가 하루 종일 주께 부르짖습니다.",
-      "niv": "have mercy on me, Lord, for I call to you all day long."
-    },
-    {
-      "v": 4,
-      "krv": "내 영혼이 주를 바라봅니다. 주여, 내 영혼을 기쁘게 하소서.",
-      "easy": "내 영혼이 주를 바라봅니다. 주여, 내 영혼을 기쁘게 하소서.",
-      "niv": "Bring joy to your servant, Lord, for I put my trust in you."
-    },
-    {
-      "v": 5,
-      "krv": "주는 선하시고 기꺼이 용서해 주시며 주께 부르짖는 자에게 한없이 사랑을 베푸시는 분이십니다.",
-      "easy": "주는 선하시고 기꺼이 용서해 주시며 주께 부르짖는 자에게 한없이 사랑을 베푸시는 분이십니다.",
-      "niv": "You, Lord, are forgiving and good, abounding in love to all who call to you."
-    },
-    {
-      "v": 6,
-      "krv": "여호와여, 내 기도에 귀를 기울이시고 내가 간절히 부르짖는 소리를 들으소서.",
-      "easy": "여호와여, 내 기도에 귀를 기울이시고 내가 간절히 부르짖는 소리를 들으소서.",
-      "niv": "Hear my prayer, Lord; listen to my cry for mercy."
-    },
-    {
-      "v": 7,
-      "krv": "주는 내 기도에 응답하시는 분이시므로 내가 환난 날에 주께 부르짖습니다.",
-      "easy": "주는 내 기도에 응답하시는 분이시므로 내가 환난 날에 주께 부르짖습니다.",
-      "niv": "When I am in distress, I call to you, because you answer me."
-    },
-    {
-      "v": 8,
-      "krv": "여호와여, 주와 같은 신이 없으며 주께서 하신 일을 행한 자가 아무도 없습니다.",
-      "easy": "여호와여, 주와 같은 신이 없으며 주께서 하신 일을 행한 자가 아무도 없습니다.",
-      "niv": "Among the gods there is none like you, Lord; no deeds can compare with yours."
-    },
-    {
-      "v": 9,
-      "krv": "주께서 창조하신 모든 민족이 주 앞에 와서 경배할 것이며 주의 이름을 찬양할 것입니다.",
-      "easy": "주께서 창조하신 모든 민족이 주 앞에 와서 경배할 것이며 주의 이름을 찬양할 것입니다.",
-      "niv": "All the nations you have made will come and worship before you, Lord; they will bring glory to your name."
-    },
-    {
-      "v": 10,
-      "krv": "주는 위대하시고 놀라운 일을 행하시는 분이시므로 주만 하나님이십니다.",
-      "easy": "주는 위대하시고 놀라운 일을 행하시는 분이시므로 주만 하나님이십니다.",
-      "niv": "For you are great and do marvelous deeds; you alone are God."
-    },
-    {
-      "v": 11,
-      "krv": "여호와여, 주의 길을 나에게 가르치소서. 내가 주의 진리 가운데 걸어가겠습니다. 나에게 한결같은 마음을 주셔서 내가 주의 이름을 두려워하게 하소서.",
-      "easy": "여호와여, 주의 길을 나에게 가르치소서. 내가 주의 진리 가운데 걸어가겠습니다. 나에게 한결같은 마음을 주셔서 내가 주의 이름을 두려워하게 하소서.",
-      "niv": "Teach me your way, Lord, that I may rely on your faithfulness; give me an undivided heart, that I may fear your name."
-    },
-    {
-      "v": 12,
-      "krv": "주 나의 하나님이시여, 내가 마음을 다하여 주를 찬양하고 영원히 주의 이름에 영광을 돌리겠습니다.",
-      "easy": "주 나의 하나님이시여, 내가 마음을 다하여 주를 찬양하고 영원히 주의 이름에 영광을 돌리겠습니다.",
-      "niv": "I will praise you, Lord my God, with all my heart; I will glorify your name forever."
-    },
-    {
-      "v": 13,
-      "krv": "주는 나에게 크신 사랑을 베푸셔서 내 영혼을 무덤에서 건져 주셨습니다.",
-      "easy": "주는 나에게 크신 사랑을 베푸셔서 내 영혼을 무덤에서 건져 주셨습니다.",
-      "niv": "For great is your love toward me; you have delivered me from the depths, from the realm of the dead."
-    },
-    {
-      "v": 14,
-      "krv": "하나님이시여, 교만한 자들이 와서 나를 치고 잔인한 무리들이 나를 죽이려고 하며 그들이 주를 멸시합니다.",
-      "easy": "하나님이시여, 교만한 자들이 와서 나를 치고 잔인한 무리들이 나를 죽이려고 하며 그들이 주를 멸시합니다.",
-      "niv": "Arrogant foes are attacking me, O God; ruthless people are trying to kill me— they have no regard for you."
-    },
-    {
-      "v": 15,
-      "krv": "그러나 여호와여, 주는 자비롭고 은혜로우신 분이시며 쉽게 화를 내지 않으시고 신실하며 사랑이 많으신 하나님이십니다.",
-      "easy": "그러나 여호와여, 주는 자비롭고 은혜로우신 분이시며 쉽게 화를 내지 않으시고 신실하며 사랑이 많으신 하나님이십니다.",
-      "niv": "But you, Lord, are a compassionate and gracious God, slow to anger, abounding in love and faithfulness."
-    },
-    {
-      "v": 16,
-      "krv": "나를 돌아보고 나를 불쌍히 여기소서. 주의 종에게 힘을 주시고 주의 신실한 아들을 구원하소서.",
-      "easy": "나를 돌아보고 나를 불쌍히 여기소서. 주의 종에게 힘을 주시고 주의 신실한 아들을 구원하소서.",
-      "niv": "Turn to me and have mercy on me; show your strength in behalf of your servant; save me, because I serve you just as my mother did."
-    },
-    {
-      "v": 17,
-      "krv": "여호와여, 주의 은혜의 증거를 나에게 주셔서 나를 미워하는 자들이 부끄러움을 당하게 하소서. 주는 나를 돕고 위로하시는 분이십니다.",
-      "easy": "여호와여, 주의 은혜의 증거를 나에게 주셔서 나를 미워하는 자들이 부끄러움을 당하게 하소서. 주는 나를 돕고 위로하시는 분이십니다.",
-      "niv": "Give me a sign of your goodness, that my enemies may see it and be put to shame, for you, Lord, have helped me and comforted me."
-    }
-  ]
-}
+[
+  {
+    "v": 1,
+    "krv": "그때 여호와께서 모세에게 말씀하셨다. “너는 다시 바로에게 가거라. 내 가 그와 그의 신하들을 완고하게 한 것은 그들 가운데 내가 이런 기적들을 행하여",
+    "easy": "그때 여호와께서 모세에게 말씀하셨다. “너는 다시 바로에게 가거라. 내 가 그와 그의 신하들을 완고하게 한 것은 그들 가운데 내가 이런 기적들을 행하여",
+    "niv": "Then the Lord said to Moses, “Go to Pharaoh, for I have hardened his heart and the hearts of his officials so that I may perform these signs of mine among them"
+  },
+  {
+    "v": 2,
+    "krv": "네가 네 자녀들과 손자들에게 내가 어떻게 이집트 사람들을 벌하고 그들 가운데 기적을 보였는지 말할 수 있게 하며 또 내가 여호와임을 너희가 다 알도록 하기 위해서이다.”",
+    "easy": "네가 네 자녀들과 손자들에게 내가 어떻게 이집트 사람들을 벌하고 그들 가운데 기적을 보였는지 말할 수 있게 하며 또 내가 여호와임을 너희가 다 알도록 하기 위해서이다.”",
+    "niv": "that you may tell your children and grandchildren how I dealt harshly with the Egyptians and how I performed my signs among them, and that you may know that I am the Lord.”"
+  },
+  {
+    "v": 3,
+    "krv": "그래서 모세와 아론은 바로에게 가서 말하였다. “히브리 사람의 하나님 여호와께서 이렇게 말씀하십니다. ‘네가 언제까지 나에게 복종하지 않겠느냐? 내 백성을 보내 그들이 나를 섬길 수 있게 하라.",
+    "easy": "그래서 모세와 아론은 바로에게 가서 말하였다. “히브리 사람의 하나님 여호와께서 이렇게 말씀하십니다. ‘네가 언제까지 나에게 복종하지 않겠느냐? 내 백성을 보내 그들이 나를 섬길 수 있게 하라.",
+    "niv": "So Moses and Aaron went to Pharaoh and said to him, “This is what the Lord, the God of the Hebrews, says: ‘How long will you refuse to humble yourself before me? Let my people go, so that they may worship me."
+  },
+  {
+    "v": 4,
+    "krv": "네가 만일 계속 거절한다면 내가 내일 메뚜기떼가 네 나라에 들어가게 하겠다.",
+    "easy": "네가 만일 계속 거절한다면 내가 내일 메뚜기떼가 네 나라에 들어가게 하겠다.",
+    "niv": "If you refuse to let them go, I will bring locusts into your country tomorrow."
+  },
+  {
+    "v": 5,
+    "krv": "메뚜기가 온 지면을 덮어 사람이 땅을 볼 수 없을 것이다. 메뚜기가 우박의 피해를 입지 않은 모든 것을 먹고 들에서 자라는 모든 나무를 먹을 것이며",
+    "easy": "메뚜기가 온 지면을 덮어 사람이 땅을 볼 수 없을 것이다. 메뚜기가 우박의 피해를 입지 않은 모든 것을 먹고 들에서 자라는 모든 나무를 먹을 것이며",
+    "niv": "They will cover the face of the ground so that it cannot be seen. They will devour what little you have left after the hail, including every tree that is growing in your fields."
+  },
+  {
+    "v": 6,
+    "krv": "또 네 궁전과 네 신하와 백성들의 모든 집이 메뚜기로 가득할 것이니 네 조상들이 세상에서 아직 보지 못한 것들이다.’ ” 그러고서 모세는 바로 앞에서 나왔다.",
+    "easy": "또 네 궁전과 네 신하와 백성들의 모든 집이 메뚜기로 가득할 것이니 네 조상들이 세상에서 아직 보지 못한 것들이다.’ ” 그러고서 모세는 바로 앞에서 나왔다.",
+    "niv": "They will fill your houses and those of all your officials and all the Egyptians—something neither your parents nor your ancestors have ever seen from the day they settled in this land till now.’” Then Moses turned and left Pharaoh."
+  },
+  {
+    "v": 7,
+    "krv": "그때 바로의 신하들이 바로에게 “언제까지 이 사람이 우리에게 함정이 되어야 합니까? 이스라엘 자손들을 보내 그들의 하나님 여호와를 섬길 수 있게 하십시오. 왕은 아직도 이집트가 망한 줄을 모르십니까?” 하고",
+    "easy": "그때 바로의 신하들이 바로에게 “언제까지 이 사람이 우리에게 함정이 되어야 합니까? 이스라엘 자손들을 보내 그들의 하나님 여호와를 섬길 수 있게 하십시오. 왕은 아직도 이집트가 망한 줄을 모르십니까?” 하고",
+    "niv": "Pharaoh’s officials said to him, “How long will this man be a snare to us? Let the people go, so that they may worship the Lord their God. Do you not yet realize that Egypt is ruined?”"
+  },
+  {
+    "v": 8,
+    "krv": "모세와 아론을 바로에게 다시 데려갔다. 그러자 왕은 그들에게 “가서 너희 하나님 여호와를 섬겨라. 그런데 갈 사람은 누구누구냐?” 하고 물었다.",
+    "easy": "모세와 아론을 바로에게 다시 데려갔다. 그러자 왕은 그들에게 “가서 너희 하나님 여호와를 섬겨라. 그런데 갈 사람은 누구누구냐?” 하고 물었다.",
+    "niv": "Then Moses and Aaron were brought back to Pharaoh. “Go, worship the Lord your God,” he said. “But tell me who will be going.”"
+  },
+  {
+    "v": 9,
+    "krv": "그때 모세가 “우리는 여호와께 명절을 지켜야 하므로 남자 여자 어른 아이 할 것 없이 다 가야 하며 소와 양도 끌고 가야 합니다” 하고 대답하자",
+    "easy": "그때 모세가 “우리는 여호와께 명절을 지켜야 하므로 남자 여자 어른 아이 할 것 없이 다 가야 하며 소와 양도 끌고 가야 합니다” 하고 대답하자",
+    "niv": "Moses answered, “We will go with our young and our old, with our sons and our daughters, and with our flocks and herds, because we are to celebrate a festival to the Lord.”"
+  },
+  {
+    "v": 10,
+    "krv": "바로가 이렇게 말하였다. “내가 결코 너희 여자들과 자녀들을 함께 보내지 않겠다. 너희가 악한 음모를 꾸미고 있는 것이 틀림없다.",
+    "easy": "바로가 이렇게 말하였다. “내가 결코 너희 여자들과 자녀들을 함께 보내지 않겠다. 너희가 악한 음모를 꾸미고 있는 것이 틀림없다.",
+    "niv": "Pharaoh said, “The Lord be with you—if I let you go, along with your women and children! Clearly you are bent on evil."
+  },
+  {
+    "v": 11,
+    "krv": "절대로 안 된다. 너희 남자만 가서 여호와를 섬겨라. 이것이 너희가 요구한 것이다.” 그러고서 모세와 아론은 바로 앞에서 쫓겨났다.",
+    "easy": "절대로 안 된다. 너희 남자만 가서 여호와를 섬겨라. 이것이 너희가 요구한 것이다.” 그러고서 모세와 아론은 바로 앞에서 쫓겨났다.",
+    "niv": "No! Have only the men go and worship the Lord, since that’s what you have been asking for.” Then Moses and Aaron were driven out of Pharaoh’s presence."
+  },
+  {
+    "v": 12,
+    "krv": "그때 여호와께서 모세에게 “네 손을 이집트 땅 위에 뻗쳐라. 그래서 메뚜기떼가 몰려와 우박의 피해를 입지 않고 남아 있는 밭의 모든 것을 먹게 하라” 하고 말씀하셨다.",
+    "easy": "그때 여호와께서 모세에게 “네 손을 이집트 땅 위에 뻗쳐라. 그래서 메뚜기떼가 몰려와 우박의 피해를 입지 않고 남아 있는 밭의 모든 것을 먹게 하라” 하고 말씀하셨다.",
+    "niv": "And the Lord said to Moses, “Stretch out your hand over Egypt so that locusts swarm over the land and devour everything growing in the fields, everything left by the hail.”"
+  },
+  {
+    "v": 13,
+    "krv": "모세가 이집트 땅 위에 그의 지팡이를 뻗치자 여호와께서 동풍을 일으켜 그 날 온 낮과 밤에 바람이 불게 하셨다. 그래서 동풍이 아침에 메뚜기떼를 몰고 왔다.",
+    "easy": "모세가 이집트 땅 위에 그의 지팡이를 뻗치자 여호와께서 동풍을 일으켜 그 날 온 낮과 밤에 바람이 불게 하셨다. 그래서 동풍이 아침에 메뚜기떼를 몰고 왔다.",
+    "niv": "So Moses stretched out his staff over Egypt, and the Lord made an east wind blow across the land all that day and all that night. By morning the wind had brought the locusts;"
+  },
+  {
+    "v": 14,
+    "krv": "메뚜기가 이집트 전역을 완전히 덮어 그 피해가 막심하였다. 이런 메뚜기떼는 전에 한 번도 본 적이 없었고 앞으로도 볼 수 없는 것들이었다.",
+    "easy": "메뚜기가 이집트 전역을 완전히 덮어 그 피해가 막심하였다. 이런 메뚜기떼는 전에 한 번도 본 적이 없었고 앞으로도 볼 수 없는 것들이었다.",
+    "niv": "they invaded all Egypt and settled down in every area of the country in great numbers. Never before had there been such a plague of locusts, nor will there ever be again."
+  },
+  {
+    "v": 15,
+    "krv": "그 메뚜기떼가 온 땅을 새까맣게 뒤덮어 우박의 피해를 입지 않은 밭의 채소나 나무 열매를 모조리 먹었으므로 이집트 전역에 나무나 밭의 채소와 같은 푸른 것은 하나도 남지 않았다.",
+    "easy": "그 메뚜기떼가 온 땅을 새까맣게 뒤덮어 우박의 피해를 입지 않은 밭의 채소나 나무 열매를 모조리 먹었으므로 이집트 전역에 나무나 밭의 채소와 같은 푸른 것은 하나도 남지 않았다.",
+    "niv": "They covered all the ground until it was black. They devoured all that was left after the hail—everything growing in the fields and the fruit on the trees. Nothing green remained on tree or plant in all the land of Egypt."
+  },
+  {
+    "v": 16,
+    "krv": "그러자 바로가 모세와 아론을 급히 불러 말하였다. “내가 너희 하나님 여호와와 너희에게 범죄하였다.",
+    "easy": "그러자 바로가 모세와 아론을 급히 불러 말하였다. “내가 너희 하나님 여호와와 너희에게 범죄하였다.",
+    "niv": "Pharaoh quickly summoned Moses and Aaron and said, “I have sinned against the Lord your God and against you."
+  },
+  {
+    "v": 17,
+    "krv": "아무쪼록 내 죄를 이번만 용서하고 너희 하나님 여호와께 기도하여 이 치명적인 재앙을 내게서 떠나게 하라.”",
+    "easy": "아무쪼록 내 죄를 이번만 용서하고 너희 하나님 여호와께 기도하여 이 치명적인 재앙을 내게서 떠나게 하라.”",
+    "niv": "Now forgive my sin once more and pray to the Lord your God to take this deadly plague away from me.”"
+  },
+  {
+    "v": 18,
+    "krv": "그래서 모세가 바로를 떠나 여호와께 기도하자",
+    "easy": "그래서 모세가 바로를 떠나 여호와께 기도하자",
+    "niv": "Moses then left Pharaoh and prayed to the Lord."
+  },
+  {
+    "v": 19,
+    "krv": "여호와께서 동풍을 강한 서풍으로 돌변시켜 메뚜기떼를 홍해에 몰아 넣으셨다. 그래서 이집트 땅에는 메뚜기가 한 마리도 남지 않았다.",
+    "easy": "여호와께서 동풍을 강한 서풍으로 돌변시켜 메뚜기떼를 홍해에 몰아 넣으셨다. 그래서 이집트 땅에는 메뚜기가 한 마리도 남지 않았다.",
+    "niv": "And the Lord changed the wind to a very strong west wind, which caught up the locusts and carried them into the Red Sea. Not a locust was left anywhere in Egypt."
+  },
+  {
+    "v": 20,
+    "krv": "그러나 여호와께서 바로를 완고하게 하셨으므로 그가 이스라엘 자손을 보내지 않았다.",
+    "easy": "그러나 여호와께서 바로를 완고하게 하셨으므로 그가 이스라엘 자손을 보내지 않았다.",
+    "niv": "But the Lord hardened Pharaoh’s heart, and he would not let the Israelites go."
+  },
+  {
+    "v": 21,
+    "krv": "그때 여호와께서 모세에게 “너는 하늘을 향해 손을 들어 이집트 전역에 짙은 흑암이 있게 하라” 하고 말씀하셨다.",
+    "easy": "그때 여호와께서 모세에게 “너는 하늘을 향해 손을 들어 이집트 전역에 짙은 흑암이 있게 하라” 하고 말씀하셨다.",
+    "niv": "Then the Lord said to Moses, “Stretch out your hand toward the sky so that darkness spreads over Egypt—darkness that can be felt.”"
+  },
+  {
+    "v": 22,
+    "krv": "그래서 모세가 하늘을 향해 손을 들자 아주 캄캄한 흑암이 3일 동안 이집트 전역을 뒤덮었다.",
+    "easy": "그래서 모세가 하늘을 향해 손을 들자 아주 캄캄한 흑암이 3일 동안 이집트 전역을 뒤덮었다.",
+    "niv": "So Moses stretched out his hand toward the sky, and total darkness covered all Egypt for three days."
+  },
+  {
+    "v": 23,
+    "krv": "그 기간 동안 이집트 사람들은 서로 알아볼 수도 없었고 자기 자리에서 일어나는 사람도 없었다. 그러나 이스라엘 자손들이 사는 곳에는 빛이 있었다.",
+    "easy": "그 기간 동안 이집트 사람들은 서로 알아볼 수도 없었고 자기 자리에서 일어나는 사람도 없었다. 그러나 이스라엘 자손들이 사는 곳에는 빛이 있었다.",
+    "niv": "No one could see anyone else or move about for three days. Yet all the Israelites had light in the places where they lived."
+  },
+  {
+    "v": 24,
+    "krv": "그러자 바로가 모세를 불러 “너희는 가서 여호와를 섬겨라. 그러나 너희 양과 소는 남겨 두고 너희 자녀들만 데리고 가야 한다” 하고 말하였다.",
+    "easy": "그러자 바로가 모세를 불러 “너희는 가서 여호와를 섬겨라. 그러나 너희 양과 소는 남겨 두고 너희 자녀들만 데리고 가야 한다” 하고 말하였다.",
+    "niv": "Then Pharaoh summoned Moses and said, “Go, worship the Lord. Even your women and children may go with you; only leave your flocks and herds behind.”"
+  },
+  {
+    "v": 25,
+    "krv": "그래서 모세가 이렇게 대답하였다. “왕은 우리 하나님 여호와께 드릴 희생제물과 불로 태워 바칠 번제물을 우리에게 주셔야 합니다.",
+    "easy": "그래서 모세가 이렇게 대답하였다. “왕은 우리 하나님 여호와께 드릴 희생제물과 불로 태워 바칠 번제물을 우리에게 주셔야 합니다.",
+    "niv": "But Moses said, “You must allow us to have sacrifices and burnt offerings to present to the Lord our God."
+  },
+  {
+    "v": 26,
+    "krv": "우리 짐승은 한 마리도 남겨 두지 않고 가져가겠습니다. 우리는 그 중에서 우리 하나님 여호와께 드릴 제물을 선택해야 하며 또 우리가 거기 갈 때까지는 어떤 짐승을 여호와께 바쳐야 할지 모릅니다.”",
+    "easy": "우리 짐승은 한 마리도 남겨 두지 않고 가져가겠습니다. 우리는 그 중에서 우리 하나님 여호와께 드릴 제물을 선택해야 하며 또 우리가 거기 갈 때까지는 어떤 짐승을 여호와께 바쳐야 할지 모릅니다.”",
+    "niv": "Our livestock too must go with us; not a hoof is to be left behind. We have to use some of them in worshiping the Lord our God, and until we get there we will not know what we are to use to worship the Lord.”"
+  },
+  {
+    "v": 27,
+    "krv": "그러나 여호와께서 바로를 완고하게 하셨으므로 그가 이스라엘 자손을 보내지 않고",
+    "easy": "그러나 여호와께서 바로를 완고하게 하셨으므로 그가 이스라엘 자손을 보내지 않고",
+    "niv": "But the Lord hardened Pharaoh’s heart, and he was not willing to let them go."
+  },
+  {
+    "v": 28,
+    "krv": "모세에게 “너는 나를 떠나고 다시는 내 앞에 나타나지 말아라. 만일 네가 내 앞에 다시 나타나는 날에는 죽음을 면치 못할 것이다” 하였다.",
+    "easy": "모세에게 “너는 나를 떠나고 다시는 내 앞에 나타나지 말아라. 만일 네가 내 앞에 다시 나타나는 날에는 죽음을 면치 못할 것이다” 하였다.",
+    "niv": "Pharaoh said to Moses, “Get out of my sight! Make sure you do not appear before me again! The day you see my face you will die.”"
+  },
+  {
+    "v": 29,
+    "krv": "그러자 모세가 “좋습니다. 내가 다시는 왕 앞에 나타나지 않겠습니다” 하고 대답하였다.",
+    "easy": "그러자 모세가 “좋습니다. 내가 다시는 왕 앞에 나타나지 않겠습니다” 하고 대답하였다.",
+    "niv": "“Just as you say,” Moses replied. “I will never appear before you again.”"
+  }
+]
