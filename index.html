@@ -1901,14 +1901,19 @@
       const hTitle = title || (data ? data.title : `${parseInt(padded, 10)}장`);
       titleEl.textContent = `찬송가 ${parseInt(padded, 10)}장 - ${hTitle}`;
 
-      if (data) {
+      // Reset & configure image load with CDN fallback
+      imgEl.onerror = () => {
+        if (!imgEl.src.includes('ccmhymn.github.io')) {
+          imgEl.src = `https://ccmhymn.github.io/sheet/asset/hymn/img/hymn${padded}.gif`;
+        } else {
+          imgEl.src = 'https://via.placeholder.com/600x800?text=' + encodeURIComponent(`찬송가 ${parseInt(padded, 10)}장\n악보 준비 중`);
+        }
+      };
+
+      if (data && data.image) {
         imgEl.src = data.image;
       } else {
         imgEl.src = `assets/hymns/${padded}.jpg`;
-        imgEl.onerror = () => {
-          imgEl.src = 'https://via.placeholder.com/600x800?text=' + encodeURIComponent(`찬송가 ${parseInt(padded, 10)}장
-악보 준비 중`);
-        };
       }
 
       // Reset scroll to top
